@@ -28,7 +28,7 @@ https://revaturepro.slack.com/messages/GCN2V2U5D/
   2. Location
   3. Availability times
   4. Reviews (stars)
-## As a Sitter, I:
+## As a Sitter, I can:
 - Login to the App and register as a Sitter
 - Edit my profile
   1. Offer pet sitting prices
