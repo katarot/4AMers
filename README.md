@@ -14,13 +14,9 @@
 - Send in format of documentation on github repo
 -----------
 
-## As a pet owner, I:
+-----------
+## As a pet owner, I can:
 ### Register with the App as an owner.
-  - Username
-  - Password
-  - Name
-  - Email
-  - Phone number
   - Pet Profile (Many pets to one owner)
   - Medical issues
   - Picture
