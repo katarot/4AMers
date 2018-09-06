@@ -1,14 +1,5 @@
-## [ User Stories ]
-- Elevator pitch
-- Slack group/channel
-- Team name
-- Team Lead
-- Send in format of documentation on github repo
------------
-#### Elevator pitch
-##### "..."
-
------------
+"..."
+https://revaturepro.slack.com/messages/GCN2V2U5D/
 
 ## [User Stories]
 
