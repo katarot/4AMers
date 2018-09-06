@@ -1,3 +1,4 @@
+## [ User Stories ]
 - Elevator pitch
 - Slack group/channel
 - Team name
