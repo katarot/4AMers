@@ -1,13 +1,13 @@
 # Project 2 Requirements: Assigned 9/4/18
 # Due Thursday 9/6:
 - Elevator pitch
-- 10-15 user stories
-- Link to GitHub Repo
 - Slack group/channel
 - Team name
 - Team Lead
 - Send in format of documentation on github repo
 -----------
+#### Elevator pitch
+##### "..."
 
 -----------
 ## As a pet owner, I can:
