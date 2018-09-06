@@ -1,8 +1,3 @@
-# The largest heading
-## The second largest heading
-###### The smallest heading
-
------------
 # Project 2 Requirements: Assigned 9/4/18
 # Due Thursday 9/6:
 - Elevator pitch
