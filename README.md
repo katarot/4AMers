@@ -9,16 +9,8 @@
 ##### "..."
 
 -----------
-## As a pet owner, I can:
-### Register with the App as an owner.
-  - Pet Profile (Many pets to one owner)
-  - Medical issues
-  - Picture
-  - Special needs
-  - Behavior
 
-
-[User Stories]
+## [User Stories]
 
 ## As a pet owner, I can:
 - Register with the App as an owner.
@@ -36,8 +28,6 @@
   - Fill out form
      1. Describes my pet
      2. Scheduling
-  - Invoice
-     1. For communication
 - Am able to review the sitter
   1. Rating (stars)
   2. Communication
