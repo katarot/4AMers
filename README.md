@@ -22,16 +22,11 @@
 
 ## As a pet owner, I can:
 - Register with the App as an owner.
-- Username
-- Password
--  Name
-- Email
-- Phone number
-- Pet Profile (Many pets to one owner)
-  1. Medical issues
-  2. Picture
-  3. Special needs
-  4. Behavior
+  - Pet Profile (Many pets to one owner)
+    1. Medical issues
+    2. Picture
+    3. Special needs
+    4. Behavior
 - Can login to see my profile
 - Search for available sitters that fits my needs:
   1. Read reviews
