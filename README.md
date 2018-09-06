@@ -5,8 +5,8 @@
 ###### The smallest heading
 
 -----------
-Project 2 Requirements: Assigned 9/4/18
-Due Thursday 9/6:
+# Project 2 Requirements: Assigned 9/4/18
+# Due Thursday 9/6:
 - Elevator pitch
 - 10-15 user stories
 - Link to GitHub Repo
@@ -16,8 +16,8 @@ Due Thursday 9/6:
 - Send in format of documentation on github repo
 -----------
 
-As a pet owner, I:
- Register with the App as an owner.
+## As a pet owner, I:
+### Register with the App as an owner.
    Username
    Password
    Name
