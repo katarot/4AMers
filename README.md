@@ -31,7 +31,7 @@
 - Search for available sitters that fits my needs:
   - Read reviews
   - See availability
-  - Location?
+  - Location
 - Send a request to the sitter
   - Fill out form
      1. Describes my pet
