@@ -11,6 +11,20 @@ Due Thursday 9/6:
 - Send in format of documentation on github repo
 -----------
 
+As a pet owner, I:
+ Register with the App as an owner.
+   Username
+   Password
+   Name
+   Email
+   Phone number
+   Pet Profile (Many pets to one owner)
+   Medical issues
+   Picture
+   Special needs
+   Behavior
+
+
 [User Stories]
 
 As a pet owner, *I:*
