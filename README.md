@@ -1,5 +1,3 @@
-# 4AMers
------------
 # The largest heading
 ## The second largest heading
 ###### The smallest heading
@@ -18,7 +16,7 @@
 
 ## As a pet owner, I:
 ### Register with the App as an owner.
-   Username
+   - Username
    Password
    Name
    Email
