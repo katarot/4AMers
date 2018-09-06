@@ -29,9 +29,9 @@
     4. Behavior
 - Can login to see my profile
 - Search for available sitters that fits my needs:
-  1. Read reviews
-  2. See availability
-  3. Location?
+  - Read reviews
+  - See availability
+  - Location?
 - Send a request to the sitter
   - Fill out form
      1. Describes my pet
