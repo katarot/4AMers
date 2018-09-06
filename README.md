@@ -1,4 +1,4 @@
-"Offering pet owners a peace of mind whenever there is (they ) a need to do their errands (while) doing the errands, 'while' providing opportunities for pet lovers who wants to use their available time to enjoy the company of other animals (pets) ..."
+"Offering pet owners a peace of mind whenever they need someone to look after their pet, ... 'while' providing opportunities for pet lovers who wants to use their available time to enjoy the company of other animals (pets) ..."
 https://revaturepro.slack.com/messages/GCN2V2U5D/
 
 ## [User Stories]
