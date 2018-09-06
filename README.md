@@ -1,5 +1,3 @@
-# Project 2 Requirements: Assigned 9/4/18
-# Due Thursday 9/6:
 - Elevator pitch
 - Slack group/channel
 - Team name
