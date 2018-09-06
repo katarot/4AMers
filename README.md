@@ -20,7 +20,7 @@
 
 [User Stories]
 
-## As a pet owner, *I:*
+## As a pet owner, I can:
 - Register with the App as an owner.
 - Username
 - Password
