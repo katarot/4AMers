@@ -24,7 +24,9 @@ public class ServiceRequests {
 	private int reqId;
 	private Timestamp date;
 	private int petId;
-	private String status;
+	
+	@Column(columnDefinition="default 'OPEN'")
+	private String status;  
 	private int sitterId;
 	private String description;
 	private String posterMsg;
