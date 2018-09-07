@@ -22,19 +22,23 @@ public class ServiceRequests {
 	@SequenceGenerator(name="SERVICE_REQUESTS_SEQ_GEN", sequenceName="SERVICE_REQUESTS_SQ", allocationSize=1)
 	@GeneratedValue(generator="SERVICE_REQUESTS_SEQ_GEN", strategy=GenerationType.SEQUENCE)
 	private int reqId;
+	
+	@Column(nullable=false)
 	private Timestamp date;
+	
+	@Column(nullable=false)
 	private int petId;
 	
-	@Column(columnDefinition="default 'OPEN'")
+	@Column(columnDefinition="default 'OPEN'") //4 States: "OPEN", "PENDING", "DENIED", "ACCEPTED"
 	private String status;  
 	private int sitterId;
 	private String description;
-	private String posterMsg;
+	private String replyMsg;
 	
 	public ServiceRequests() {}
 
 	public ServiceRequests(int reqId, Timestamp date, int petId, String status, int sitterId, String description,
-			String posterMsg) {
+			String replyMsg) {
 		super();
 		this.reqId = reqId;
 		this.date = date;
@@ -42,7 +46,7 @@ public class ServiceRequests {
 		this.status = status;
 		this.sitterId = sitterId;
 		this.description = description;
-		this.posterMsg = posterMsg;
+		this.replyMsg = replyMsg;
 	}
 
 	public int getReqId() {
@@ -93,18 +97,18 @@ public class ServiceRequests {
 		this.description = description;
 	}
 
-	public String getPosterMsg() {
-		return posterMsg;
+	public String getReplyMsg() {
+		return replyMsg;
 	}
 
-	public void setPosterMsg(String posterMsg) {
-		this.posterMsg = posterMsg;
+	public void setReplyMsg(String replyMsg) {
+		this.replyMsg = replyMsg;
 	}
 
 	@Override
 	public String toString() {
 		return "ServiceRequests [reqId=" + reqId + ", date=" + date + ", petId=" + petId + ", status=" + status
-				+ ", sitterId=" + sitterId + ", description=" + description + ", posterMsg=" + posterMsg + "]";
+				+ ", sitterId=" + sitterId + ", description=" + description + ", replyMsg=" + replyMsg + "]";
 	}
 	
 	

@@ -18,12 +18,13 @@ public class Pictures {
 	@GeneratedValue(generator="PICTURES_FILEPATH_SEQ_GEN", strategy=GenerationType.SEQUENCE)
 	private int picId;
 	
-	@Column(nullable=true)
-	private int petId;
+	//@Column(nullable=true)
+	private int petId; //fk
 	
 	@Column(nullable=false)
-	private int userId;
+	private int userId; //fk
 	
+	//@Column(nullable=true)
 	private String filePath;
 
 	public Pictures() {}

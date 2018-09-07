@@ -11,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Pet")
+@Table(name="Pets")
 public class Pet {
 	
 	@Id
@@ -19,17 +19,24 @@ public class Pet {
 	@SequenceGenerator(name="Pet_SEQ_GEN", sequenceName="Pet_SQ", allocationSize=1)
 	@GeneratedValue(generator="Pet_SEQ_GEN", strategy=GenerationType.SEQUENCE)
 	private int petId;
+	
+	@Column(nullable=false)
 	private String petName;
+	
+	@Column(nullable=false)
 	private int userId;
+	
 	private String breed;
+	
 	private String needs;
-	private Blob image;
+	
 	private String description;
+	
 	private String behavior;
 	
 	public Pet() {}
 	
-	public Pet(int petId, String petName, int userId, String breed, String needs, Blob image, String description,
+	public Pet(int petId, String petName, int userId, String breed, String needs, String description,
 			String behavior) {
 		super();
 		this.petId = petId;
@@ -37,7 +44,6 @@ public class Pet {
 		this.userId = userId;
 		this.breed = breed;
 		this.needs = needs;
-		this.image = image;
 		this.description = description;
 		this.behavior = behavior;
 	}
@@ -71,12 +77,6 @@ public class Pet {
 	public void setNeeds(String needs) {
 		this.needs = needs;
 	}
-	public Blob getImage() {
-		return image;
-	}
-	public void setImage(Blob image) {
-		this.image = image;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -92,7 +92,7 @@ public class Pet {
 	@Override
 	public String toString() {
 		return "Pet [petId=" + petId + ", petName=" + petName + ", userId=" + userId + ", breed=" + breed + ", needs="
-				+ needs + ", image=" + image + ", description=" + description + ", behavior=" + behavior + "]";
+				+ needs + ", description=" + description + ", behavior=" + behavior + "]";
 	}
 	
 	
