@@ -44,28 +44,49 @@ public class Users {
 	private String lastName;
 	
 	@Email
-	private String Email;
+	private String email;
 	private Timestamp dataRegistered;
 	private String bio;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="j")
-	private Pets pet;
+	@JoinColumn(name="USERS_PET")
+	private Pet pet;
 	
 	public Users () {}
 
+
+
+	
+	
 	public Users(int userId, String username, String password, String firstName, String lastName, String email,
-			Timestamp dataRegistered, String bio) {
+			Timestamp dataRegistered, String bio, Pet pet) {
 		super();
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		Email = email;
+		this.email = email;
 		this.dataRegistered = dataRegistered;
 		this.bio = bio;
+		this.pet = pet;
 	}
+
+
+
+
+
+	public Pet getPet() {
+		return pet;
+	}
+
+
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
+
 
 	public int getUserId() {
 		return userId;
@@ -108,11 +129,11 @@ public class Users {
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public Timestamp getDataRegistered() {
@@ -134,7 +155,7 @@ public class Users {
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", Email=" + Email + ", dataRegistered=" + dataRegistered
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", dataRegistered=" + dataRegistered
 				+ ", bio=" + bio + "]";
 	}
 	

@@ -47,7 +47,7 @@
 				create-drop: drop the schema when the
 					SessionFacotyr is closed explicitly,
 					typically when the application is stopped -->
-				<prop key="hibernate.hbm2ddl.auto">udpate</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 
 		</property>

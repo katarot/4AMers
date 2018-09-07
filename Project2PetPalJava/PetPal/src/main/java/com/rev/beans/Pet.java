@@ -11,13 +11,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PETS")
-public class Pets {
+@Table(name="Pet")
+public class Pet {
 	
 	@Id
-	@Column(name="PETS_ID")
-	@SequenceGenerator(name="PETS_SEQ_GEN", sequenceName="PETS_SQ", allocationSize=1)
-	@GeneratedValue(generator="PETS_SEQ_GEN", strategy=GenerationType.SEQUENCE)
+	@Column(name="Pet_ID")
+	@SequenceGenerator(name="Pet_SEQ_GEN", sequenceName="Pet_SQ", allocationSize=1)
+	@GeneratedValue(generator="Pet_SEQ_GEN", strategy=GenerationType.SEQUENCE)
 	private int petId;
 	private String petName;
 	private int userId;
@@ -27,9 +27,9 @@ public class Pets {
 	private String description;
 	private String behavior;
 	
-	public Pets() {}
+	public Pet() {}
 	
-	public Pets(int petId, String petName, int userId, String breed, String needs, Blob image, String description,
+	public Pet(int petId, String petName, int userId, String breed, String needs, Blob image, String description,
 			String behavior) {
 		super();
 		this.petId = petId;
@@ -91,7 +91,7 @@ public class Pets {
 	}
 	@Override
 	public String toString() {
-		return "Pets [petId=" + petId + ", petName=" + petName + ", userId=" + userId + ", breed=" + breed + ", needs="
+		return "Pet [petId=" + petId + ", petName=" + petName + ", userId=" + userId + ", breed=" + breed + ", needs="
 				+ needs + ", image=" + image + ", description=" + description + ", behavior=" + behavior + "]";
 	}
 	
