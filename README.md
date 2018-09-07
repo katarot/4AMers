@@ -1,1 +1,1 @@
-Michael Liu's code
+Project 2 Pet Pal
