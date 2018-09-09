@@ -1,0 +1,40 @@
+<div class="left-layer">
+    <h1 class="title">petPal</h1>
+    <nav>
+        <ul>
+            <li><a routerLink="/home">Home</a></li>
+            <li><a routerLink="/main">Main</a></li>
+            <div class="dropDown">
+                <li><a (click)="login()" class="dropLogin">Login</a></li>
+                <div id="loginDropDown" class="loginContent">
+                    <form>
+                        Username:
+                        <input type="text"><br>
+                        Password:
+                        <input type="text">
+                    </form> 
+                </div>
+            </div>
+            <div class="regDrop">
+                    <li><a (click)="login()" class="dropLogin">Register</a></li>
+                    <div id="loginDropDown" class="loginContent">
+                        <form id="register">
+                            Email:
+                            <input type="text"><br>
+                            Username:
+                            <input type="text"><br>
+                            Password:
+                            <input type="password"><br>
+                            First Name:
+                            <input type="text"><br>
+                            Last Name:
+                            <input type="text"><br>
+                            Short Bio:
+                            <input type="text"><br>
+                        </form> 
+                    </div>
+            </div>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

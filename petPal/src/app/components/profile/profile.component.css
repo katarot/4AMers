@@ -1,0 +1,69 @@
+.left-layer {
+  position: absolute;
+  left: auto;
+} 
+
+.right-layer{
+  position: absolute;
+  top: 87px;
+  left: 300px;
+}
+
+#navbar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+  
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+  
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+.urProfile #propic, #petpic{
+  width: 300px;
+  height: auto;
+}
+
+.urProfile p{
+  width: 300px;
+  height: auto;
+}
+
+span.pics{
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px;
+}
+
+span.text{
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px;
+}
+
+#medication {
+  vertical-align: top;
+  background-color:seashell;
+  width: 200px;
+  border-radius: 5px;
+}
+
+#medication p{
+  margin:auto;
+}
+
+#medication li{
+  display:list-item;
+}
