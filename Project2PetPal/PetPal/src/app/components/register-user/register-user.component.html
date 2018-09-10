@@ -1,4 +1,110 @@
- <div class="col-4">
+
+<div class="col-md-8 order-md-1 bg-light">
+    <h4 class="mb-3">Account Registration</h4>
+    <form class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" name="firstname" id="firstName" placeholder="John" value="" required [(ngModel)]="firstname">
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input type="text" class="form-control" name="lastname" id="lastName" placeholder="Smith" value="" required [(ngModel)]="lastname">
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="username">Username</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username" required [(ngModel)]="username">
+          <div class="invalid-feedback" style="width: 100%;">
+            Your username is required.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="password" placeholder="Password" name="password" required [(ngModel)]="password">
+            <div class="invalid-feedback" style="width: 100%;">
+              A password is required
+            </div>
+          </div>
+        </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" [(ngModel)] = "email">
+        <div class="invalid-feedback">
+          Please enter an a valid email.
+        </div>
+      </div>
+      <div class="mb-3">
+          <label for="aboutme">A little about me...</label>
+          <div class="input-group">
+            <input type="text"  class="form-control" id="aboutme" placeholder="About me..." name="aboutme" required [(ngModel)]="aboutme">
+            <div class="invalid-feedback" style="width: 100%;">
+              A password is required
+            </div>
+          </div>
+        </div>
+
+
+      <!-- <div class="mb-3">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-md-5 mb-3">
+          <label for="country">Country</label>
+          <select class="custom-select d-block w-100" id="country" required>
+            <option value="">Choose...</option>
+            <option>United States</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid country.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="state">State</label>
+          <select class="custom-select d-block w-100" id="state" required>
+            <option value="">Choose...</option>
+            <option>California</option>
+          </select>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="" required>
+          <div class="invalid-feedback">
+            Zip code required.
+          </div>
+        </div>
+      </div> -->
+
+
+ 
+ 
+ 
+
+ 
+ <!-- <div class="col-4">
     <div class="row">
       <form (submit)="submit()">
         <div class="form-group">
@@ -11,12 +117,12 @@
             <input type="password" class="form-control" id="password" 
           name="password" required [(ngModel)]="password" />      
         </div>
-        <!-- <div class="form-group">
+          <div class="form-group">
             <label for="description">Confirm Password</label>
             <input type="password" class="form-control" id="cpassword" 
           name="cpassword" required [(ngModel)]="cpassword" />      
         </div> -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="description">First Name</label>
             <input type="text" class="form-control" id="firstname" 
           name="firstname" required [(ngModel)]="firstname" />      
@@ -44,3 +150,5 @@
 
 {{ this.email }}
 
+
+   -->
