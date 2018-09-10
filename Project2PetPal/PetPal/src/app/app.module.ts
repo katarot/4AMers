@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { PetService } from '../services/pet.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { PetService } from '../services/pet.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [PetService],
   bootstrap: [AppComponent]
