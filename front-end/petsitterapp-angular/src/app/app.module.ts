@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ServiceRequestComponent } from './components/service-request/service-request.component';
 import { ServiceRequestsListComponent } from './components/service-requests-list/service-requests-list.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '../../node_modules/@angular/forms';
     PetSittingHomeComponent,
     ProfileComponent,
     ServiceRequestComponent,
-    ServiceRequestsListComponent
+    ServiceRequestsListComponent,
+    PetPostingComponent
   ],
   imports: [
     BrowserModule,

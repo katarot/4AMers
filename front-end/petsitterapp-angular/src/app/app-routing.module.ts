@@ -5,6 +5,7 @@ import { PetSittingHomeComponent } from './components/pet-sitting-home/pet-sitti
 import { ProfileComponent } from './components/profile/profile.component';
 import { ServiceRequestComponent } from './components/service-request/service-request.component';
 import { ServiceRequestsListComponent } from './components/service-requests-list/service-requests-list.component';
+import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,6 +14,8 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     { path: 'srComponent', component: ServiceRequestComponent },
     { path: 'srlComponent', component: ServiceRequestsListComponent },
+    { path: 'dariusComponent', component: PetPostingComponent },
+    
     
     // { path: 'home', component: HomeComponent },
 //   { path: '', redirectTo: '/home', pathMatch: 'full' },
