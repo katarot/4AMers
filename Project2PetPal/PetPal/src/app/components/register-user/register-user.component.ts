@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { PetService } from '../../../services/pet.service';
 import { Users } from '../../models/users.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-register-user',
@@ -10,7 +11,7 @@ import { Users } from '../../models/users.model';
 })
 export class RegisterUserComponent implements OnInit {
 
-  constructor(private router: Router, private petSrv: PetService) { }
+  constructor(private loginSrv: CookieService, private router: Router, private petSrv: PetService) { }
 
 
   private users: Users[] = [];
@@ -23,6 +24,8 @@ export class RegisterUserComponent implements OnInit {
   private aboutme: string;
 
   ngOnInit() {
+    console.log(this.loginSrv.get('username1'))
+    this.username = this.loginSrv.get('username1');
   }
 
   createAccount(){
@@ -44,6 +47,10 @@ export class RegisterUserComponent implements OnInit {
 
     )
     
+  }
+
+  logout() {
+    this.loginSrv.deleteAll();
   }
 
 }

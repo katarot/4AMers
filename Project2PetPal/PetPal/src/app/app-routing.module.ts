@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterUserComponent } from './components/register-user/register-user.component'
+import { LoginComponent } from './components/login/login.component';
 
 // import { HomeComponent } from './components/home/home.component';
 // import { MainComponent } from './components/main/main.component';
@@ -9,9 +10,10 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 // import { RequestboardComponent } from './components/requestboard/requestboard.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '', component: RegisterUserComponent }
-  // { path: 'home', component: HomeComponent }
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterUserComponent},
+  { path: 'login', component: LoginComponent }
 //   { path: 'main', component: MainComponent},
 //   { path: 'profile', component: ProfileComponent},
 //   { path: 'inbox', component: InboxComponent},

@@ -22,7 +22,7 @@
       <div class="mb-3">
         <label for="username">Username</label>
         <div class="input-group">
-          <input type="text" class="form-control" name="username" id="username" placeholder="Username" required [(ngModel)]="username">
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username" required [(ngModel)]="usernamel">
           <div class="invalid-feedback" style="width: 100%;">
             Your username is required.
           </div>
@@ -52,7 +52,10 @@
               A password is required
             </div>
           </div>
+          {{ this.username }}
         </div>
+
+        <button (click)="logout()" >LogOut</button>
 
 
       <!-- <div class="mb-3">
