@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
 @Entity
@@ -35,9 +35,12 @@ public class Pet {
 	private String behaviour;
 	private String image;	// blob or image path (SS3 bucket?)
 	
+//	private int user_id;
+	
+//	@Autowired
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_ID",nullable=false)
-	private User user;
+	@JoinColumn(name="USER_ID")
+	private User user; // = new User();
 	
 	public Pet() {}
 
@@ -53,6 +56,14 @@ public class Pet {
 		this.image = image;
 		this.user = user;
 	}
+	
+//	public int getUserId() {
+//		return user_id;
+//	}
+	
+//	public void setUserId(int id) {
+//		user_id = id;
+//	}
 
 	public int getId() {
 		return id;

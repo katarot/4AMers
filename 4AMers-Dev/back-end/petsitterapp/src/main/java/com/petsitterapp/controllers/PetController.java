@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petsitterapp.beans.Pet;
+import com.petsitterapp.beans.User;
 import com.petsitterapp.service.PetService;
 import com.petsitterapp.service.UserService;
 
@@ -26,6 +27,9 @@ public class PetController {
 	
 	@Autowired
 	private PetService petService;
+	
+	@Autowired
+//	private UserService userService;
 	
 //	@Autowired 
 //	private UserService userService;
@@ -72,7 +76,10 @@ public class PetController {
 					produces=MediaType.APPLICATION_JSON_VALUE) //response body content
 	public ResponseEntity<Pet> addPet(@Valid @RequestBody Pet p) {
 		System.out.println("INCOMING POST REQUEST - /PETS");
-		System.out.println(p.getUser().toString());
+		System.out.println(p.toString());
+		
+//		User u = userService.getById(p.getUserId());
+//		p.setUser(u);
 		
 		p = petService.addPet(p);
 		

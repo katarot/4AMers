@@ -44,6 +44,10 @@ public class User {
 
 	public User() {}
 	
+	public User(int id) {
+		this.id = id;
+	}
+	
 	public User(int id, String username, String password, String firstName, String lastName, String email, Date dateRegistered,
 			String bioDescription) {
 		super();

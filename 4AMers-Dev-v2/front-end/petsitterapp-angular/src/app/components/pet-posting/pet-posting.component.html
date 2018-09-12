@@ -1,0 +1,97 @@
+
+<div id="myDiv"> 
+  <ul>
+      <li *ngFor="let p of pets">        
+        <div class="row mb-2">
+
+            <div class="col-md-6">
+              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-success"> Date Registered: {{ p.user.dateRegistered }}</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">{{ p.petName }}</a>
+                  </h3>
+                      <ul>
+                        <li> Breed: {{ p.breed }}</li>
+                        <li> Pet Needs:  {{ p.needs }} </li>
+                        <li> Pet Behavior: {{ p.behavior }} </li>
+                        <li> Pet Description: {{ p.petDescription }} </li>
+                        <li> User's Profile:
+                            <a href="#" data-toggle="modal" data-target="#userProfileModal"> {{ p.user.firstName }}</a>
+
+                        </li>
+                      </ul>
+                      <p>
+          
+                          <button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#messageModal">Offer To Sit {{ p.petName }}</button>
+                      </p>
+          
+                    </div>
+                    <img src="../../assets/images/kitty.jpg" alt="kitty" class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" style="width: 250px; height: 250px;">
+                  </div>
+                </div>
+          
+                <div class="modal fade" id="messageModal" role="dialog">
+                    <div class="modal-dialog">
+                    
+                      <!-- Modal content-->
+                      <div class="modal-content">
+
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Message to {{ p.user.firstName }}</h4>
+                          </div>
+                          
+                          <div class="modal-body">
+                            <textarea name="sendMessage" id="sendMessage" cols="55" form="usrform" placeholder="Insert Message Here"></textarea>
+                          </div>
+                          
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-primary">Send Message</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel Message</button>                        </div>
+                          </div>
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="modal fade" id="userProfileModal" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"> {{ p.user.firstName }}'s Profile</h4>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                                  <li>Date Registered: {{ p.user.dateRegistered }} </li>
+                                  <li>Bio: {{ p.user.bioDescription }}</li>
+                                  <li> Email:  {{ p.user.email }} </li>
+                              
+
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+            </div>
+
+      </li>
+      <li>
+        
+      </li>
+
+  </ul>
+  
+</div>
+
+<hr>
+
