@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyNewComponentComponent implements OnInit {
 
+  vVariable: string;
+
   constructor() { }
 
   ngOnInit() {
