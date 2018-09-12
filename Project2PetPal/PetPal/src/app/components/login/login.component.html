@@ -13,5 +13,32 @@
 </form>
 </div>
 
+<br>
+<br>
+<br>
 
+<!-- 
+<label for="imageUpload">Image Upload</label>
+<input type="file" (change)="fileEvent($event)" name="imageUpload" id="imageUpload"/>
+-->
+
+<input 
+  style="display: none" 
+  type="file" (change)="onFileChanged($event)" 
+  #fileInput>
+<button (click)="fileInput.click()">Select File</button>
+
+<!-- 
+<input 
+  style="display: none" 
+  type="file" (change)="onFileChanged($event)" 
+  #fileInput>
+<button (click)="fileInput.click()">Select File</button>
+<button (click)="onUpload()">Upload!</button> -->
+<br><br>
+
+<!-- <img [src]="Lucian.png"> -->
+<!-- <img id="blah" [src]="imageSrc" alt="your image" /> -->
+
+<img [src]="url">
 
