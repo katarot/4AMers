@@ -36,10 +36,10 @@
 	<bean id="myDataSource"
 		  class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@demo1807jul30java.cxlwxouhsbzw.us-east-1.rds.amazonaws.com:1521/ORCL" />
+		<property name="url" value="jdbc:oracle:thin:@rds-1807jul30java.cpdxwook5uuk.us-east-1.rds.amazonaws.com:1521/ORCL" />
 
-		<property name="username" value="omaraceDB" />
-		<property name="password" value="Odeveca28" />
+		<property name="username" value="projecttwo" />
+		<property name="password" value="B4Dp4ssw0rd4641N" />
 	</bean>
 
 

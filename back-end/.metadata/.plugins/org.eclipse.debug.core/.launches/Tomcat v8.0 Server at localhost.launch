@@ -9,6 +9,6 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [1.8.0_101]"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;/Users/mollymerritt/my_git_repos/4AMers/4AMers-Dev-v2/back-end/.metadata/.plugins/org.eclipse.wst.server.core/tmp0&quot; -Dcatalina.home=&quot;/Applications/Apache Software Foundation/apache-tomcat-8.0.53&quot; -Dwtp.deploy=&quot;/Users/mollymerritt/my_git_repos/4AMers/4AMers-Dev-v2/back-end/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps&quot; -Djava.endorsed.dirs=&quot;/Applications/Apache Software Foundation/apache-tomcat-8.0.53/endorsed&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;/Users/mollymerritt/my_git_repos/4AMers/back-end/.metadata/.plugins/org.eclipse.wst.server.core/tmp0&quot; -Dcatalina.home=&quot;/Applications/Apache Software Foundation/apache-tomcat-8.0.53&quot; -Dwtp.deploy=&quot;/Users/mollymerritt/my_git_repos/4AMers/back-end/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps&quot; -Djava.endorsed.dirs=&quot;/Applications/Apache Software Foundation/apache-tomcat-8.0.53/endorsed&quot;"/>
 <stringAttribute key="server-id" value="Tomcat v8.0 Server at localhost"/>
 </launchConfiguration>
