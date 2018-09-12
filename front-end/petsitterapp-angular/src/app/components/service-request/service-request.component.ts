@@ -44,16 +44,10 @@ export class ServiceRequestComponent implements OnInit {
 
   submitSrvRequest() {
 
-    // console.log(this.theDate);
-
-    // this.serviceRequest.dateCreated = this.theDate;
-    // status: string;
-    // description: string;
-    // replyMessage: string;
+    // We should be using serviceRequest model, ... but for now let's just pass parameters into the service
 
     console.log("id -> " + this.petId);
     console.log("--> " + this.theDate);
-    // console.log("--> " + this.serviceRequest.dateCreated);
 
     this.srvRequestService.postServiceRequest(this.petId, this.theDate);//.subscribe(
     //   s => {
