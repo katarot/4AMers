@@ -1,3 +1,49 @@
-<p>
-  profile works!
-</p>
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-2">
+      <br>
+      <h2>{{firstName}} {{lastName}}</h2>
+      <img class="img-fluid img-responsive" src="{{urImage}}" alt="urpic" id="profilePic">
+      <h6>A little about me: </h6>
+      <p id="actualBio">{{bioDescription}}</p>
+      <app-editprofile></app-editprofile>
+    </div>
+    <div class="col-md-6">
+        <h2 class="my-4">{{petName}}</h2>
+      <img class="img-fluid" src="{{petImage}}" alt="ptpic" id="petPic">
+    </div>
+
+    <div class="col-md-4">
+      <br>
+      <h4>Breed: {{breed}}</h4>
+      <h4>{{petName}}'s Biography:</h4>
+      <h3 class="my-3"></h3>
+      <p id="petBio">{{petDescription}}</p>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  <br>
+  </div>
+  <!-- /.row -->
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+

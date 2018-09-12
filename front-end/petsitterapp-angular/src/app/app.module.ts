@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,8 @@ import { ServiceRequestsListComponent } from './components/service-requests-list
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
+import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
+import { PetCrudService } from './services/pet-crud.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MessagingComponent } from './components/messaging/messaging.component';
     ServiceRequestComponent,
     ServiceRequestsListComponent,
     PetPostingComponent,
-    MessagingComponent
+    MessagingComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { MessagingComponent } from './components/messaging/messaging.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PetCrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
