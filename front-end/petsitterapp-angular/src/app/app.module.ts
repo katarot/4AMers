@@ -12,6 +12,7 @@ import { ServiceRequestComponent } from './components/service-request/service-re
 import { ServiceRequestsListComponent } from './components/service-requests-list/service-requests-list.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
+import { MyNewComponentComponent } from './components/my-new-component/my-new-component.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PetPostingComponent } from './components/pet-posting/pet-posting.compon
     ProfileComponent,
     ServiceRequestComponent,
     ServiceRequestsListComponent,
-    PetPostingComponent
+    PetPostingComponent,
+    MyNewComponentComponent
   ],
   imports: [
     BrowserModule,
