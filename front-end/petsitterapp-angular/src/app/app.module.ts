@@ -13,6 +13,7 @@ import { ServiceRequestsListComponent } from './components/service-requests-list
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
+import { MyNewComponentComponent } from './components/my-new-component/my-new-component.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MessagingComponent } from './components/messaging/messaging.component';
     ServiceRequestComponent,
     ServiceRequestsListComponent,
     PetPostingComponent,
-    MessagingComponent
+    MessagingComponent,
+    MyNewComponentComponent
   ],
   imports: [
     BrowserModule,
