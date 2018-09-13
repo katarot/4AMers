@@ -15,6 +15,8 @@ import { PetPostingComponent } from './components/pet-posting/pet-posting.compon
 import { MessagingComponent } from './components/messaging/messaging.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
 import { PetCrudService } from './services/pet-crud.service';
+import { UploadFileService } from './services/upload-file.service';
+import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { PetCrudService } from './services/pet-crud.service';
     ServiceRequestsListComponent,
     PetPostingComponent,
     MessagingComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    AddpetprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { PetCrudService } from './services/pet-crud.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [PetCrudService],
+  providers: [PetCrudService, 
+              UploadFileService //npm install aws-sdk
+          ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
