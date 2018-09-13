@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/mollymerritt/my_git_repos/4AMers/4AMers-Dev/back-end/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+500688814.index
+1237614774.index
+3053642860.index
+1811708503.index
+99437653.index
+2654097478.index

@@ -11,3 +11,7 @@
 2018-09-12 11:57:21,848 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mollymerritt/my_git_repos/4AMers/back-end/petsitterapp/src/main/resources
 2018-09-12 11:57:21,854 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-09-12 11:57:21,854 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mollymerritt/my_git_repos/4AMers/back-end/petsitterapp/src/test/resources
+2018-09-12 20:39:58,424 [Worker-107: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-12 20:39:58,425 [Worker-107: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mollymerritt/my_git_repos/4AMers/back-end/petsitterapp/src/main/resources
+2018-09-12 20:39:58,427 [Worker-107: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-12 20:39:58,427 [Worker-107: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mollymerritt/my_git_repos/4AMers/back-end/petsitterapp/src/test/resources
