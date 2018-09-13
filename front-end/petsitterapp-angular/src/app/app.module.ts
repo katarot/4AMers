@@ -15,6 +15,8 @@ import { PetPostingComponent } from './components/pet-posting/pet-posting.compon
 import { MessagingComponent } from './components/messaging/messaging.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
 import { PetCrudService } from './services/pet-crud.service';
+// import { CookieModule } from '@ngx-toolkit/cookie';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -28,15 +30,16 @@ import { PetCrudService } from './services/pet-crud.service';
     ServiceRequestsListComponent,
     PetPostingComponent,
     MessagingComponent,
-    EditprofileComponent
+    EditprofileComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule
+    // CookieModule // .forRoot()
   ],
-  providers: [PetCrudService],
+  providers: [PetCrudService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

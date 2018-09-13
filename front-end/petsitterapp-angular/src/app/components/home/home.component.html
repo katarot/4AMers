@@ -2,3 +2,21 @@
   home works!
   this was modified by michael
 </p>
+
+<h1 class="jumbotron">Pet Pal Login</h1>
+
+<!-- {{ this.username }}
+{{ this.password }} -->
+<div class="container center">
+<form (submit)="login()" >
+  <label for="username">Username</label>
+  <input type="text" id="usernameLog" name="username" placeholder=Username required [(ngModel)]='username' /> <br>
+  <label for="password">Password</label>
+  <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br>
+  <div id="message" *ngIf="this.invalidLogin">
+    The username or password you have entered is incorrect.
+  </div>
+  <input type="submit" class="btn btn-success" value="Log In!">
+</form>
+</div>
+
