@@ -4,6 +4,7 @@ import { Pet } from '../../models/pet.model';
 import { UserCrudService } from '../../services/user-crud.service';
 import { User } from '../../models/user.model';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
