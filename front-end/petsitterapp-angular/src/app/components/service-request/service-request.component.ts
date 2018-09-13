@@ -50,7 +50,7 @@ export class ServiceRequestComponent implements OnInit {
     console.log("id -> " + this.petId);
     console.log("--> " + this.theDate);
 
-    this.srvRequestService.postServiceRequest(this.petId, this.theDate);//.subscribe(
+    this.srvRequestService.postPSRequestData(this.petId, this.theDate);//.subscribe(
     //   s => {
     //     console.log("data from db");
     //     console.log(p);
