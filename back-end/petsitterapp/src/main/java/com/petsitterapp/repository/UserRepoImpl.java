@@ -38,8 +38,7 @@ public class UserRepoImpl implements UserRepository {
 
 	@Override
 	public void update(User u) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().update(u);
 	}
 
 	@Override

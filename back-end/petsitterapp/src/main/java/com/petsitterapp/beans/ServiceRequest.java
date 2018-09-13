@@ -21,16 +21,15 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="SERVICE_REQUESTS")
-public class PetSrvReq {
-
+public class ServiceRequest {
+	
 	@Id
 	@Column(name="SRV_REQ_ID")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="srv_req")
 	@SequenceGenerator(name="srv_req", sequenceName="ps_srvreq_seq", allocationSize=1)
 	private int id;
 	
-//	@Column(nullable=false) //it was, and is supposed to be nullable=false
-//	@Column
+	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date dateCreated;	// date...?
 	
@@ -49,9 +48,9 @@ public class PetSrvReq {
 	@JoinColumn(name="USER_ID")
 	private User sitter;	// Person to do the pet sitting
 
-	public PetSrvReq() {}
+	public ServiceRequest() {}
 	
-	public PetSrvReq(int id, Date dateCreated, String status, String description, String replyMessage, Pet pet,
+	public ServiceRequest(int id, Date dateCreated, String status, String description, String replyMessage, Pet pet,
 			User sitter) {
 		super();
 		this.id = id;
@@ -124,5 +123,5 @@ public class PetSrvReq {
 		return "ServiceRequest [id=" + id + ", date=" + dateCreated + ", status=" + status + ", description=" + description
 				+ ", replyMessage=" + replyMessage + ", pet=" + pet + ", sitter=" + sitter + "]";
 	}
-	
+
 }
