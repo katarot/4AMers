@@ -15,8 +15,8 @@ const routes: Routes = [
     { path: 'srComponent', component: ServiceRequestComponent },
     { path: 'srlComponent', component: ServiceRequestsListComponent },
     { path: 'dariusComponent', component: PetPostingComponent },
-    
-    
+
+
     // { path: 'home', component: HomeComponent },
 //   { path: '', redirectTo: '/home', pathMatch: 'full' },
 //   { path: '', redirectTo: '/login', pathMatch: 'full' },
