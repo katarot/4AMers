@@ -1,0 +1,17 @@
+.py-3 h2 {
+    color: black;
+}
+
+a {
+    color: black !important;
+}
+
+#offer-service-btn {
+    color: black !important;
+
+}
+
+.card {
+    margin:10px;
+    box-shadow: 1px 3px 7px -2px black !important;
+}

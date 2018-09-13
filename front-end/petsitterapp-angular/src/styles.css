@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* Style from: https://swagger.io/resources/open-api/ */
+ body {
+    /* background: linear-gradient(to right, #111 60%, #555); */
+    background-color: #eaebec;
+}
+
+h1 {
+    font-size: 140%;
+}
+
+h1, h2, h3, h4, p {
+    color: black;
+    font-family: "Open Sans",Sans-Serif;
+    line-height: 175%;
+}
+
+p {
+    font-size: 110%;
+    line-height: 140%;
+    font-weight: 300;
+}
+/* 
+.info-box {
+    border: 0px solid white;
+    box-shadow: 1px 3px 8px #fff;
+    border-radius: 10px;
+    width: 86%;
+    margin-bottom: 44px;
+    margin-top: 27px;
+    text-align: center;
+    margin: 0 auto;
+    margin: 0 auto;
+    margin-bottom: 6%;
+    margin-top: 4%;
+    padding: 3%;
+} */
+
+/* .info-box p {
+    font-size: 110%;
+    line-height: 140%;
+    font-weight: 300;
+} */
+
+.card-header h4 {
+    color: #111;
+}
