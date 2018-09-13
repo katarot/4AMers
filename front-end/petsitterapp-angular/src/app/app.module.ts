@@ -17,6 +17,8 @@ import { EditprofileComponent } from './components/profile/editprofile/editprofi
 import { PetCrudService } from './services/pet-crud.service';
 import { UploadFileService } from './services/upload-file.service';
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -38,10 +40,14 @@ import { AddpetprofileComponent } from './components/profile/addpetprofile/addpe
     HttpClientModule,
     AppRoutingModule,
     FormsModule
+    // CookieModule // .forRoot()
   ],
   providers: [PetCrudService, 
-              UploadFileService //npm install aws-sdk
+              UploadFileService,  //npm install aws-sdk
+              CookieService,
+              AuthService
           ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
