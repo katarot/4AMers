@@ -15,10 +15,8 @@ import { PetPostingComponent } from './components/pet-posting/pet-posting.compon
 import { MessagingComponent } from './components/messaging/messaging.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
 import { PetCrudService } from './services/pet-crud.service';
-import { UploadFileService } from './services/upload-file.service';
-import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
+// import { CookieModule } from '@ngx-toolkit/cookie';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -33,7 +31,6 @@ import { AuthService } from './services/auth.service';
     PetPostingComponent,
     MessagingComponent,
     EditprofileComponent,
-    AddpetprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +39,7 @@ import { AuthService } from './services/auth.service';
     FormsModule
     // CookieModule // .forRoot()
   ],
-  providers: [PetCrudService, 
-              UploadFileService,  //npm install aws-sdk
-              CookieService,
-              AuthService
-          ],
- 
+  providers: [PetCrudService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

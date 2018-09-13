@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { User } from '../../models/user.model';
-import { AuthService } from '../../services/auth.service';
-// import { AuthService } from 'src/app/services/auth.service';
-// import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-home',
