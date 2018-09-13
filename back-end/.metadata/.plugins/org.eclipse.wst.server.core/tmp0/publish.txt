@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Wed Sep 12 20:39:59 EDT 2018
-org.eclipse.jst.jee.server\:/binary\:/Users/mollymerritt/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar=WEB-INF/lib/spring-web-4.2.5.RELEASE.jar

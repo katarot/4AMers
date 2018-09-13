@@ -50,7 +50,7 @@ public class UserController {
 	@RequestMapping(method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE, //request body content
 			produces=MediaType.APPLICATION_JSON_VALUE) //response body content
-	public ResponseEntity<User> addUser(@Valid @RequestBody User u) {
+	public ResponseEntity<User> addUser(@Valid @RequestBody User u) { 
 		u = userService.addUser(u);
 		if (u == null) {
 			System.out.println("In User Controller: addUser");

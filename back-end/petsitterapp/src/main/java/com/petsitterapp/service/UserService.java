@@ -15,7 +15,27 @@ public class UserService {
 	private UserRepository userRepo;
 
 	public User addUser(User u) {
-		return userRepo.add(u);
+		List<User> users = getAll();
+		boolean invalidUsername = false;
+		boolean invalidEmail = false;
+		for (User user : users) {
+			if (u.getUsername().equals(user.getUsername())) {	// username not unique
+				invalidUsername = true;
+			} else if (u.getEmail().equals(user.getEmail())) {	// email not unique
+				invalidEmail = true;
+			} else {
+				// continue
+			}
+		}
+		if (invalidUsername) {
+			u.setUsername(null);
+			return u;
+		} else if (invalidEmail) {
+			u.setEmail(null);
+			return u;
+		} else {
+			return userRepo.add(u);
+		}
 	}
 
 	public List<User> getAll() {
