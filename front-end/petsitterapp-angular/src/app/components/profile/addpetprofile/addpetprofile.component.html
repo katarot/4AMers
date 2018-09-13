@@ -1,7 +1,7 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Edit Profile
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#petModalCenter">
+  Add Pet
 </button>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="petModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -14,8 +14,8 @@
             <form>
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="yourDescription">Your Bio</label>
-                    <textarea type="description" class="form-control" id="proDescrip" 
+                    <label for="yourDescription">Pet Description</label>
+                    <textarea type="description" class="form-control" id="petDescrip" 
                     rows="3"></textarea>
                   </div>
                 </div>
@@ -26,15 +26,15 @@
                               <div class="input-group">
                                   <span class="input-group-btn">
                                       <label class="btn btn-default">
-                                          <input type="file" (change)="selectFile($event)" id="userImgInp">
+                                          <input type="file" (change)="selectFile($event)" id="petImgInp">
                                       </label>
                                   </span>
                               </div>
-                              <img id='user-img-upload'/>
+                              <img id='pet-img-upload'/>
                           </div>
                       </div>
-                </div>
-
+                    </div>
+            
               </form>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -44,4 +44,3 @@
       </div>
     </div>
   </div>
-
