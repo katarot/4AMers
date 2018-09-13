@@ -1,0 +1,143 @@
+
+<div id="srvReqList-box"class="">
+  
+  <div class="py-3 text-center">
+      <h2>Available Service Requests</h2>
+  </div>
+
+  <!-- Loop should be in row, ... but........  -->
+  <!-- ... Also, this is supposed to be a loop of SERVICE REQUESTS, not pets -->
+  <div class="row mb-2"> <!-- * n g F o r = " l e t   p of p e t s" -->
+
+        <div *ngFor="let p of pets" class="col-md-6">
+          
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">{{ p.petName }}</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+
+              <!-- Lower Section for two options: "Continue reading" and "Offer Service" -->
+              <div class="row">
+
+                <div class="col-sm-7" style="margin-right: 0; border: 0px solid black;">
+                  <a href="#">Continue reading</a>
+                </div>
+                
+                <div class="col-md-4" style="margin-left: 12px;border: 0px solid black;padding-left: 0px;">
+                  
+                  <a class="btn btn-sm btn-block btn-success" id="offer-service-btn" href="/" style="width: 158%;">Offer Service</a>
+                </div>
+                  
+              </div>
+              <!-- /end of Lower Section -->
+
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Charlie</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+    </div> <!-- /end of row class="row mb-2" -->
+
+    <!-- <div class="row mb-2">
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Dino</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Chewy</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+    </div> -->
+
+    <!-- <div class="row mb-2">
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Dino</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Owner Name</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Chewy</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" src="../../../assets/images/thumbnail.svg" alt="Card image cap">
+          </div>
+        </div>
+
+    </div> -->
+
+<hr />
+    <!-- <div class="card custom-card">
+        <img src="../../../assets/images/doggie.jpg" alt="Doggie">
+        <h1>John Doe</h1>
+        <p class="title">CEO & Founder, Example</p>
+        <p>Harvard University</p>
+        <a href="#"><i class="fa fa-dribbble"></i></a> 
+        <a href="#"><i class="fa fa-twitter"></i></a> 
+        <a href="#"><i class="fa fa-linkedin"></i></a> 
+        <a href="#"><i class="fa fa-facebook"></i></a> 
+        <p><button>Contact</button></p>
+      </div> -->
+
+</div>
+
+
