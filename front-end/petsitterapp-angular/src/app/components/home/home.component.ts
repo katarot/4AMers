@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
           this.cookieService.set('lastname', this.user.lastName, 2);
           this.cookieService.set('email', this.user.email, 2);
           this.cookieService.set('bioDescription', this.user.bioDescription, 2);
+          this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());
           this.invalidLogin = false;
         }
@@ -54,6 +55,8 @@ export class HomeComponent implements OnInit {
 
   }
 
+  /*
+  // BOOTSTRAP EXAMPLE
   open(content) {
     console.log('in open(content) function');
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -72,5 +75,6 @@ export class HomeComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+  */
 
 }
