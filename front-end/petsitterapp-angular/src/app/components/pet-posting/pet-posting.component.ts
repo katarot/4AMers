@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PetServiceService } from '../../services/pet-service.service';
 import { Pet } from '../../models/pet.model';
+import { PetCrudService } from '../../services/pet-crud.service';
+import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 
 @Component({
   selector: 'app-pet-posting',
@@ -11,10 +12,10 @@ export class PetPostingComponent implements OnInit {
 
   pets: Pet[] = [];
 
-  constructor(private http: PetServiceService) { }
+  constructor(private petService: PetCrudService, private srvRequestService: ServiceRequestCrudService) { }
 
   ngOnInit() {
-    this.http.getPets().subscribe(
+    this.petService.getPets().subscribe(
       p => {
       
       this.pets = p;
@@ -24,5 +25,12 @@ export class PetPostingComponent implements OnInit {
     });
 
   }
+
+  submitOfferToSit(){
+    console.log("Inside submitOfferTOSit inside pet-post.comp");
+
+    this.srvRequestService.updatePSRequestData( ).subscribe(
+
+    )};
 
 }
