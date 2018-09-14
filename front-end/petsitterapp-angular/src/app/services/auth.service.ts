@@ -17,6 +17,8 @@ export class AuthService {
   }
 
   register(user: User): Observable<any> {
+    console.log('in auth service');
+    console.log(user);
     return this.http.post<any>('http://localhost:8080/petsitterapp/register', user);
   }
 }
