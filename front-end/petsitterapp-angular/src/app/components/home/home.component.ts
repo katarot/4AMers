@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private cookieService: CookieService,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     this.invalidLogin = false;
@@ -44,6 +46,14 @@ export class HomeComponent implements OnInit {
         }
       }
     );
+  }
+
+  register() {
+
+  }
+
+  open(content) {
+
   }
 
 }
