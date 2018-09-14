@@ -19,12 +19,19 @@ export class HomeComponent implements OnInit {
   private user: User;
   private invalidLogin: boolean;
 
-  private firstname: string;
-  private lastname: string;
-  private email: string;
-  private regUsername: string;
-  private regPassword: string;
-  private bioDescription: string;
+  // private firstname: string;
+  // private lastname: string;
+  // private email: string;
+  // private regUsername: string;
+  // private regPassword: string;
+  // private bioDescription: string;
+
+  private firstname = '';
+  private lastname = '';
+  private email = '';
+  private regUsername = '';
+  private regPassword = '';
+  private bioDescription = '';
 
   constructor(
     private router: Router,
@@ -34,6 +41,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.invalidLogin = false;
+    // this.firstname = '';
+    // this.lastname = '';
+    // this.email = '';
+    // this.regUsername = '';
+    // this.regPassword = '';
+    // this.bioDescription = '';
   }
 
   login() {
@@ -61,12 +74,25 @@ export class HomeComponent implements OnInit {
 
   register() {
     console.log('in register method');
-    this.user.firstName = this.firstname;
-    this.user.lastName = this.lastname;
-    this.user.username = this.regUsername;
-    this.user.password = this.regPassword;
-    this.user.email = this.email;
-    this.user.bioDescription = this.bioDescription;
+    console.log('firstname = ' + this.firstname);
+    // console.log('lastname = ' + this.lastname);
+    // console.log('username = ' + this.regUsername);
+    // console.log('password = ' + this.regPassword);
+    // console.log('email = ' + this.email);
+    // console.log('bioDescription = ' + this.bioDescription);
+    // console.log('this.user.firstName = ' + this.user.firstName);
+    // console.log(this.user);
+    this.user = {
+      // id: 0,
+      username: this.regUsername,
+      password: this.regPassword,
+      firstName: this.firstname,
+      lastName: this.lastname,
+      email: this.email,
+      dateRegistered: '2018-09-14',
+      bioDescription: this.bioDescription
+    };
+    console.log(this.user);
     this.auth.register(this.user).subscribe(
       data => {
         this.user = data;
