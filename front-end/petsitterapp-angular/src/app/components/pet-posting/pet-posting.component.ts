@@ -12,7 +12,7 @@ export class PetPostingComponent implements OnInit {
 
   serviceRequestPets: ServiceRequest[] = [];
 
-  constructor(private petService: PetCrudService, private srvRequestService: ServiceRequestCrudService) { }
+  constructor( private srvRequestService: ServiceRequestCrudService) { }
 
   ngOnInit() {
 //    this.petService.getPets().subscribe(
