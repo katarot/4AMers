@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+<<<<<<< Updated upstream
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+=======
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
+// import { AuthService } from 'src/app/services/auth.service';
+// import { User } from 'src/app/models/user.model';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-home',
@@ -18,6 +25,13 @@ export class HomeComponent implements OnInit {
   private password: string;
   private user: User;
   private invalidLogin: boolean;
+
+  private firstname: string;
+  private lastname: string;
+  private email: string;
+  private regUsername: string;
+  private regPassword: string;
+  private bioDescription: string;
 
   constructor(
     private router: Router,
@@ -53,6 +67,19 @@ export class HomeComponent implements OnInit {
 
   register() {
     console.log('in register method');
+    this.user.firstName = this.firstname;
+    this.user.lastName = this.lastname;
+    this.user.username = this.regUsername;
+    this.user.password = this.regPassword;
+    this.user.email = this.email;
+    this.user.bioDescription = this.bioDescription;
+    this.auth.register(this.user).subscribe(
+      data => {
+        this.user = data;
+        console.log(this.user);
+      }
+    );
+    // this.router.navigate(['/home']);
   }
 
 }
