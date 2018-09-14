@@ -17,20 +17,20 @@ export class PetPostingComponent implements OnInit {
   ngOnInit() {
     this.petService.getPets().subscribe(
       p => {
-      
+
       this.pets = p;
       console.log(this.pets);
-      
 
     });
 
   }
 
-  submitOfferToSit(){
-    console.log("Inside submitOfferTOSit inside pet-post.comp");
+  submitOfferToSit() {
+    console.log('Inside submitOfferTOSit inside pet-post.comp');
 
     this.srvRequestService.updatePSRequestData( ).subscribe(
 
-    )};
+    );
+  }
 
 }
