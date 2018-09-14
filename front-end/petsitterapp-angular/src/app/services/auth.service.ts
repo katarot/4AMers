@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8080/petsitterapp/login', u);
   }
 
-  register(user: User) {
+  register(user: User): Observable<any> {
     return this.http.post<any>('http://localhost:8080/petsitterapp/register', user);
   }
 }
