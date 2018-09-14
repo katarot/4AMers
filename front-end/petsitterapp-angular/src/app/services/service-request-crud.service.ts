@@ -22,8 +22,6 @@ export class ServiceRequestCrudService {
 
     console.log(serviceDate + ", " + petId);
 
-    
-
     return this.http.post<ServiceRequest[]>("http://18.232.118.152:8080/project2/psrequest", {});
     // return this.http.post<any>("http://18.232.118.152:8080/project2/psrequest", 
             // { dateCreated: serviceDate, status: "1", description: "service request description", 
