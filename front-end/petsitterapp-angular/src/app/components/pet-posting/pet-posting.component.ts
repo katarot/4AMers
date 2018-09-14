@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pet } from '../../models/pet.model';
-import { PetCrudService } from '../../services/pet-crud.service';
+import { ServiceRequest } from '../../models/service-request.model';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 
 @Component({
@@ -10,16 +9,17 @@ import { ServiceRequestCrudService } from '../../services/service-request-crud.s
 })
 export class PetPostingComponent implements OnInit {
 
-  pets: Pet[] = [];
+  serviceRequestPets: ServiceRequest[] = [];
 
-  constructor(private petService: PetCrudService, private srvRequestService: ServiceRequestCrudService) { }
+  constructor( private srvRequestService: ServiceRequestCrudService) { }
 
   ngOnInit() {
-    this.petService.getPets().subscribe(
+//    this.petService.getPets().subscribe(
+    this.srvRequestService.getPSRequestData().subscribe(
       p => {
 
-      this.pets = p;
-      console.log(this.pets);
+      this.serviceRequestPets = p;
+      console.log(this.serviceRequestPets);
 
     });
 
