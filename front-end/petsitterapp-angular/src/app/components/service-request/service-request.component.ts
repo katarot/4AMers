@@ -4,6 +4,7 @@ import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-service-request',
@@ -13,8 +14,9 @@ import { ServiceRequestCrudService } from '../../services/service-request-crud.s
 export class ServiceRequestComponent implements OnInit {
 
   description: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+  petModel: Pet;
   pets: Pet[] = [];
-  serviceRequest: ServiceRequest;
+  serviceRequest: ServiceRequest[] = [];
   
   theDate: string;
   petId: number;
@@ -23,37 +25,101 @@ export class ServiceRequestComponent implements OnInit {
 
   ngOnInit() {
 
-    this.srvRequestService.getPSRequestData().subscribe(
-      psReqs => {
-        console.log(psReqs);
-      }
-    );
+    // this.srvRequestService.getPSRequestData().subscribe(
+    //   psReqs => {
+    //     this.serviceRequest = psReqs;
+    //     console.log(this.serviceRequest);
+    //     console.log(this.serviceRequest[0].id);
+    //     console.log(this.serviceRequest[0].pet);
+    //   }
+    // );
 
-    // Get Pet data to populate pet select list
+    
+    // GET PET DATA TO POPULATE SELECT LIST
     this.petService.getPets().subscribe(
       p => {
         this.pets = p;
-        console.log(this.pets);
       }
     );
     
   }
 
-  getPet (event: any) { // from pet select
-    this.petId = event.target.value;
+
+  //  CHANGE EVENT ON PET SELECT LIST
+  getPet (event: any) {
+    // this.petId = event.target.value;
+    // console.log(this.petId);
+
+    this.pets.filter(function(element, index, array) {
+
+      // = event.target.value;
+      
+      // console.log(element);
+      // console.log(" ---> ");
+      // console.log(this.petId);
+
+      if (element.id == event.target.value) {
+        console.log("We selected this -> ");
+        console.log(element);
+        // this.petModel = element;
+      }
+      
+    });
+
   }
 
+
+  //  SUBMIT PET SITTING SERVICE REQUEST
   submitSrvRequest() {
 
-    // We should be using serviceRequest model, ... but for now let's just pass parameters into the service
+    //  OPTION 1: I can call .getPetById from the service (get from the database) and get specific from Pet object
+    // this.petService.getPetById(this.petId).subscribe(
+    //   pet => {
 
-    console.log("id -> " + this.petId);
-    console.log("--> " + this.theDate);
+    //     console.log("We are getting specific pet by id");
+    //     this.petModel = pet;
+        
+    //     console.log(this.petModel);
 
-    this.srvRequestService.postPSRequestData(this.petId, this.theDate);//.subscribe(
-    //   s => {
-    //     console.log("data from db");
-    //     console.log(p);
+    //   }
+    // );
+
+    //  OPTION 2: I can filter of the this.pets list
+    // this.pets.filter(function(element, index, array) {
+    //   // console.log("Pet ID -> " + this.petId);
+      
+    //   console.log(element);
+    //   console.log(" ---> ");
+    //   console.log(this.petId);
+
+    // });
+    
+
+    // console.log("outside the getpetbyid fn -> ");
+    // console.log(this.petModel);
+    // console.log("id -> " + this.petId);
+    // console.log("--> " + this.theDate);
+
+
+
+    this.serviceRequest = [
+                            { id: 1,
+                              dateCreated: null,  // "2018-09-02"
+                              status: "OPEN",
+                              description: "Description of pet sitting service",
+                              replyMessage: null,
+                              pet: new Pet,//this.petModel,
+                              sitter: new User
+                            }
+                          ];
+    
+    console.log("petModel -> ");
+    console.log(this.petModel);
+
+    // this.srvRequestService.postPSRequestData(this.petId, this.theDate).subscribe(
+    //   srvReq => {
+    //     console.log("data from db -> srvReq");
+    //     console.log(srvReq);
     //   }
     // );
 

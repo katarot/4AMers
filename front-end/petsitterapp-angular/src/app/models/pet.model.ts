@@ -1,3 +1,5 @@
+import { User } from "./user.model";
+
 export class Pet {
     id: number;
     petName: string;
@@ -6,7 +8,8 @@ export class Pet {
     petDescription:  string;
     behaviour:  string;
     image:  string;
-    user:  number ;// string?.... User object?
+    user: User;
+    // user:  number ;// string?.... User object?
     // user_id:  number // string?.... User object?
 }
 

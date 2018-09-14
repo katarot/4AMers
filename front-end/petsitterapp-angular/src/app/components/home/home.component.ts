@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,8 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  closeResult: string;
 
   private username: string;
   private password: string;
@@ -19,7 +22,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private cookieService: CookieService,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     this.invalidLogin = false;
@@ -39,11 +43,16 @@ export class HomeComponent implements OnInit {
           this.cookieService.set('lastname', this.user.lastName, 2);
           this.cookieService.set('email', this.user.email, 2);
           this.cookieService.set('bioDescription', this.user.bioDescription, 2);
+          this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());
           this.invalidLogin = false;
         }
       }
     );
+  }
+
+  register() {
+    console.log('in register method');
   }
 
 }

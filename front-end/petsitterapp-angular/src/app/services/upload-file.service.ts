@@ -35,7 +35,7 @@ export class UploadFileService {
         console.log('There was an error uploading your file: ', err);
         return false;
       }
-      // console.log(data.)
+      // console.log(data)
       console.log('Successfully uploaded file.', data);
       this.url = data;
       console.log(this.url);
