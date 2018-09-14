@@ -1,3 +1,6 @@
+import { Pet } from "./pet.model";
+import { User } from "./user.model";
+
 export class ServiceRequest {
     
     id: number;
@@ -6,7 +9,7 @@ export class ServiceRequest {
     description: string;
     replyMessage: string;
     
-    pet: number;
-    sitter: number;
+    pet: Pet;
+    sitter: User;
 
 }

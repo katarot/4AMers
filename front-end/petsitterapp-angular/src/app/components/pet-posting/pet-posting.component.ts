@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PetServiceService } from '../../services/pet-service.service';
-import { Pet } from '../../models/pet.model';
 
 @Component({
   selector: 'app-pet-posting',
@@ -9,20 +7,10 @@ import { Pet } from '../../models/pet.model';
 })
 export class PetPostingComponent implements OnInit {
 
-  pets: Pet[] = [];
-
-  constructor(private http: PetServiceService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.http.getPets().subscribe(
-      p => {
-      
-      this.pets = p;
-      console.log(this.pets);
-      
-
-    });
-
+    
   }
 
 }
