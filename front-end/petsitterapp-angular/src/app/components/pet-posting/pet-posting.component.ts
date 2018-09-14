@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceRequest } from '../../models/service-request.model';
+import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 
 @Component({
   selector: 'app-pet-posting',
@@ -7,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetPostingComponent implements OnInit {
 
-  constructor() { }
+  serviceRequestPets: ServiceRequest[] = [];
+
+  constructor( private srvRequestService: ServiceRequestCrudService) { }
 
   ngOnInit() {
-    
+//    this.petService.getPets().subscribe(
+    this.srvRequestService.getPSRequestData().subscribe(
+      p => {
+
+      this.serviceRequestPets = p;
+      console.log(this.serviceRequestPets);
+
+    });
+
+  }
+
+  submitOfferToSit() {
+    console.log('Inside submitOfferTOSit inside pet-post.comp');
+
+    this.srvRequestService.updatePSRequestData( ).subscribe(
+
+    );
   }
 
 }

@@ -18,6 +18,7 @@ import { PetCrudService } from './services/pet-crud.service';
 // import { CookieModule } from '@ngx-toolkit/cookie';
 import { CookieService } from 'ngx-cookie-service';
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AddpetprofileComponent } from './components/profile/addpetprofile/addpe
     HttpClientModule,
     AppRoutingModule,
     FormsModule
+    // NgbModal
     // CookieModule // .forRoot()
   ],
   providers: [PetCrudService, CookieService],
