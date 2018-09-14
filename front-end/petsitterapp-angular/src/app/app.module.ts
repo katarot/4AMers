@@ -18,7 +18,7 @@ import { PetCrudService } from './services/pet-crud.service';
 import { UploadFileService } from './services/upload-file.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
+import { AddPetComponent } from './components/profile/add-pet/add-pet.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { AddpetprofileComponent } from './components/profile/addpetprofile/addpe
     PetPostingComponent,
     MessagingComponent,
     EditprofileComponent,
-    AddpetprofileComponent
+    AddpetprofileComponent,
+    AddPetComponent
   ],
   imports: [
     BrowserModule,

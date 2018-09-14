@@ -21,3 +21,9 @@
 #user-img-upload, #pet-img-upload{
     width: 100%;
 }
+
+#proDescrip{ 
+    vertical-align: top;
+    width: 450px;
+    height: 100px;
+}
