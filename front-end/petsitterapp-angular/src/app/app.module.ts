@@ -21,6 +21,7 @@ import { AddpetprofileComponent } from './components/profile/addpetprofile/addpe
 import { AddPetComponent } from './components/profile/add-pet/add-pet.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { AuthService } from './services/auth.service';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthService } from './services/auth.service';
     MessagingComponent,
     EditprofileComponent,
     AddpetprofileComponent,
-    AddPetComponent
+    AddPetComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { AuthService } from './services/auth.service';
               CookieService,
               AuthService
           ],
- 
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
