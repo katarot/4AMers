@@ -15,10 +15,16 @@ import { PetPostingComponent } from './components/pet-posting/pet-posting.compon
 import { MessagingComponent } from './components/messaging/messaging.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
 import { PetCrudService } from './services/pet-crud.service';
-// import { CookieModule } from '@ngx-toolkit/cookie';
+import { UploadFileService } from './services/upload-file.service';
+import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 import { CookieService } from 'ngx-cookie-service';
+<<<<<<< Updated upstream
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
+=======
+import { AuthService } from './services/auth.service';
+
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -42,7 +48,12 @@ import { AddpetprofileComponent } from './components/profile/addpetprofile/addpe
     // NgbModal
     // CookieModule // .forRoot()
   ],
-  providers: [PetCrudService, CookieService],
+  providers: [PetCrudService, 
+              UploadFileService,  //npm install aws-sdk
+              CookieService,
+              AuthService
+          ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,7 +14,7 @@
             <form>
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="yourDescription">Your Description</label>
+                    <label for="yourDescription">Your Bio</label>
                     <textarea type="description" class="form-control" id="proDescrip" 
                     rows="3"></textarea>
                   </div>
@@ -25,39 +25,16 @@
                               <label>Upload Profile Picture</label>
                               <div class="input-group">
                                   <span class="input-group-btn">
-                                      <span class="btn btn-default btn-file">
-                                          Browse… <input type="file" id="userImgInp">
-                                      </span>
+                                      <label class="btn btn-default">
+                                          <input type="file" (change)="selectFile($event)" id="userImgInp">
+                                      </label>
                                   </span>
                               </div>
                               <img id='user-img-upload'/>
                           </div>
                       </div>
                 </div>
-<!--/////////////////////////////////////////Pet Area//////////////////////////////////////////////-->
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                      <label for="petDescription">Pet Description</label>
-                      <textarea type="description" class="form-control" id="petDescrip" 
-                        rows="3"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Upload Pet Picture(s)</label>
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-default btn-file">
-                                            Browse… 
-                                            <input type="file" id="petImgInp">
-                                        </span>
-                                    </span>
-                                </div>
-                                <img id="pet-img-upload"/>
-                            </div>
-                        </div>
-                  </div>
+
               </form>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
