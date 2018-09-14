@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private petProfile: PetCrudService,
     private userProfile: UserCrudService,
     private cookieService: CookieService) {}
-
+  
   petList: Pet[] = [];
   newPetList: Pet[] = [];
   newPet: Pet;
@@ -37,12 +37,10 @@ export class ProfileComponent implements OnInit {
   bioDescription: string;
   urImage: string;
 
-  // onClickMe() {
-  //   const popup = document.getElementById('popUpForm');
-  //   popup.classList.toggle('show');
-  // }
   ngOnInit() {
-    // this.cookieService.set('id', this.user.id.toString());
+
+    this.user = JSON.parse(this.cookieService.get('user'));
+    console.log(this.user.firstName);
     // this.user.id = this.cookieService.get('id');
     this.petProfile.getPets().subscribe(
       p => {
@@ -70,15 +68,14 @@ export class ProfileComponent implements OnInit {
   receivePet($event) {
     console.log('in receive update');
     this.newPet = $event;
-    
+
     this.newPet.user = this.user;
     // console.log(this.user);
-    console.log(this.newPet);
-
     // console.log(typeof this.newPet);
 
     this.petProfile.postP5RequestData(this.newPet).subscribe(
       np => {
+        console.log(this.newPet);
         this.newPet = np;
       }
     );
