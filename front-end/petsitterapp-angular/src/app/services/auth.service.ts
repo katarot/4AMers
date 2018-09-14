@@ -15,4 +15,8 @@ export class AuthService {
     const u = { username: username, password: password };
     return this.http.post<any>('http://localhost:8080/petsitterapp/login', u);
   }
+
+  register(user: User) {
+    return this.http.post<any>('http://localhost:8080/petsitterapp/register', user);
+  }
 }

@@ -12,6 +12,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomeComponent implements OnInit {
 
+  closeResult: string;
+
   private username: string;
   private password: string;
   private user: User;
@@ -41,6 +43,7 @@ export class HomeComponent implements OnInit {
           this.cookieService.set('lastname', this.user.lastName, 2);
           this.cookieService.set('email', this.user.email, 2);
           this.cookieService.set('bioDescription', this.user.bioDescription, 2);
+          this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());
           this.invalidLogin = false;
         }
@@ -49,11 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
-
-  }
-
-  open(content) {
-
+    console.log('in register method');
   }
 
 }
