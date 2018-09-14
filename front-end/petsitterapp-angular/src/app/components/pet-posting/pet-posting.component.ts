@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceRequest } from '../../models/service-request.model';
-import { PetCrudService } from '../../services/pet-crud.service';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 
 @Component({
