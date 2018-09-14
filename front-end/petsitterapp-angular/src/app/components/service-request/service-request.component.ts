@@ -23,6 +23,13 @@ export class ServiceRequestComponent implements OnInit {
 
   ngOnInit() {
 
+    this.srvRequestService.getPSRequestData().subscribe(
+      psReqs => {
+        console.log(psReqs);
+      }
+    );
+
+    // Get Pet data to populate pet select list
     this.petService.getPets().subscribe(
       p => {
         this.pets = p;
@@ -33,13 +40,7 @@ export class ServiceRequestComponent implements OnInit {
   }
 
   getPet (event: any) { // from pet select
-    
     this.petId = event.target.value;
-    // console.log( event.target.value );
-    // console.log( typeof event.target.value );
-    // console.log( typeof parseInt(event.target.value) );
-
-    // this.type_id = parseInt(event.target.value);
   }
 
   submitSrvRequest() {
@@ -49,7 +50,7 @@ export class ServiceRequestComponent implements OnInit {
     console.log("id -> " + this.petId);
     console.log("--> " + this.theDate);
 
-    this.srvRequestService.postServiceRequest(this.petId, this.theDate);//.subscribe(
+    this.srvRequestService.postPSRequestData(this.petId, this.theDate);//.subscribe(
     //   s => {
     //     console.log("data from db");
     //     console.log(p);

@@ -17,7 +17,7 @@ import { EditprofileComponent } from './components/profile/editprofile/editprofi
 import { PetCrudService } from './services/pet-crud.service';
 // import { CookieModule } from '@ngx-toolkit/cookie';
 import { CookieService } from 'ngx-cookie-service';
-
+import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { CookieService } from 'ngx-cookie-service';
     PetPostingComponent,
     MessagingComponent,
     EditprofileComponent,
+    AddpetprofileComponent
   ],
   imports: [
     BrowserModule,
