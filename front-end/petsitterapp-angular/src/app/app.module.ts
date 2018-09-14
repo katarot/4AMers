@@ -16,15 +16,9 @@ import { MessagingComponent } from './components/messaging/messaging.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
 import { PetCrudService } from './services/pet-crud.service';
 import { UploadFileService } from './services/upload-file.service';
-import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 import { CookieService } from 'ngx-cookie-service';
-<<<<<<< Updated upstream
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
-=======
-import { AuthService } from './services/auth.service';
-
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
