@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-<<<<<<< Updated upstream
-import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/models/user.model';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-=======
+import { AuthService } from './../../services/auth.service';
 import { User } from '../../models/user.model';
-import { AuthService } from '../../services/auth.service';
-// import { AuthService } from 'src/app/services/auth.service';
-// import { User } from 'src/app/models/user.model';
->>>>>>> Stashed changes
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',

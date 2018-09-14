@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-add-pet',
@@ -9,33 +10,38 @@ import { Pet } from '../../../models/pet.model';
 })
 export class AddPetComponent implements OnInit {
 
-  @Output() addingPet = new EventEmitter<Pet[]>();
-  newPet: Pet[] = [];
-
-  petName: string;
-  petDescrip: string;
-  breedDescrip: string;
-  specNeeds: string;
-  behaviorDescrip: string;
+  @Output() addingPet = new EventEmitter<Pet>();
+  newPet: Pet;
+  petname: string;
+  petdescription: string;
+  breed: string;
+  needs: string;
+  behaviour: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.petName = 'ex: mazda';
-    this.petDescrip = 'ex: He\'s really fast';
-    this.breedDescrip = 'ex: Hybrid between chicken, grey hound, and a mazda of course';
-    this.specNeeds = 'ex: Allergic to cheese, please keep him away from it';
-    this.behaviorDescrip = 'ex: Steals the remote sometimes, it\'s up to you if you want to chase him';
+    this.petname = 'ex: mazda';
+    this.petdescription = 'ex: He\'s really fast';
+    this.breed = 'ex: Hybrid between chicken, grey hound, and a mazda of course';
+    this.needs = 'ex: Allergic to cheese, please keep him away from it';
+    this.behaviour = 'ex: Steals the remote sometimes, it\'s up to you if you want to chase him';
   }
 
   addClicked() {
     console.log('add button clicked');
+
     console.log(this.newPet);
-    this.newPet.petName = this.petName;
-    this.newPet.breed = this.breedDescrip;
-    this.newPet.specNeeds = this.specNeeds;
-    this.newPet.petDescrip = this.petDescrip;
-    this.newPet.behaviour = this.behaviorDescrip;
+    this.newPet = {
+      petName: this.petname,
+      breed: this.breed,
+      needs: this.needs,
+      petDescription: this.petdescription,
+      behaviour: this.behaviour,
+      image: null,
+      user: new User
+    };
+    
     this.addingPet.emit(this.newPet);
   }
 

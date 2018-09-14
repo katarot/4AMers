@@ -35,7 +35,7 @@ import { AuthService } from './services/auth.service';
     MessagingComponent,
     EditprofileComponent,
     AddpetprofileComponent,
-    AddPetComponent
+    AddPetComponent 
   ],
   imports: [
     BrowserModule,
@@ -50,7 +50,6 @@ import { AuthService } from './services/auth.service';
               CookieService,
               AuthService
           ],
- 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

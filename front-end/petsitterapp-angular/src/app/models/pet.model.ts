@@ -1,7 +1,7 @@
-import { User } from "./user.model";
+import { User } from './user.model';
 
 export class Pet {
-    id: number;
+    id ?: number;
     petName: string;
     breed:  string;
     needs:  string;
