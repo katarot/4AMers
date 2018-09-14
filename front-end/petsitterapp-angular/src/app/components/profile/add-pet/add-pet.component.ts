@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-pet',
@@ -18,7 +19,7 @@ export class AddPetComponent implements OnInit {
   specNeeds: string;
   behaviorDescrip: string;
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
     this.petName = 'ex: mazda';

@@ -44,15 +44,16 @@ export class HomeComponent implements OnInit {
           this.invalidLogin = true;
         } else {  // correct login information
           this.cookieService.deleteAll(); // do we need this?
-          this.cookieService.set('username', this.user.username, 2); // will expire in 2 days
+          // this.cookieService.set('username', this.user.username, 2); // will expire in 2 days
           // this.cookieService.set('password', this.user.password, 2);
-          this.cookieService.set('firstname', this.user.firstName, 2);
-          this.cookieService.set('lastname', this.user.lastName, 2);
-          this.cookieService.set('email', this.user.email, 2);
-          this.cookieService.set('bioDescription', this.user.bioDescription, 2);
+          // this.cookieService.set('firstname', this.user.firstName, 2);
+          // this.cookieService.set('lastname', this.user.lastName, 2);
+          // this.cookieService.set('email', this.user.email, 2);
+          // this.cookieService.set('bioDescription', this.user.bioDescription, 2);
           this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());
           this.invalidLogin = false;
+          this.router.navigate(['/psHomeComponent']);
         }
       }
     );

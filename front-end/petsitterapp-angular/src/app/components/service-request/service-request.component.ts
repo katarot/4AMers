@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 import { User } from '../../models/user.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-service-request',
@@ -13,15 +14,19 @@ import { User } from '../../models/user.model';
 })
 export class ServiceRequestComponent implements OnInit {
 
-  description: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+  // tslint:disable-next-line:max-line-length
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
   petModel: Pet;
   pets: Pet[] = [];
   serviceRequest: ServiceRequest[] = [];
-  
+
   theDate: string;
   petId: number;
-  
-  constructor(private petService: PetCrudService, private srvRequestService: ServiceRequestCrudService) { }
+
+  constructor(
+    private petService: PetCrudService,
+    private srvRequestService: ServiceRequestCrudService,
+    private cookieService: CookieService) { }
 
   ngOnInit() {
 
@@ -34,14 +39,14 @@ export class ServiceRequestComponent implements OnInit {
     //   }
     // );
 
-    
+
     // GET PET DATA TO POPULATE SELECT LIST
     this.petService.getPets().subscribe(
       p => {
         this.pets = p;
       }
     );
-    
+
   }
 
 
@@ -53,17 +58,17 @@ export class ServiceRequestComponent implements OnInit {
     this.pets.filter(function(element, index, array) {
 
       // = event.target.value;
-      
+
       // console.log(element);
       // console.log(" ---> ");
       // console.log(this.petId);
 
       if (element.id == event.target.value) {
-        console.log("We selected this -> ");
+        console.log('We selected this -> ');
         console.log(element);
         // this.petModel = element;
       }
-      
+
     });
 
   }
@@ -78,7 +83,7 @@ export class ServiceRequestComponent implements OnInit {
 
     //     console.log("We are getting specific pet by id");
     //     this.petModel = pet;
-        
+
     //     console.log(this.petModel);
 
     //   }
@@ -87,13 +92,13 @@ export class ServiceRequestComponent implements OnInit {
     //  OPTION 2: I can filter of the this.pets list
     // this.pets.filter(function(element, index, array) {
     //   // console.log("Pet ID -> " + this.petId);
-      
+
     //   console.log(element);
     //   console.log(" ---> ");
     //   console.log(this.petId);
 
     // });
-    
+
 
     // console.log("outside the getpetbyid fn -> ");
     // console.log(this.petModel);

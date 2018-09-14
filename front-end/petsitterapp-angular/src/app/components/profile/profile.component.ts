@@ -13,9 +13,11 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private petProfile: PetCrudService, private userProfile: UserCrudService) {}
+  constructor(
+    private petProfile: PetCrudService,
+    private userProfile: UserCrudService,
+    private cookieService: CookieService) {}
 
-  cookieService: CookieService;
   petList: Pet[] = [];
   newPetList: Pet[] = [];
   pets: Pet;
