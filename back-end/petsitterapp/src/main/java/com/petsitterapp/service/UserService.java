@@ -37,11 +37,6 @@ public class UserService {
 			return userRepo.add(u);
 		}
 	}
-	public void update(User u) {
-//		User user = userRepo.getByUsername(u.getUsername());
-//		u.setId(user.getId());
-		userRepo.update(u);
-	}
 
 	public List<User> getAll() {
 		return userRepo.getAll();
