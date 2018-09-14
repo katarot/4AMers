@@ -13,7 +13,7 @@ export class UploadFileService {
   FOLDER = 'petpal-s3/';
   imageSrc: any;
 
-  constructor() { }
+  constructor(private cookieSrv: CookieService) { }
 
   uploadfile(file) {
     let location = {};
