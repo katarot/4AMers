@@ -37,6 +37,10 @@ public class UserService {
 			return userRepo.add(u);
 		}
 	}
+	
+	public void update(User u) {
+		userRepo.update(u);
+	}
 
 	public List<User> getAll() {
 		return userRepo.getAll();
@@ -49,10 +53,5 @@ public class UserService {
 	public User getByUsername(String username) {
 		return userRepo.getByUsername(username);
 	}
-
-//	public static void main(String[] args) {
-//		User u = userRepo.getByUsername("mollymerritt");
-//		System.out.println(u.toString());
-//	}
 
 }

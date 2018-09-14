@@ -29,5 +29,5 @@ export class EditprofileComponent implements OnInit {
 
 // selectFile(event){
 //   this.selectedFiles = event.target.files;
-  
+
 // }
