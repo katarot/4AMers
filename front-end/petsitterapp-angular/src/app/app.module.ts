@@ -18,7 +18,8 @@ import { PetCrudService } from './services/pet-crud.service';
 import { UploadFileService } from './services/upload-file.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
-import { AddPetComponent } from './components/profile/add-pet/add-pet.component';
+// import { AddPetComponent } from './components/profile/add-pet/add-pet.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,8 @@ import { AddPetComponent } from './components/profile/add-pet/add-pet.component'
     PetPostingComponent,
     MessagingComponent,
     EditprofileComponent,
-    AddpetprofileComponent,
-    AddPetComponent
+    AddpetprofileComponent
+    // AddPetComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +44,12 @@ import { AddPetComponent } from './components/profile/add-pet/add-pet.component'
     // NgbModal
     // CookieModule // .forRoot()
   ],
-  providers: [PetCrudService, 
-              UploadFileService,  //npm install aws-sdk
+  providers: [PetCrudService,
+              UploadFileService,  // npm install aws-sdk
               CookieService,
               AuthService
           ],
- 
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
