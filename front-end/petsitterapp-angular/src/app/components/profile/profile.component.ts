@@ -18,10 +18,13 @@ export class ProfileComponent implements OnInit {
     private petProfile: PetCrudService,
     private userProfile: UserCrudService,
     private cookieService: CookieService) {}
-  
+
   petList: Pet[] = [];
   newPetList: Pet[] = [];
   newPet: Pet;
+  testPet: {
+    pet
+  };
   pets: Pet;
   petName: string;
   petDescription: string;
@@ -40,17 +43,42 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
     this.user = JSON.parse(this.cookieService.get('user'));
-    console.log(this.user.firstName);
-    // this.user.id = this.cookieService.get('id');
+    this.userid = this.user.id;
     this.petProfile.getPets().subscribe(
       p => {
         this.petList = p;
       }
     );
-
-    this.setUserInfo();
+    this.setUserInfo(this.userid);
     this.setPetInfo();
-  }
+
+    this.petProfile.getPets().subscribe(
+      pi => {
+        // get my pet list
+        this.newPetList = pi;
+        // obtain current user-id
+        let i: number;
+        let count: number;
+        count = 0;
+        for (i = 0; i < this.newPetList.length; i++) {
+          if (this.newPetList[i].user !== null && this.newPetList[i].user.id === this.user.id) {
+            this.petList[count] = this.newPetList[i];
+            console.log(this.petList[count]);
+            count++;
+          }
+        }
+        // this.newPetList.filter(function(element, index, array) {
+        //   // find all pets that have the user_id of 1
+        //   if (this.newPetList.user !== null) {
+        //     if (this.newPetList.user.id === this.user.id) {
+        //       return true;
+        //       }
+        //     }
+        //   }
+        // );
+      }
+    );
+}
 
   getPet(event: any) {
     console.log('inside get pet event');
@@ -62,7 +90,14 @@ export class ProfileComponent implements OnInit {
   receiveUpdate($event) {
     console.log('in receive update');
     this.bioDescription = $event;
-    console.log(this.bioDescription);
+    this.user.bioDescription = this.bioDescription;
+    this.userProfile.updateUser(this.user).subscribe(
+      us => {
+        this.user = us;
+      }
+    );
+    console.log('updated');
+    console.log(this.user);
   }
 
   receivePet($event) {
@@ -85,18 +120,18 @@ export class ProfileComponent implements OnInit {
     console.log('in changePetProfile');
     this.petProfile.getPetById(petId).subscribe(
        cp => {
-         this.petList = cp;
+         this.pets = cp;
          console.log(this.petList);
-         this.petName = this.petList.petName;
-         this.breed = this.petList.breed;
-         this.petDescription = this.petList.petDescription;
+         this.petName = this.pets.petName;
+         this.breed = this.pets.breed;
+         this.petDescription = this.pets.petDescription;
          this.petImage = 'https://i.imgur.com/4QxR1VP.png';
        }
     );
   }
 
-  setUserInfo() {
-    this.userProfile.getUserInfo(1).subscribe(
+  setUserInfo(userid: number) {
+    this.userProfile.getUserInfo(userid).subscribe(
       ui => {
         this.user = ui;
         this.userid = this.user.id;
@@ -104,7 +139,6 @@ export class ProfileComponent implements OnInit {
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
         this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
-        console.log(this.user);
         }
       );
     }
@@ -112,24 +146,12 @@ export class ProfileComponent implements OnInit {
   setPetInfo() {
     this.petProfile.getPets().subscribe(
       pi => {
-        // let i: number;
         this.petList = pi;
         this.petName = this.petList[0].petName;
         this.petDescription = this.petList[0].petDescription;
         this.breed = this.petList[0].breed;
         this.petImage = 'https://i.imgur.com/xryepMt.jpg';
         // this.petImage = this.petList[0].petImage;
-        console.log(this.petList);
-        this.newPetList = this.petList.filter(function(element, index, array) {
-          // find all pets that have the user_id of 1
-          if (element.user !== null) {
-            if (element.user.id === 1) {
-              return true;
-            }
-          }
-        }
-      );
-      console.log(this.newPetList);
         // for (i = 0; i < 2; i++) {
         //   this.petList[i] = pi;
         //   this.pets = this.petList[i];
