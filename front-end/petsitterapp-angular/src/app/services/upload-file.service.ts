@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
-// import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
+import { Picture } from './../models/picture.model'
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +42,11 @@ export class UploadFileService {
       console.log(this.url);
       console.log(this.url.Location);
       //this.cookieSrv.set(this.imageSrc, 3, 1);
-
-      //this.http.post("76543435:89888/pictures", {pictureName: this.url.Location});
+      let pic = new Picture;
+      pic.filepath = this.url.Location;
+      pic.petId
+      pic.userId
+      this.http.post("http://localhost:8900/pictures", {pic});
 
     });
   
