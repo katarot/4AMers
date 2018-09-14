@@ -36,8 +36,16 @@
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">{{petName}}</a>
-            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider">...</div>
           </div>
+
+          <select>
+            <option *ngFor="let p of newPetList">
+              {{ p.petName }}
+            </option>
+          </select>
+
+
         </div>
     </div>
     <app-addpetprofile></app-addpetprofile>

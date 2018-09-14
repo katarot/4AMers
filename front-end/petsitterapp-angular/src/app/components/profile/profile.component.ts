@@ -14,8 +14,10 @@ import { CookieService } from 'ngx-cookie-service';
 export class ProfileComponent implements OnInit {
 
   constructor(private petProfile: PetCrudService, private userProfile: UserCrudService) {}
+
   cookieService: CookieService;
   petList: Pet[] = [];
+  newPetList: Pet[] = [];
   pets: Pet;
   petName: string;
   petDescription: string;
@@ -30,8 +32,6 @@ export class ProfileComponent implements OnInit {
   bioDescription: string;
   urImage: string;
 
-  clickMessage = '';
-
   // onClickMe() {
   //   const popup = document.getElementById('popUpForm');
   //   popup.classList.toggle('show');
@@ -42,6 +42,46 @@ export class ProfileComponent implements OnInit {
     this.setUserInfo();
   }
 
+  // receiveUpdate($event) {
+  //   console.log('in receive update');
+  //   this.bioDescription = $event;
+  //   this.petProfile.getPetById(1).subscribe(
+  //     p => {
+  //       this.pets = p;
+  //       this.petName = p.petName;
+  //       this.petDescription = p.petDescription;
+  //       this.breed = p.breed;
+  //       this.needs = p.needs;
+  //       this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+
+  //       this.firstName = this.pets.user.firstName;
+  //       this.lastName = this.pets.user.lastName;
+  //       this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
+  //       this.pets.user.bioDescription = this.bioDescription;
+
+  //       console.log(this.pets.user.bioDescription);
+  //       this.userProfile.changeUserDescrip(this.pets.user.id, this.pets.user).subscribe(
+  //         u => {
+  //           this.bioDescription = this.pets.user.bioDescription;
+  //         }
+  //       );
+  //       console.log(this.pets.user.id);
+  //     }
+  //   );
+  // }
+
+  // receivePet($event) {
+  //     console.log('in receive update');
+  //     this.newPet = $event;
+  //     console.log(this.newPet);
+  //     this.newPet.user = this.pets.user.id;
+  //     console.log(this.newPet.user);
+  //   //   this.petProfile.addNewPet(this.newPet.user.id, this.newPet).subscribe(
+
+  //   // );
+
+  // }
+
   setUserInfo() {
     this.userProfile.getUserInfo(1).subscribe(
       ui => {
@@ -51,13 +91,26 @@ export class ProfileComponent implements OnInit {
         this.bioDescription = this.user.bioDescription;
         this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
         console.log(this.user);
-        this.petProfile.getPetById(1).subscribe(
+        this.petProfile.getPets().subscribe(
           pi => {
             // let i: number;
-            this.petList[0] = pi;
-            this.petList[0].petImage = 'https://i.imgur.com/xryepMt.jpg';
-            this.petImage = this.petList[0].petImage;
+            this.petList = pi;
+            // this.petImage = this.petList[0].petImage;
+            console.log(this.petList);
+            this.newPetList = this.petList.filter(function(element, index, array) {
+              // this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+              // this.element[0].petImage = 'https://i.imgur.com/xryepMt.jpg';
+              // this.newPetImage = this.element[0].petImage;
 
+              // find all pets that have the user_id of 1
+              if (element.user !== null) {
+                if (element.user.id === 1) {
+                  return true;
+                }
+              }
+            }
+          );
+          console.log(this.newPetList);
             // for (i = 0; i < 2; i++) {
             //   this.petList[i] = pi;
             //   this.pets = this.petList[i];
