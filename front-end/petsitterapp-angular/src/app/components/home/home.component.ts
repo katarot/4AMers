@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   private username: string;
   private password: string;
   private user: User;
+  private users: User[];
   private invalidLogin: boolean;
 
   // private firstname: string;
@@ -75,13 +76,11 @@ export class HomeComponent implements OnInit {
   register() {
     console.log('in register method');
     console.log('firstname = ' + this.firstname);
-    // console.log('lastname = ' + this.lastname);
-    // console.log('username = ' + this.regUsername);
-    // console.log('password = ' + this.regPassword);
-    // console.log('email = ' + this.email);
-    // console.log('bioDescription = ' + this.bioDescription);
-    // console.log('this.user.firstName = ' + this.user.firstName);
-    // console.log(this.user);
+    console.log('lastname = ' + this.lastname);
+    console.log('username = ' + this.regUsername);
+    console.log('password = ' + this.regPassword);
+    console.log('email = ' + this.email);
+    console.log('bioDescription = ' + this.bioDescription);
     this.user = {
       // id: 0,
       username: this.regUsername,
@@ -90,9 +89,31 @@ export class HomeComponent implements OnInit {
       lastName: this.lastname,
       email: this.email,
       dateRegistered: '2018-09-14',
-      bioDescription: this.bioDescription
+      bioDescription: 'this.bioDescription'
+      // username: 'regusername',
+      // password: 'password',
+      // firstName: 'this.firstname',
+      // lastName: 'this.lastname',
+      // email: 'this.email',
+      // dateRegistered: '2018-09-14',
+      // bioDescription: 'this.bioDescription'
     };
+    // this.users[0] = this.user;
     console.log(this.user);
+
+    // this.users = [
+    //   {
+    //     username: this.regUsername,
+    //     password: this.regPassword,
+    //     firstName: this.firstname,
+    //     lastName: this.lastname,
+    //     email: this.email,
+    //     dateRegistered: '2018-09-14',
+    //     bioDescription: this.bioDescription
+    //   }
+    // ];
+    console.log(this.users);
+    // this.auth.register(this.users).subscribe(
     this.auth.register(this.user).subscribe(
       data => {
         this.user = data;
