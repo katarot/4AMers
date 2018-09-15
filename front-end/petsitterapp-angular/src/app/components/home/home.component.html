@@ -45,9 +45,13 @@
               <input type="text" id="usernameReg" name="username" required [(ngModel)]='regUsername'/> <br>
               <label for="password">Password</label>
               <input type="password" id="passwordReg" name="password" required [(ngModel)]='regPassword'/> <br>
+              
               <label for="bioDescription">Describe Yourself</label>
-              <input type="text" id="bioDescriptionReg" name="bioDescription" [(ngModel)]='bioDescription'/>
-          </div>
+              <!-- <input type="text" id="bioDescriptionReg" name="bioDescription" [(ngModel)]='bioDescription'/> -->
+
+              <input type="text" [(ngModel)]="bioDescription" />
+          
+            </div>
           <input type="button" class="btn btn-primary" (click)="register()" value="Register">
       </div>
       <div class="modal-footer">

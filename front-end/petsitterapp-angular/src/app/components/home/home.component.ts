@@ -56,6 +56,10 @@ export class HomeComponent implements OnInit {
         if (this.user.id === 0) { // incorrect login information
           this.invalidLogin = true;
         } else {  // correct login information
+
+          console.log("this.user");
+          console.log(this.user);
+
           this.cookieService.deleteAll(); // do we need this?
           // this.cookieService.set('username', this.user.username, 2); // will expire in 2 days
           // this.cookieService.set('password', this.user.password, 2);
@@ -82,20 +86,33 @@ export class HomeComponent implements OnInit {
     // console.log('bioDescription = ' + this.bioDescription);
     // console.log('this.user.firstName = ' + this.user.firstName);
     // console.log(this.user);
+
+    // this.user = {
+    //   // id: 0,
+    //   username: this.regUsername,
+    //   password: this.regPassword,
+    //   firstName: this.firstname,
+    //   lastName: this.lastname,
+    //   email: this.email,
+    //   dateRegistered: '2018-09-14',
+    //   bioDescription: this.bioDescription
+    // };
+
     this.user = {
-      // id: 0,
-      username: this.regUsername,
-      password: this.regPassword,
-      firstName: this.firstname,
-      lastName: this.lastname,
-      email: this.email,
-      dateRegistered: '2018-09-14',
-      bioDescription: this.bioDescription
+      username:this.regUsername,
+      password:this.regPassword,
+      firstName:this.firstname,
+      lastName:this.lastname,
+      email:this.email,
+      dateRegistered:"2018-09-13",
+      bioDescription:"this.bioDescription"
     };
+
     console.log(this.user);
     this.auth.register(this.user).subscribe(
       data => {
         this.user = data;
+        console.log("---->");
         console.log(this.user);
       }
     );
