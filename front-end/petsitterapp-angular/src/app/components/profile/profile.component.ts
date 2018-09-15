@@ -69,7 +69,9 @@ export class ProfileComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    if (!this.navbarService.isLoggedIn()) {
+    if (this.navbarService.isLoggedIn()) {
+      this.ngOnInit();
+    } else {
       this.router.navigate(['/home']);
     }
   }
