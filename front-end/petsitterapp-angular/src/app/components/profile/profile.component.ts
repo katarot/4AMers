@@ -87,9 +87,9 @@ export class ProfileComponent implements OnInit {
        cp => {
          this.petList = cp;
          console.log(this.petList);
-         this.petName = this.petList.petName;
-         this.breed = this.petList.breed;
-         this.petDescription = this.petList.petDescription;
+         this.petName = this.petList[1].petName;
+         this.breed = this.petList[1].breed;
+         this.petDescription = this.petList[1].petDescription;
          this.petImage = 'https://i.imgur.com/4QxR1VP.png';
        }
     );

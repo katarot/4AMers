@@ -29,7 +29,7 @@ export class UploadFileService {
 
     const params = {
       Bucket: 'petpalpictures',
-      Key: this.FOLDER + Math.random() + file.name,
+      Key: this.FOLDER + Math.round(Math.random()*100000000) + file.name,
       Body: file
     };
 
@@ -47,8 +47,8 @@ export class UploadFileService {
       user = JSON.parse(this.cookieSrv.get('user'));
       let pic = new Picture;
       pic.filepath = this.url.Location;
-      pic.petId
-      pic.userId = this.user.
+      pic.petId = 
+      pic.userId = this.user.userId;
       this.http.post("http://localhost:8900/pictures", {pic});
 
     });
