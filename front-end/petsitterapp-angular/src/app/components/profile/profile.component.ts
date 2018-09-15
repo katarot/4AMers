@@ -56,8 +56,16 @@ export class ProfileComponent implements OnInit {
       }
     );
     this.setUserInfo(this.userid);
-    this.setPetInfo();
+    this.setPetInfo(this.userid);
 }
+
+  changePet($event) {
+    console.log('changing PET INFO');
+    this.pets = $event;
+    this.pets.user = this.user;
+    this.pets.petName = this.petName;
+    console.log(this.pets);
+  }
 
   getPet(event: any) {
     console.log(event.target.value);
@@ -112,16 +120,34 @@ export class ProfileComponent implements OnInit {
       );
     }
 
-  setPetInfo() {
+  setPetInfo(userid: number) {
     this.petProfile.getPets().subscribe(
       pi => {
         // check if person has a pet
-
+        // meaning pass their information in and check pet -> user id
+        this.userid = userid;
         this.petList = pi;
-        this.petName = this.petList[0].petName;
-        this.petDescription = this.petList[0].petDescription;
-        this.breed = this.petList[0].breed;
-        this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+        let i: number;
+        let count: number;
+        count = 0;
+        for (i = 0; i < this.petList.length; i++) {
+          if (this.petList[i].user !== null && this.petList[i].user.id === this.user.id) {
+            this.newPetList[count] = this.petList[i];
+            count++;
+          }
+        }
+        if (this.newPetList[0] !== undefined) {
+          this.petName = this.newPetList[0].petName;
+          this.petDescription = this.newPetList[0].petDescription;
+          this.breed = this.newPetList[0].breed;
+          this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+        }
+        // if (this.newPetList[0].petName !== null) {
+        //   this.petName = this.newPetList[0].petName;
+        //   this.petDescription = this.newPetList[0].petDescription;
+        //   this.breed = this.newPetList[0].breed;
+        //   this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+        // }
       }
     );
   }
