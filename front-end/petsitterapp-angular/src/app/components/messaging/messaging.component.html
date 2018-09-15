@@ -1,6 +1,9 @@
 <div class="container">
-  <form (click)="submit()">
+  <form (submit)="submit()">
+    <input type="text" name="subject" id="subject">
+    <input type="text" name="receiver" id="receiver">
     <input type="text" name="msgBody" id="msgBody">
+    <input type="submit" class="btn btn-primary" value="Send Message!">
   </form>
   <p>WOOT</p>
 </div>
