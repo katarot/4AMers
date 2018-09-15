@@ -52,7 +52,6 @@ import { LogoutComponent } from './components/logout/logout.component';
               CookieService,
               AuthService
           ],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

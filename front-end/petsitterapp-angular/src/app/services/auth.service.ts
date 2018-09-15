@@ -13,7 +13,7 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     const u = { username: username, password: password };
-    return this.http.post<any>('http://localhost:8080/petsitterapp/login', u);
+    return this.http.post<any>('http://18.232.118.152:8080/project2/login', u);
   }
 
   register(user: User): Observable<any> {

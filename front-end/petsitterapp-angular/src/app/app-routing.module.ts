@@ -15,8 +15,8 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     { path: 'srComponent', component: ServiceRequestComponent },
     { path: 'srlComponent', component: ServiceRequestsListComponent },
-    { path: 'dariusComponent', component: PetPostingComponent },
-    { path: 'logout', component: LogoutComponent }
+    { path: 'dariusComponent', component: PetPostingComponent }
+//    { path: 'logout', component: LogoutComponent }
 
 
     // { path: 'home', component: HomeComponent },

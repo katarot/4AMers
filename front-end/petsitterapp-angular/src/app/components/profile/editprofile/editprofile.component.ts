@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ProfileComponent } from '../../profile/profile.component';
 import { EventEmitter } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-editprofile',
@@ -11,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class EditprofileComponent implements OnInit {
   @Output() bioUpdate = new EventEmitter<string>();
 
-  constructor(private cookieService: CookieService) { }
+  constructor() { }
   bioDescription: string;
 
   updateBio() {
@@ -20,4 +19,15 @@ export class EditprofileComponent implements OnInit {
   }
   ngOnInit() {
   }
+
+  // upload() {
+  //   const file = this.selectedFiles.item(0);
+  //   this.upLoadService.uploadfile(file);
+    // this.url = this.upLoadService.url;
+    //     console.log(this.upLoadService.url);
 }
+
+// selectFile(event){
+//   this.selectedFiles = event.target.files;
+
+// }

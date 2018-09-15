@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { CookieService } from 'ngx-cookie-service';
+import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
+import { ServiceRequest } from '../../models/service-request.model';
 
 @Component({
   selector: 'app-service-requests-list',
@@ -11,17 +12,16 @@ import { CookieService } from 'ngx-cookie-service';
 export class ServiceRequestsListComponent implements OnInit {
 
   pets: Pet[] = [];
+  serviceRequest: ServiceRequest[] = [];
 
-  constructor(
-    private petService: PetCrudService,
-    private cookieService: CookieService) { }
+  constructor(private cookieService: CookieService, private srvReqService: ServiceRequestCrudService) { }
 
   ngOnInit() {
 
-    this.petService.getPets().subscribe(
-      p => {
-        this.pets = p;
-        console.log(this.pets);
+    this.srvReqService.getPSRequestData().subscribe(
+      sr => {
+        console.log(sr);
+        this.serviceRequest = sr;
       }
     );
 

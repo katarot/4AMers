@@ -3,7 +3,7 @@ import { User } from "./user.model";
 
 export class ServiceRequest {
     
-    id: number;
+    id ?: number;
     dateCreated: string;
     status: string;
     description: string;
