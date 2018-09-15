@@ -4,6 +4,7 @@ import { Pet } from '../../../models/pet.model';
 import { User } from '../../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
 
+
 @Component({
   selector: 'app-add-pet',
   templateUrl: './add-pet.component.html',
@@ -19,7 +20,7 @@ export class AddPetComponent implements OnInit {
   needs: string;
   behaviour: string;
 
-  constructor(private cookieService: CookieService) { }
+  constructor() { }
 
   ngOnInit() {
     this.petname = 'ex: mazda';
@@ -31,8 +32,6 @@ export class AddPetComponent implements OnInit {
 
   addClicked() {
     console.log('add button clicked');
-
-    console.log(this.newPet);
     this.newPet = {
       petName: this.petname,
       breed: this.breed,
@@ -42,7 +41,9 @@ export class AddPetComponent implements OnInit {
       image: null,
       user: new User
     };
-    
+
+    console.log(this.newPet);
+
     this.addingPet.emit(this.newPet);
   }
 

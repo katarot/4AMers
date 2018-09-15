@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="color: black" id="profileBody">
@@ -34,11 +33,14 @@
                     {{ p.petName }}
                   </option>
                 </select>
+                <hr>
+                <app-editpetpro (petUpdate)="changePet($event)"></app-editpetpro>
         </div>
       </div>
     </div>
     <br>
   </div>
+</div>
 </div>
 <br>
 <!-- Footer -->
