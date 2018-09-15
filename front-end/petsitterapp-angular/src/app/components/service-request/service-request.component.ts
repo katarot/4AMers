@@ -82,8 +82,8 @@ export class ServiceRequestComponent implements OnInit {
         console.log("data from db -> srvReq");
         console.log(srvReq);
 
-        // this.router.navigate(["/dariusComponent"]);
-        this.router.navigate(["/srlComponent"]);
+        this.router.navigate(["/dariusComponent"]);
+        // this.router.navigate(["/srlComponent"]);
 
       }
     );
