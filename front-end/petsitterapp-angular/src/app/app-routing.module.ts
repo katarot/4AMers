@@ -6,7 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ServiceRequestComponent } from './components/service-request/service-request.component';
 import { ServiceRequestsListComponent } from './components/service-requests-list/service-requests-list.component';
 import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
-// import { LogoutComponent } from 'src/app/components/logout/logout.component';
+import { LogoutComponent } from '../app/components/logout/logout.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },

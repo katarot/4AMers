@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
+import { CookieService } from 'ngx-cookie-service';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -41,6 +42,18 @@ export class AddPetComponent implements OnInit {
     };
 
     console.log(this.newPet);
+    this.newPet = [
+      {
+        petName: this.petName,
+        breed: this.breedDescrip,
+        needs: this.specNeeds,
+        petDescription: this.petDescrip,
+        behaviour: this.behaviorDescrip,
+        image: null,
+        user: new User
+      }
+    ];
+
     this.addingPet.emit(this.newPet);
   }
 

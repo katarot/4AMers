@@ -47,6 +47,9 @@
               <input type="password" id="passwordReg" name="password" required [(ngModel)]='regPassword'/> <br>
               <label for="bioDescription">Describe Yourself</label>
               <input type="text" id="bioDescriptionReg" name="bioDescription" [(ngModel)]='bioDescription'/>
+              <div id="message" *ngIf="this.bioTooShort">
+                  Your description must be at least 15 characters long.
+                </div>
           </div>
           <input type="button" class="btn btn-primary" (click)="register()" required value="Register">
       </div>
