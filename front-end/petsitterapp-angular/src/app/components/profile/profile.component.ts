@@ -4,7 +4,11 @@ import { Pet } from '../../models/pet.model';
 import { UserCrudService } from '../../services/user-crud.service';
 import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
-import { getPackedSettings } from 'http2';
+// import { getPackedSettings } from 'http2';
+// import { FormGroup,
+// FormsModule,
+// ReactiveFormsModule,
+// FormBuilder} from '@angular/forms';
 
 
 @Component({
@@ -64,6 +68,7 @@ export class ProfileComponent implements OnInit {
     this.pets = $event;
     this.pets.user = this.user;
     this.pets.petName = this.petName;
+
     console.log(this.pets);
   }
 
@@ -102,7 +107,7 @@ export class ProfileComponent implements OnInit {
          this.petName = this.pets.petName;
          this.breed = this.pets.breed;
          this.petDescription = this.pets.petDescription;
-         this.petImage = 'https://i.imgur.com/4QxR1VP.png';
+         this.petImage = 'https://i.imgur.com/qtnuAiI.jpg';
        }
     );
   }
@@ -142,12 +147,6 @@ export class ProfileComponent implements OnInit {
           this.breed = this.newPetList[0].breed;
           this.petImage = 'https://i.imgur.com/xryepMt.jpg';
         }
-        // if (this.newPetList[0].petName !== null) {
-        //   this.petName = this.newPetList[0].petName;
-        //   this.petDescription = this.newPetList[0].petDescription;
-        //   this.breed = this.newPetList[0].breed;
-        //   this.petImage = 'https://i.imgur.com/xryepMt.jpg';
-        // }
       }
     );
   }
