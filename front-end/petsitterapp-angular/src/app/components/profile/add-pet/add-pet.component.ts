@@ -23,11 +23,6 @@ export class AddPetComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.petname = 'ex: mazda';
-    this.petdescription = 'ex: He\'s really fast';
-    this.breed = 'ex: Hybrid between chicken, grey hound, and a mazda of course';
-    this.needs = 'ex: Allergic to cheese, please keep him away from it';
-    this.behaviour = 'ex: Steals the remote sometimes, it\'s up to you if you want to chase him';
   }
 
   addClicked() {

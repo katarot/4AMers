@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
   needs: string;
   petImage: string;
   petId: number;
+  behaviors: string[];
 
   user: User;
   userid: number;
