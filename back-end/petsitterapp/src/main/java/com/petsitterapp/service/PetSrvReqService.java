@@ -25,5 +25,9 @@ public class PetSrvReqService {
 	public PetSrvReq getById(int id) {
 		return psRepo.getById(id);
 	}
+	
+	public void update(PetSrvReq p) {
+		psRepo.update(p);
+	}
 
 }

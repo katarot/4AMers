@@ -9,6 +9,10 @@ div{
     background-color: white;
 }
 
+#footer{
+    background-color:#343a40!important
+}
+
 h1, h5{
     font-family: 'Lobster', cursive;
     background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
