@@ -36,7 +36,7 @@ public class Pet {
 	private String image;	// image path
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_ID")
+	@JoinColumn(name="USER_ID", nullable=false)
 	private User user;
 	
 	public Pet() {}
