@@ -10,13 +10,13 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <div class="form">
         <div class="modal-body">
-            <form>
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="yourDescription">Your Bio</label>
-                    <textarea type="description" class="form-control" id="proDescrip" 
-                    rows="3"></textarea>
+                    <input type="description" class="form-control" id="proDescrip" 
+                         rows="3" [(ngModel)]="bioDescription">
                   </div>
                 </div>
                 <div class="form-group">
@@ -34,11 +34,11 @@
                           </div>
                       </div>
                 </div>
-
-              </form>
+                </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" 
+                (click)="updateBio()" id="save">Save changes</button>
               </div>
         </div>
       </div>

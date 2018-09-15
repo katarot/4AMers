@@ -31,6 +31,7 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	private String image;
 	
 	@Column(unique=true, nullable=false)
 	private String email;
@@ -39,19 +40,20 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	private Date dateRegistered;	// date... ?
 	
-	@Size(min=15, message="Bio must be at least 15 characters")
+	@Size(min=15, message="Bio must be at least 10 characters")
 	private String bioDescription;
 
 	public User() {}
-	
-	public User(int id, String username, String password, String firstName, String lastName, String email, Date dateRegistered,
-			String bioDescription) {
+
+	public User(int id, String username, String password, String firstName, String lastName, String image, String email,
+			Date dateRegistered, String bioDescription) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.image = image;
 		this.email = email;
 		this.dateRegistered = dateRegistered;
 		this.bioDescription = bioDescription;
@@ -97,6 +99,14 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -124,8 +134,9 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", dateRegistered=" + dateRegistered + ", bioDescription="
-				+ bioDescription + "]";
+				+ ", lastName=" + lastName + ", image=" + image + ", email=" + email + ", dateRegistered="
+				+ dateRegistered + ", bioDescription=" + bioDescription + "]";
 	}
+	
 	
 }
