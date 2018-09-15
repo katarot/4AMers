@@ -39,6 +39,9 @@ p{
     width: 200px;
 }
 
+#option{
+    text-align: center;
+}
 h6{
     font-weight: bold;  
 }
@@ -48,6 +51,7 @@ select{
     background-color: rgb(3, 172, 214);
     border-color: #17a2b8;
     border-radius: 3px;
+    margin-left: 74px;
 }
 
 #exPetInfo{
