@@ -7,4 +7,5 @@ export class User {
     email: string;
     dateRegistered: string;
     bioDescription: string;
+    image?: String;
 }
