@@ -46,7 +46,22 @@ public class UserController {
 	public ResponseEntity<User> getById(@PathVariable int id) {
 		return new ResponseEntity<User>(userService.getById(id), HttpStatus.OK);
 	}
-
+	
+//	@RequestMapping(method=RequestMethod.POST,
+//			consumes=MediaType.APPLICATION_JSON_VALUE, //request body content
+//			produces=MediaType.APPLICATION_JSON_VALUE) //response body content
+//	public ResponseEntity<User> addUser(@Valid @RequestBody User u) { 
+//		u = userService.addUser(u);
+//		if (u == null) {
+//			System.out.println("In User Controller: addUser");
+//			System.out.println(u.toString());
+//			return new ResponseEntity<User>(u, HttpStatus.CONFLICT);
+//		} else {
+//			System.out.println("In User Controller: addUser");
+//			System.out.println(u.toString());
+//			return new ResponseEntity<User>(u, HttpStatus.CREATED);
+//		}
+//	}
 	
 	@RequestMapping(method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE, //request body content

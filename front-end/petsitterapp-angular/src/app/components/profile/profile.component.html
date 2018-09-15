@@ -1,11 +1,6 @@
-<!-- Page Content -->
 <div class="container">
-
-  <!-- Portfolio Item Heading -->
-  <!-- Portfolio Item Row -->
   <div class="row">
-
-    <div class="col-md-2" style="color: black">
+    <div class="col-md-2" style="color: black" id="profileBody">
       <br>
       <h2>{{firstName}} {{lastName}}</h2>
       <img class="img-fluid img-responsive" src="{{urImage}}" alt="urpic" id="profilePic">
@@ -15,47 +10,42 @@
       <hr>
       <app-add-pet (addingPet)="receivePet($event)"></app-add-pet>
     </div>
-    <div class="col-md-6">
-        <h2 class="panel panel-heading panel-primary my-4" style="text-align:center">This is {{petName}}</h2>
-      <img class="img-fluid" src="{{petImage}}" alt="ptpic" id="petPic">
-    </div>
-    <div class="col-md-4">
-      <br>
-      <h4>Breed: {{breed}}</h4>
-      <h4>{{petName}}'s Biography:</h4>
-      <h3 class="my-3"></h3>
-      <p id="petBio">{{petDescription}}</p>
-      <div class="panel panel-default">
-          <div class="panel-heading" id="petsNeedBorder">{{petName}}'s Special needs and Behaviour</div>
-          <div class="panel-body"> hi</div>
-        </div>
-      <div class="btn-group">
-          <button type="button" class="btn btn-info">{{petName}}</button>
-          <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">{{petName}}</a>
-            <div class="dropdown-divider"></div>
+    <div class="col-md-10" id="petBody">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="panel panel-heading panel-primary my-4" style="text-align:center">This is {{petName}}</h2>
+            <img class="img-fluid" src="{{petImage}}" alt="ptpic" id="petPic">
           </div>
+          <br>
+            <div class="col-md-4" id="exPetInfo">
+              <br>
+              <h4>Breed: {{breed}}</h4>
+              <h4>{{petName}}'s Biography:</h4>
+              <h3 class="my-3"></h3>
+              <p id="petBio">{{petDescription}}</p>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="petsNeedBorder">{{petName}}'s Special needs and Behaviour</div>
+                <div class="panel-body"> hi</div>
+              </div>
+                <select (change)="getPet($event)">
+                  <option *ngFor="let p of newPetList" [value]="p.id">
+                    {{ p.petName }}
+                  </option>
+                </select>
         </div>
+      </div>
     </div>
-
+    <br>
   </div>
-  <!-- /.row -->
-
-  <!-- Related Projects Row -->
-  <br>
-  </div>
-  <!-- /.row -->
-<!-- /.container -->
-
+</div>
+</div>
+<br>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
   <div class="container">
     <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
   </div>
-  <!-- /.container -->
 </footer>
 
 <!-- Bootstrap core JavaScript -->

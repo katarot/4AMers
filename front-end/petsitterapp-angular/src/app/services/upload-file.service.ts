@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
-// import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
+import { Picture } from './../models/picture.model';
+import { User } from './../models/user.model'
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,9 @@ export class UploadFileService {
   gobj: any;
   FOLDER = 'petpal-s3/';
   imageSrc: any;
+  
 
-  constructor() { }
+  constructor(private cookieSrv: CookieService) { }
 
   uploadfile(file) {
     let location = {};
@@ -26,7 +29,7 @@ export class UploadFileService {
 
     const params = {
       Bucket: 'petpalpictures',
-      Key: this.FOLDER + file.name,
+      Key: this.FOLDER + Math.round(Math.random()*100000000) + file.name,
       Body: file
     };
 
@@ -35,14 +38,18 @@ export class UploadFileService {
         console.log('There was an error uploading your file: ', err);
         return false;
       }
+      let user = new User;
       // console.log(data)
       console.log('Successfully uploaded file.', data);
       this.url = data;
       console.log(this.url);
       console.log(this.url.Location);
-      //this.cookieSrv.set(this.imageSrc, 3, 1);
-
-      //this.http.post("76543435:89888/pictures", {pictureName: this.url.Location});
+      user = JSON.parse(this.cookieSrv.get('user'));
+      let pic = new Picture;
+      pic.filepath = this.url.Location;
+      pic.petId = 
+      pic.userId = this.user.userId;
+      this.http.post("http://localhost:8900/pictures", {pic});
 
     });
   
@@ -53,6 +60,7 @@ export class UploadFileService {
   getUrl() {
     console.log('IN GET URL METHOD');
     console.log(this.url);
+    
     return this.url;
   }
   

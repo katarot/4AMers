@@ -4,6 +4,7 @@ import { Pet } from '../../models/pet.model';
 import { UserCrudService } from '../../services/user-crud.service';
 import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
+import { getPackedSettings } from 'http2';
 
 
 @Component({
@@ -13,15 +14,21 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private petProfile: PetCrudService, private userProfile: UserCrudService) {}
-  cookieService: CookieService;
+  constructor(
+    private petProfile: PetCrudService,
+    private userProfile: UserCrudService,
+    private cookieService: CookieService) {}
+  
   petList: Pet[] = [];
+  newPetList: Pet[] = [];
+  newPet: Pet;
   pets: Pet;
   petName: string;
   petDescription: string;
   breed: string;
   needs: string;
   petImage: string;
+  petId: number;
 
   user: User;
   userid: number;
@@ -30,41 +37,104 @@ export class ProfileComponent implements OnInit {
   bioDescription: string;
   urImage: string;
 
-  clickMessage = '';
-
-  // onClickMe() {
-  //   const popup = document.getElementById('popUpForm');
-  //   popup.classList.toggle('show');
-  // }
   ngOnInit() {
-    // this.cookieService.set('id', this.user.id.toString());
+
+    this.user = JSON.parse(this.cookieService.get('user'));
+    console.log(this.user.firstName);
     // this.user.id = this.cookieService.get('id');
+    this.petProfile.getPets().subscribe(
+      p => {
+        this.petList = p;
+      }
+    );
+
     this.setUserInfo();
+    this.setPetInfo();
+  }
+
+  getPet(event: any) {
+    console.log('inside get pet event');
+    console.log(event.target.value);
+    this.petId = event.target.value;
+    this.changePetProfile(this.petId);
+  }
+
+  receiveUpdate($event) {
+    console.log('in receive update');
+    this.bioDescription = $event;
+    console.log(this.bioDescription);
+  }
+
+  receivePet($event) {
+    console.log('in receive update');
+    this.newPet = $event;
+
+    this.newPet.user = this.user;
+    // console.log(this.user);
+    // console.log(typeof this.newPet);
+
+    this.petProfile.postP5RequestData(this.newPet).subscribe(
+      np => {
+        console.log(this.newPet);
+        this.newPet = np;
+      }
+    );
+}
+
+  changePetProfile(petId: number) {
+    console.log('in changePetProfile');
+    this.petProfile.getPetById(petId).subscribe(
+       cp => {
+         this.petList = cp;
+         console.log(this.petList);
+         this.petName = this.petList[1].petName;
+         this.breed = this.petList[1].breed;
+         this.petDescription = this.petList[1].petDescription;
+         this.petImage = 'https://i.imgur.com/4QxR1VP.png';
+       }
+    );
   }
 
   setUserInfo() {
     this.userProfile.getUserInfo(1).subscribe(
       ui => {
         this.user = ui;
+        this.userid = this.user.id;
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
         this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
         console.log(this.user);
-        this.petProfile.getPetById(1).subscribe(
-          pi => {
-            // let i: number;
-            this.petList[0] = pi;
-            this.petList[0].petImage = 'https://i.imgur.com/xryepMt.jpg';
-            this.petImage = this.petList[0].petImage;
+        }
+      );
+    }
 
-            // for (i = 0; i < 2; i++) {
-            //   this.petList[i] = pi;
-            //   this.pets = this.petList[i];
-            //   console.log(this.pets);
-            // }
+  setPetInfo() {
+    this.petProfile.getPets().subscribe(
+      pi => {
+        // let i: number;
+        this.petList = pi;
+        this.petName = this.petList[0].petName;
+        this.petDescription = this.petList[0].petDescription;
+        this.breed = this.petList[0].breed;
+        this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+        // this.petImage = this.petList[0].petImage;
+        console.log(this.petList);
+        this.newPetList = this.petList.filter(function(element, index, array) {
+          // find all pets that have the user_id of 1
+          if (element.user !== null) {
+            if (element.user.id === 1) {
+              return true;
+            }
           }
-        );
+        }
+      );
+      console.log(this.newPetList);
+        // for (i = 0; i < 2; i++) {
+        //   this.petList[i] = pi;
+        //   this.pets = this.petList[i];
+        //   console.log(this.pets);
+        // }
       }
     );
   }
