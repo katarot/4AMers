@@ -19,7 +19,7 @@ import { UploadFileService } from './services/upload-file.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddpetprofileComponent } from './components/profile/addpetprofile/addpetprofile.component';
 import { AddPetComponent } from './components/profile/add-pet/add-pet.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { AuthService } from './services/auth.service';
 import { LogoutComponent } from './components/logout/logout.component';
 // import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.component';

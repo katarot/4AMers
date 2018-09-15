@@ -7,19 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
 
-      <li *ngIf="this.loggedIn" class="nav-item" [ngClass]="currentClass"> 
+      <li *ngIf="this.isLoggedIn()" class="nav-item" [ngClass]="currentClass"> 
         <a class="nav-link" href="/home">Home</a>
       </li>
 
-      <li *ngIf="this.loggedIn" class="nav-item" [ngClass]="currentClass"> 
+      <li class="nav-item" [ngClass]="currentClass"> 
           <a class="nav-link" href="/psHomeComponent">Pet Sitting Home</a>
       </li>
 
-      <li *ngIf="this.loggedIn" class="nav-item" [ngClass]="currentClass">
+      <li *ngIf="this.isLoggedIn()" class="nav-item" [ngClass]="currentClass">
           <a class="nav-link" href="/profile">Profile</a>
       </li>
 
-      <li *ngIf="this.loggedIn" class="nav-item" [ngClass]="currentClass">
+      <li *ngIf="this.isLoggedIn()" class="nav-item" [ngClass]="currentClass">
           <a class="nav-link" href="/logout">Log Out</a>
       </li>
 

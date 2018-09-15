@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
 export class NavbarComponent implements OnInit {
 
   constructor(private cookieService: CookieService) { }
-  user: User;
+  // user: User;
   // loggedIn = false;
   // loggedIn: boolean = this.cookieService.check('user');
   loggedIn: boolean = this.cookieService.check('user');
@@ -19,6 +19,12 @@ export class NavbarComponent implements OnInit {
     this.loggedIn = this.cookieService.check('user');
     console.log('loggedIn -> ' + this.loggedIn);
     console.log('user -> ' + this.cookieService.get('user'));
+  }
+
+  isLoggedIn() {
+    this.loggedIn = this.cookieService.check('user');
+    console.log('loggedIn -> ' + this.loggedIn);
+    return this.loggedIn;
   }
 
 }
