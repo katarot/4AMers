@@ -33,7 +33,7 @@ public class Pet {
 	private String needs;
 	private String petDescription;
 	private String behaviour;
-	private String image;	// blob or image path (SS3 bucket?)
+	private String image;	// image path
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="USER_ID")
