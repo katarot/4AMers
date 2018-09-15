@@ -22,9 +22,6 @@ export class ProfileComponent implements OnInit {
   petList: Pet[] = [];
   newPetList: Pet[] = [];
   newPet: Pet;
-  testPet: {
-    pet
-  };
   pets: Pet;
   petName: string;
   petDescription: string;
@@ -47,48 +44,28 @@ export class ProfileComponent implements OnInit {
     this.petProfile.getPets().subscribe(
       p => {
         this.petList = p;
+        let i: number;
+        let count: number;
+        count = 0;
+        for (i = 0; i < this.petList.length; i++) {
+          if (this.petList[i].user !== null && this.petList[i].user.id === this.user.id) {
+            this.newPetList[count] = this.petList[i];
+            count++;
+          }
+        }
       }
     );
     this.setUserInfo(this.userid);
     this.setPetInfo();
-
-    this.petProfile.getPets().subscribe(
-      pi => {
-        // get my pet list
-        this.newPetList = pi;
-        // obtain current user-id
-        let i: number;
-        let count: number;
-        count = 0;
-        for (i = 0; i < this.newPetList.length; i++) {
-          if (this.newPetList[i].user !== null && this.newPetList[i].user.id === this.user.id) {
-            this.petList[count] = this.newPetList[i];
-            console.log(this.petList[count]);
-            count++;
-          }
-        }
-        // this.newPetList.filter(function(element, index, array) {
-        //   // find all pets that have the user_id of 1
-        //   if (this.newPetList.user !== null) {
-        //     if (this.newPetList.user.id === this.user.id) {
-        //       return true;
-        //       }
-        //     }
-        //   }
-        // );
-      }
-    );
 }
 
   getPet(event: any) {
-    console.log('inside get pet event');
     console.log(event.target.value);
     this.petId = event.target.value;
     this.changePetProfile(this.petId);
   }
 
   receiveUpdate($event) {
-    console.log('in receive update');
     this.bioDescription = $event;
     this.user.bioDescription = this.bioDescription;
     this.userProfile.updateUser(this.user).subscribe(
@@ -96,32 +73,24 @@ export class ProfileComponent implements OnInit {
         this.user = us;
       }
     );
-    console.log('updated');
-    console.log(this.user);
   }
 
   receivePet($event) {
-    console.log('in receive update');
     this.newPet = $event;
 
     this.newPet.user = this.user;
-    // console.log(this.user);
-    // console.log(typeof this.newPet);
 
     this.petProfile.postP5RequestData(this.newPet).subscribe(
       np => {
-        console.log(this.newPet);
         this.newPet = np;
       }
     );
 }
 
   changePetProfile(petId: number) {
-    console.log('in changePetProfile');
     this.petProfile.getPetById(petId).subscribe(
        cp => {
          this.pets = cp;
-         console.log(this.petList);
          this.petName = this.pets.petName;
          this.breed = this.pets.breed;
          this.petDescription = this.pets.petDescription;
@@ -146,17 +115,13 @@ export class ProfileComponent implements OnInit {
   setPetInfo() {
     this.petProfile.getPets().subscribe(
       pi => {
+        // check if person has a pet
+
         this.petList = pi;
         this.petName = this.petList[0].petName;
         this.petDescription = this.petList[0].petDescription;
         this.breed = this.petList[0].breed;
         this.petImage = 'https://i.imgur.com/xryepMt.jpg';
-        // this.petImage = this.petList[0].petImage;
-        // for (i = 0; i < 2; i++) {
-        //   this.petList[i] = pi;
-        //   this.pets = this.petList[i];
-        //   console.log(this.pets);
-        // }
       }
     );
   }
