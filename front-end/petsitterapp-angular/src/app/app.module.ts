@@ -22,6 +22,7 @@ import { AddPetComponent } from './components/profile/add-pet/add-pet.component'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { AuthService } from './services/auth.service';
 import { LogoutComponent } from './components/logout/logout.component';
+import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     EditprofileComponent,
     AddpetprofileComponent,
     AddPetComponent,
-    LogoutComponent
+    LogoutComponent,
+    EditpetproComponent
   ],
   imports: [
     BrowserModule,
