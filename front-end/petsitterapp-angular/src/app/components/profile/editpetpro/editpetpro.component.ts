@@ -36,7 +36,7 @@ export class EditpetproComponent implements OnInit {
     };
     this.petUpd.petName = null;
     this.petUpd.behaviour = this.behavior;
-    this.petUpd.needs = this.behavior;
+    this.petUpd.needs = this.needs;
     this.petUpd.petDescription = this.petDescription;
     this.petUpd.breed = this.breed;
     this.petUpd.image = null;
