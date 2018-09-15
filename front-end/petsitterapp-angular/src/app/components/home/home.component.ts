@@ -63,12 +63,6 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
-    console.log('in register method');
-    console.log('firstname = ' + this.firstname);
-    console.log('lastname = ' + this.lastname);
-    console.log('username = ' + this.regUsername);
-    console.log('password = ' + this.regPassword);
-    console.log('email = ' + this.email);
     console.log('bioDescription = ' + this.bioDescription);
     if (this.bioDescription.length < 15) {
       this.bioTooShort = true;
