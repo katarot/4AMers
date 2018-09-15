@@ -4,7 +4,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service'; // 'src/app/services/auth.service';
 import { User } from '../../models/user.model'; // 'src/app/models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { ModalDirective } from 'ngx-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
 
@@ -15,8 +14,6 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('myModal') public modal: ModalDirective;
-
   closeResult: string;
   closeModalEvent = new EventEmitter<boolean>();
 
@@ -89,9 +86,5 @@ export class HomeComponent implements OnInit {
 
     }
   }
-
-  onCloseModal() {
-    this.closeModalEvent.emit(false);
-   }
 
 }
