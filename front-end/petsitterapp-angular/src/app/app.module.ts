@@ -36,12 +36,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     MessagingComponent,
     EditprofileComponent,
     AddpetprofileComponent,
-<<<<<<< HEAD
-    AddPetComponent 
-=======
     AddPetComponent,
     LogoutComponent
->>>>>>> 06a5d55aa590ac129d055624c2a2ea46fca5053d
   ],
   imports: [
     BrowserModule,
@@ -56,10 +52,6 @@ import { LogoutComponent } from './components/logout/logout.component';
               CookieService,
               AuthService
           ],
-<<<<<<< HEAD
-=======
-
->>>>>>> 06a5d55aa590ac129d055624c2a2ea46fca5053d
   bootstrap: [AppComponent]
 })
 export class AppModule { }
