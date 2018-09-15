@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private petProfile: PetCrudService,
     private userProfile: UserCrudService,
     private cookieService: CookieService) {}
-  
+
   petList: Pet[] = [];
   newPetList: Pet[] = [];
   newPet: Pet;
@@ -40,63 +40,67 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
     this.user = JSON.parse(this.cookieService.get('user'));
-    console.log(this.user.firstName);
-    // this.user.id = this.cookieService.get('id');
+    this.userid = this.user.id;
     this.petProfile.getPets().subscribe(
       p => {
         this.petList = p;
+        let i: number;
+        let count: number;
+        count = 0;
+        for (i = 0; i < this.petList.length; i++) {
+          if (this.petList[i].user !== null && this.petList[i].user.id === this.user.id) {
+            this.newPetList[count] = this.petList[i];
+            count++;
+          }
+        }
       }
     );
-
-    this.setUserInfo();
+    this.setUserInfo(this.userid);
     this.setPetInfo();
-  }
+}
 
   getPet(event: any) {
-    console.log('inside get pet event');
     console.log(event.target.value);
     this.petId = event.target.value;
     this.changePetProfile(this.petId);
   }
 
   receiveUpdate($event) {
-    console.log('in receive update');
     this.bioDescription = $event;
-    console.log(this.bioDescription);
+    this.user.bioDescription = this.bioDescription;
+    this.userProfile.updateUser(this.user).subscribe(
+      us => {
+        this.user = us;
+      }
+    );
   }
 
   receivePet($event) {
-    console.log('in receive update');
     this.newPet = $event;
 
     this.newPet.user = this.user;
-    // console.log(this.user);
-    // console.log(typeof this.newPet);
 
     this.petProfile.postP5RequestData(this.newPet).subscribe(
       np => {
-        console.log(this.newPet);
         this.newPet = np;
       }
     );
 }
 
   changePetProfile(petId: number) {
-    console.log('in changePetProfile');
     this.petProfile.getPetById(petId).subscribe(
        cp => {
-         this.petList = cp;
-         console.log(this.petList);
-         this.petName = this.petList[1].petName;
-         this.breed = this.petList[1].breed;
-         this.petDescription = this.petList[1].petDescription;
+         this.pets = cp;
+         this.petName = this.pets.petName;
+         this.breed = this.pets.breed;
+         this.petDescription = this.pets.petDescription;
          this.petImage = 'https://i.imgur.com/4QxR1VP.png';
        }
     );
   }
 
-  setUserInfo() {
-    this.userProfile.getUserInfo(1).subscribe(
+  setUserInfo(userid: number) {
+    this.userProfile.getUserInfo(userid).subscribe(
       ui => {
         this.user = ui;
         this.userid = this.user.id;
@@ -104,7 +108,6 @@ export class ProfileComponent implements OnInit {
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
         this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
-        console.log(this.user);
         }
       );
     }
@@ -112,29 +115,13 @@ export class ProfileComponent implements OnInit {
   setPetInfo() {
     this.petProfile.getPets().subscribe(
       pi => {
-        // let i: number;
+        // check if person has a pet
+
         this.petList = pi;
         this.petName = this.petList[0].petName;
         this.petDescription = this.petList[0].petDescription;
         this.breed = this.petList[0].breed;
         this.petImage = 'https://i.imgur.com/xryepMt.jpg';
-        // this.petImage = this.petList[0].petImage;
-        console.log(this.petList);
-        this.newPetList = this.petList.filter(function(element, index, array) {
-          // find all pets that have the user_id of 1
-          if (element.user !== null) {
-            if (element.user.id === 1) {
-              return true;
-            }
-          }
-        }
-      );
-      console.log(this.newPetList);
-        // for (i = 0; i < 2; i++) {
-        //   this.petList[i] = pi;
-        //   this.pets = this.petList[i];
-        //   console.log(this.pets);
-        // }
       }
     );
   }

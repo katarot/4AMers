@@ -11,7 +11,7 @@ export class PetServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getPets(){
+  getPets() {
     return this.http.get<Pet[]>("http://18.232.118.152:8080/project2/pets");
   }
 
