@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
 import { CookieService } from 'ngx-cookie-service';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-add-pet',
@@ -32,11 +33,17 @@ export class AddPetComponent implements OnInit {
   addClicked() {
     console.log('add button clicked');
     console.log(this.newPet);
-    this.newPet.petName = this.petName;
-    this.newPet.breed = this.breedDescrip;
-    this.newPet.specNeeds = this.specNeeds;
-    this.newPet.petDescrip = this.petDescrip;
-    this.newPet.behaviour = this.behaviorDescrip;
+    this.newPet = [
+      {
+        petName: this.petName,
+        breed: this.breedDescrip,
+        needs: this.specNeeds,
+        petDescription: this.petDescrip,
+        behaviour: this.behaviorDescrip,
+        image: null,
+        user: new User
+      }
+    ];
     this.addingPet.emit(this.newPet);
   }
 
