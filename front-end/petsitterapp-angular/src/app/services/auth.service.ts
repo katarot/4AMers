@@ -16,7 +16,11 @@ export class AuthService {
     return this.http.post<any>('http://18.232.118.152:8080/project2/login', u);
   }
 
+<<<<<<< HEAD
   register(user: User): Observable<any> {
+=======
+  register(user: User) {
+>>>>>>> Dev
     return this.http.post<any>('http://localhost:8080/petsitterapp/register', user);
   }
 }

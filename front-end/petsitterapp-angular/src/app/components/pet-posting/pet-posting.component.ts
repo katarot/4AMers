@@ -22,6 +22,7 @@ export class PetPostingComponent implements OnInit {
 
       this.serviceRequestPets = p;
       console.log(this.serviceRequestPets);
+      console.log(this.serviceRequestPets[0].pet.user.firstName);
 
     });
 

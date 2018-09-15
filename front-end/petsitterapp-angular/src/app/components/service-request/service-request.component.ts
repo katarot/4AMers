@@ -25,7 +25,10 @@ export class ServiceRequestComponent implements OnInit {
   serviceRequest: ServiceRequest;
   
   theDate: string;
+  // theDate: string = Date.now().toString();
   petId: number;
+
+  today: number = Date.now();
 
   srvReqDescription: string;
   
@@ -62,15 +65,16 @@ export class ServiceRequestComponent implements OnInit {
   submitSrvRequest() {
 
     this.serviceRequest =
-      { 
-        dateCreated: this.theDate,  // "2018-09-02"
-        status: "OPEN",
-        description: this.srvReqDescription,
-        replyMessage: null,
-        pet: this.petModel,
-        // sitter: new User
-        sitter: null
-      };
+    { 
+      dateCreated: this.theDate,
+      status: "OPEN",
+      description: this.srvReqDescription,
+      replyMessage: null,
+      pet: this.petModel,
+      // sitter: new User
+      sitter: null
+    };
+    
 
     this.srvRequestService.postPSRequestData(this.serviceRequest).subscribe(
       srvReq => {
@@ -78,7 +82,8 @@ export class ServiceRequestComponent implements OnInit {
         console.log("data from db -> srvReq");
         console.log(srvReq);
 
-        this.router.navigate(["/dariusComponent"]);
+        // this.router.navigate(["/dariusComponent"]);
+        this.router.navigate(["/srlComponent"]);
 
       }
     );

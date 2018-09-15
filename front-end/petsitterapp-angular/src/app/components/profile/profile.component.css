@@ -1,22 +1,78 @@
 div{
     color: black;
+    word-wrap: break-word;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container{
+    margin-top: 30px;
+    background-color: white;
+}
+
+h1, h5{
+    font-family: 'Lobster', cursive;
+    background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
+    color: white;
+    text-align: center;
+    box-shadow: 5px 5px #bbbaba;
+    padding-left: 1px;
+}
+
+
+h2, h3, h4, h6{
+    font-family: 'Lobster', cursive;
+    background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
+    color: white;
+    text-align: center;
+    box-shadow: 5px 5px #bbbaba;
+    padding-left: 1px;
+}
+
+p{
+    word-wrap: break-word;
+}
+#firstName{
+    width: 200px;
+}
+
+h6{
+    font-weight: bold;  
 }
 
 select{
     color: #fff;
-    background-color: #17a2b8;
+    background-color: rgb(3, 172, 214);
     border-color: #17a2b8;
     border-radius: 3px;
 }
 
-#petBody{
-    border: solid;
+#exPetInfo{
+    background-color: #ebe8e8;
     border-radius: 10px;
-    border-color:black;
+    padding-left: 30px;
 }
 
-#exPetInfo{
-    border: solid;
-    border-radius: 10px;
-    border-color:black;
+#petPic{
+    height: 350px;
+    width: auto;
+    opacity: .8;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+span.petButtons{
+    padding-left: 15px;
+    padding-right: 5px;
+    display: inline;
+}
+
+#selectList{
+    text-align:center;
+    width: 100px;
+    padding-left: 10px;
+}
+#profileBody{
+    background-color: white;
+    /* box-shadow: 2px 2px #bbbaba; */
 }

@@ -47,3 +47,9 @@ p {
 .card-header h4 {
     color: #111;
 }
+
+.page-header img{
+    height: 338px;
+    opacity: .8;
+    text-align: center;
+}

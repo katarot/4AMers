@@ -1,8 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
-import { CookieService } from 'ngx-cookie-service';
 import { User } from '../../../models/user.model';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-add-pet',

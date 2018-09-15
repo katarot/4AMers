@@ -49,6 +49,10 @@ export class HomeComponent implements OnInit {
         if (this.user.id === 0) { // incorrect login information
           this.invalidLogin = true;
         } else {  // correct login information
+
+          console.log("this.user");
+          console.log(this.user);
+
           this.cookieService.deleteAll(); // do we need this?
           this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());

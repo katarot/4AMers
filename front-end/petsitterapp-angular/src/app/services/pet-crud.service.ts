@@ -13,7 +13,7 @@ export class PetCrudService {
     // return this.http.get<Pet[]>("http://localhost:8080/petsitterapp/pets");
     return this.http.get<Pet[]>("http://18.232.118.152:8080/project2/pets");
   }
-  
+
   getPetById(id: number) {
     return this.http.get<Pet>("http://18.232.118.152:8080/project2/pets/"+id);
   }
