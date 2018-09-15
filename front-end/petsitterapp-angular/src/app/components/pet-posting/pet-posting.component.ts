@@ -29,7 +29,7 @@ export class PetPostingComponent implements OnInit {
 
   submitOfferToSit() {
     console.log('Inside submitOfferTOSit inside pet-post.comp');
-
+    console.log(this.serviceRequestPets);
     this.srvRequestService.updatePSRequestData( ).subscribe(
 
     );
