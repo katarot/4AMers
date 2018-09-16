@@ -41,7 +41,7 @@ export class EditpetproComponent implements OnInit {
 
 
   updatePet() {
-    this.upload;
+    this.upload();
     this.petUpd = {
       petName: this.petName,
       behaviour: this.behavior,

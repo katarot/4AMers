@@ -19,7 +19,7 @@ import { NavbarService } from '../../services/navbar.service';
 export class ServiceRequestComponent implements OnInit, DoCheck {
 
   // tslint:disable-next-line:max-line-length
-  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+  description = 'To request a service, please fill out the form below. This site is solely intended to help pet owners find a sitter who is willing to take care of our furry friends. We are all pet lovers so please adhere to rules in the User Policy.';
   petModel: Pet;
 
   pets: Pet[] = [];
