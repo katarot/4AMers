@@ -28,7 +28,6 @@ public class PetSrvReqController {
 	
 	
 	/*	GET ALL Pet Sitting Service Requests	*/
-	
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<PetSrvReq>> getAll() {
 		
@@ -53,7 +52,6 @@ public class PetSrvReqController {
 	
 	
 	/*	GET ALL Pet Sitting Service Requests BY ID	*/
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<PetSrvReq> getById(@PathVariable int id) {
 		return new ResponseEntity<PetSrvReq>(psService.getById(id), HttpStatus.OK);
@@ -80,6 +78,30 @@ public class PetSrvReqController {
 			return new ResponseEntity<PetSrvReq>(p, HttpStatus.CREATED);
 			
 		}
+		
+	}
+	
+	
+	/* UPDATE a Pet Sitting Service Request */
+	@RequestMapping(method=RequestMethod.PUT,
+					consumes=MediaType.APPLICATION_JSON_VALUE,
+					produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<PetSrvReq> updatePetSrvReq(@Valid @RequestBody PetSrvReq p) {
+		
+		psService.update(p);
+		
+//		if (p == null) {
+			
+//			System.out.println("In PetSrvReqController:updatePetSrvReq() -> conflict updating => .NOT_MODIFIED");
+//			return new ResponseEntity<PetSrvReq>(p, HttpStatus.NOT_MODIFIED);
+			
+//		} else {
+			
+			System.out.println("In PetSrvReqController:updatePetSrvReq() -> data was updated");
+			System.out.println(p.toString());
+			return new ResponseEntity<PetSrvReq>(p, HttpStatus.OK);
+			
+//		}
 		
 	}
 	

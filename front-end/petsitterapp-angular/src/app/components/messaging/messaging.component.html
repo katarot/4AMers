@@ -1,6 +1,11 @@
 <div class="container">
-  <form (click)="submit()">
-    <input type="text" name="msgBody" id="msgBody">
+  <form (submit)="submit()">
+    <!-- <label for="username">Username</label> -->
+    <input type="submit" class="btn btn-success" value="Send Message">
+    <!-- <input type="submit" class="btn btn-link" value="Register"> -->
+    <!-- <button (click)="open()" class="btn btn-link">Register</button> -->
+    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
   </form>
+  <!-- <button class="btn btn-outline-primary" (click)="open(content)">Register</button> -->
   <p>WOOT</p>
 </div>

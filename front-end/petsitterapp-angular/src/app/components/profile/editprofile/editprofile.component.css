@@ -27,8 +27,10 @@ button{
     width: 100%;
 }
 
-#proDescrip{ 
-    vertical-align: top;
+#proDescrip.break{ 
+    padding-bottom: 80px;
+    word-wrap: break-word;
+    word-break: break-all;
     width: 450px;
     height: 100px;
 }

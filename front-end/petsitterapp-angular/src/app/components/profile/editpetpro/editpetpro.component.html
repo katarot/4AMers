@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPetPro">
+  Edit Info
+</button>
+<div class="modal fade" id="editPetPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Editing Pet Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="form">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="petDescription">Pet Description</label>
+              <textarea type="description" class="form-control" id="petDescrip" 
+                    rows="3" [(ngModel)]="petDescription"></textarea>
+              <label for="petNeed">Special Needs</label>
+              <textarea type="description" class="form-control" id="petNeeds" 
+                    rows="3" [(ngModel)]="needs"></textarea>
+              <label for="petBehaviour">Behaviour</label>
+              <textarea type="description" class="form-control" id="petBehavior" 
+                    rows="3" [(ngModel)]="behavior"></textarea>
+              <label for="petBehaviour">Breed</label>
+              <input type="description" class="form-control" id="petBreed" 
+              rows="3" [(ngModel)]="breed">
+            </div>
+          </div>
+                <div class="form-group">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Upload Pet Picture</label>
+                              <div class="input-group">
+                                  <span class="input-group-btn">
+                                      <label class="btn btn-default">
+                                          <input type="file" (change)="selectFile($event)" id="userImgInp">
+                                      </label>
+                                  </span>
+                              </div>
+                              <img id='user-img-upload'/>
+                          </div>
+                      </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" 
+                (click)="updatePet()" id="save">Save changes</button>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

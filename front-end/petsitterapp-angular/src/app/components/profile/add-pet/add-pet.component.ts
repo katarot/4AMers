@@ -3,6 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
 import { User } from '../../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
+import { UploadFileService } from '../../../services/upload-file.service'
 
 
 @Component({
@@ -20,15 +21,26 @@ export class AddPetComponent implements OnInit {
   needs: string;
   behaviour: string;
 
-  constructor() { }
+  selectedFiles: FileList;
+  imageSrc: any;
+
+  constructor(private upLoadService: UploadFileService) { }
 
   ngOnInit() {
-    this.petname = 'ex: mazda';
-    this.petdescription = 'ex: He\'s really fast';
-    this.breed = 'ex: Hybrid between chicken, grey hound, and a mazda of course';
-    this.needs = 'ex: Allergic to cheese, please keep him away from it';
-    this.behaviour = 'ex: Steals the remote sometimes, it\'s up to you if you want to chase him';
   }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.imageSrc = this.upLoadService.uploadfile(file);
+    console.log(this.imageSrc);
+    // this.imageSrc needs to be put in with the user object and sent back to the database
+  }
+
+  selectFile(event){
+    this.selectedFiles = event.target.files;
+    console.log(this.selectedFiles[0].name);
+  }
+
 
   addClicked() {
     console.log('add button clicked');

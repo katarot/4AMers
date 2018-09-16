@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class PetPostingComponent implements OnInit, DoCheck {
 
   serviceRequestPets: ServiceRequest[] = [];
+ 
 
   constructor(
     private srvRequestService: ServiceRequestCrudService,
@@ -48,5 +49,8 @@ export class PetPostingComponent implements OnInit, DoCheck {
 
     );
   }
+
+  
+  
 
 }
