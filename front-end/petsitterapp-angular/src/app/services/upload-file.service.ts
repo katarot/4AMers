@@ -44,7 +44,7 @@ export class UploadFileService {
       this.url = data;
       console.log(this.url);
       console.log(this.url.Location);
-      user = JSON.parse(this.cookieSrv.get('user'));
+      //user = JSON.parse(this.cookieSrv.get('user'));
       let pic = new Picture;
       pic.filepath = this.url.Location;
       pic.petId = 
