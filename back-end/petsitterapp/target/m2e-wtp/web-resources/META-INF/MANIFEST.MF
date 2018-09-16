@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: imjus
+=======
+Built-By: knisp
+>>>>>>> 54a01a4cea2a72462496d5b1048f608da7700b6c
 Build-Jdk: 1.8.0_181
 Created-By: Maven Integration for Eclipse
 

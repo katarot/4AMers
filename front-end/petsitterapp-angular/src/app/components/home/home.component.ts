@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from '../../services/auth.service'; // 'src/app/services/auth.service';
-import { User } from '../../models/user.model'; // 'src/app/models/user.model';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
+<<<<<<< HEAD
 import { MessagingComponent } from '../messaging';
+=======
+import { NavbarService } from '../../services/navbar.service';
+>>>>>>> 54a01a4cea2a72462496d5b1048f608da7700b6c
 
 
 @Component({
@@ -14,7 +18,7 @@ import { MessagingComponent } from '../messaging';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
   closeResult: string;
   closeModalEvent = new EventEmitter<boolean>();
 
@@ -36,11 +40,19 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService,
     private auth: AuthService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private navbarService: NavbarService) { }
 
   ngOnInit() {
     this.invalidLogin = false;
     this.bioTooShort = false;
+  }
+
+  ngDoCheck() {
+    // console.log('in home.component doCheck');
+    if (this.navbarService.isLoggedIn()) {
+      this.router.navigate(['/petsitting']);
+    }
   }
 
   login() {
@@ -51,21 +63,21 @@ export class HomeComponent implements OnInit {
           this.invalidLogin = true;
         } else {  // correct login information
 
-          console.log("this.user");
-          console.log(this.user);
+          // console.log('this.user');
+          // console.log(this.user);
 
           this.cookieService.deleteAll(); // do we need this?
           this.cookieService.set('user', JSON.stringify(this.user));
-          console.log(this.cookieService.getAll());
+          // console.log(this.cookieService.getAll());
           this.invalidLogin = false;
-          this.router.navigate(['/psHomeComponent']);
+          this.router.navigate(['/petsitting']);
         }
       }
     );
   }
 
   register() {
-    console.log('bioDescription = ' + this.bioDescription);
+    // console.log('bioDescription = ' + this.bioDescription);
     if (this.bioDescription.length < 15) {
       this.bioTooShort = true;
     } else {
@@ -80,11 +92,11 @@ export class HomeComponent implements OnInit {
         dateRegistered: '2018-09-14',
         bioDescription: this.bioDescription
       };
-      console.log(this.user);
+      // console.log(this.user);
       this.auth.register(this.user).subscribe(
         data => {
           this.user = data;
-          console.log(this.user);
+          // console.log(this.user);
           location.reload();
         }
       );
