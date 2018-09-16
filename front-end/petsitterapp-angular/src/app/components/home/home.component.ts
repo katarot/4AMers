@@ -48,8 +48,6 @@ export class HomeComponent implements OnInit, DoCheck {
     // console.log('in home.component doCheck');
     if (this.navbarService.isLoggedIn()) {
       this.router.navigate(['/petsitting']);
-    } else {
-      this.ngOnInit();
     }
   }
 
