@@ -44,13 +44,14 @@ export class AddPetComponent implements OnInit {
 
   addClicked() {
     console.log('add button clicked');
+    this.upload;
     this.newPet = {
       petName: this.petname,
       breed: this.breed,
       needs: this.needs,
       petDescription: this.petdescription,
       behaviour: this.behaviour,
-      image: null,
+      image: this.imageSrc,
       user: new User
     };
 
