@@ -94,6 +94,7 @@ export class ProfileComponent implements OnInit, DoCheck {
   receiveUpdate($event) {
     this.bioDescription = $event;
     this.user.bioDescription = this.bioDescription;
+    console.log(this.user);
     this.userProfile.updateUser(this.user).subscribe(
       us => {
         this.user = us;
