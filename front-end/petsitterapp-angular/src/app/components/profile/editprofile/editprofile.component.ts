@@ -18,6 +18,8 @@ export class EditprofileComponent implements OnInit {
 
   updateBio() {
     this.bioUpdate.emit(this.bioDescription);
+    this.upload;
+    this.bioUpdate.emit(this.imageSrc);
     console.log('inupdatebio');
   }
   ngOnInit() {
