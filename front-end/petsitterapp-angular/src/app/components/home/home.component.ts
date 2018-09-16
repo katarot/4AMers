@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service'; // 'src/app/services/auth.service';
@@ -6,6 +6,7 @@ import { User } from '../../models/user.model'; // 'src/app/models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { ViewChild } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
   closeResult: string;
   closeModalEvent = new EventEmitter<boolean>();
 
@@ -35,11 +36,21 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService,
     private auth: AuthService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private navbarService: NavbarService) { }
 
   ngOnInit() {
     this.invalidLogin = false;
     this.bioTooShort = false;
+  }
+
+  ngDoCheck() {
+    console.log('in home.component doCheck');
+    if (this.navbarService.isLoggedIn()) {
+      this.router.navigate(['/petsitting']);
+    } else {
+      this.ngOnInit();
+    }
   }
 
   login() {
