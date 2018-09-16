@@ -30,8 +30,9 @@ export class HomeComponent implements OnInit {
   private email = '';
   private regUsername = '';
   private regPassword = '';
-  private dateRegistered: Date;
+  private dateRegistered = new Date;
   private bioDescription = '';
+  private dateStr = '';
 
   constructor(
     private router: Router,
@@ -46,6 +47,11 @@ export class HomeComponent implements OnInit {
     if (this.navbarService.isLoggedIn()) {
       this.router.navigate(['/petsitting']);
     }
+    const year = this.dateRegistered.getFullYear();
+    const month = 1 + this.dateRegistered.getMonth();
+    const day = this.dateRegistered.getDate();
+    // console.log(this.dateRegistered);
+    this.dateStr = year + '-' + month + '-' + day;
   }
 
   login() {
@@ -82,10 +88,10 @@ export class HomeComponent implements OnInit {
         firstName: this.firstname,
         lastName: this.lastname,
         email: this.email,
-        dateRegistered: '2018-09-14',
+        dateRegistered: this.dateStr, // '2018-09-14',
         bioDescription: this.bioDescription
       };
-      // console.log(this.user);
+      console.log(this.dateStr);
       this.auth.register(this.user).subscribe(
         data => {
           this.user = data;
