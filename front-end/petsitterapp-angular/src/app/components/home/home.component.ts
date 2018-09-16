@@ -6,6 +6,7 @@ import { User } from '../../models/user.model'; // 'src/app/models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { MessagingComponent } from '../messaging';
 
 
 @Component({
