@@ -6,12 +6,8 @@ import { User } from '../../models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
-<<<<<<< HEAD
-import { MessagingComponent } from '../messaging';
-=======
+//import { MessagingComponent } from '../messaging';
 import { NavbarService } from '../../services/navbar.service';
->>>>>>> 54a01a4cea2a72462496d5b1048f608da7700b6c
-
 
 @Component({
   selector: 'app-home',
