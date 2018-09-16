@@ -50,12 +50,12 @@ export class HomeComponent implements OnInit {
           this.invalidLogin = true;
         } else {  // correct login information
 
-          console.log('this.user');
-          console.log(this.user);
+          // console.log('this.user');
+          // console.log(this.user);
 
           this.cookieService.deleteAll(); // do we need this?
           this.cookieService.set('user', JSON.stringify(this.user));
-          console.log(this.cookieService.getAll());
+          // console.log(this.cookieService.getAll());
           this.invalidLogin = false;
           this.router.navigate(['/petsitting']);
         }
@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
-    console.log('bioDescription = ' + this.bioDescription);
+    // console.log('bioDescription = ' + this.bioDescription);
     if (this.bioDescription.length < 15) {
       this.bioTooShort = true;
     } else {
@@ -79,11 +79,11 @@ export class HomeComponent implements OnInit {
         dateRegistered: '2018-09-14',
         bioDescription: this.bioDescription
       };
-      console.log(this.user);
+      // console.log(this.user);
       this.auth.register(this.user).subscribe(
         data => {
           this.user = data;
-          console.log(this.user);
+          // console.log(this.user);
           location.reload();
         }
       );

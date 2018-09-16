@@ -18,9 +18,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     // this.loggedIn = this.cookieService.check('user');
-    console.log('loggedIn -> ' + this.isLoggedIn());
+    // console.log('loggedIn -> ' + this.isLoggedIn());
     if (this.isLoggedIn()) {
-      console.log('user -> ' + this.cookieService.get('user'));
+      // console.log('user -> ' + this.cookieService.get('user'));
     }
   }
 
