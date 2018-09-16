@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { MessagingService } from '../../services/messaging.service'
 
 @Component({
   selector: 'app-messaging',
@@ -8,9 +8,12 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MessagingComponent implements OnInit {
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private msgServ: MessagingService) { }
 
   ngOnInit() {
   }
 
+  submit() {
+    
+  }
 }

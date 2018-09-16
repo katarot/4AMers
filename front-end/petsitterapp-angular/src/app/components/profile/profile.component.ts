@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit, DoCheck {
   needs: string;
   petImage: string;
   petId: number;
+  behaviors: string[];
 
   user: User;
   userid: number;

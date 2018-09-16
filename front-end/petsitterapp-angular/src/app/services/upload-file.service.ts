@@ -17,8 +17,7 @@ export class UploadFileService {
 
   constructor(private cookieSrv: CookieService) { }
 
-  uploadfile(file) {
-    let location = {};
+  getS3Bucket(): any {
     const bucket = new S3 (
     {
     accessKeyId: 'AKIAJZ7JSNQQZDUXWI7A',
@@ -26,41 +25,36 @@ export class UploadFileService {
     region: 'us-east-2'
     }
     );
+    return bucket;
+  }
 
-    const params = {
+  uploadfile(file) {
+   const params = {
       Bucket: 'petpalpictures',
-      Key: this.FOLDER + Math.round(Math.random()*100000000) + file.name,
-      Body: file
+      Key: this.FOLDER + Math.floor(Math.random()*10000000000) + file.name ,
+      Body: file,
+      ACL: 'public-read'
     };
-
-    bucket.upload(params, function (err, data) {
+   
+    let upResult = this.getS3Bucket().upload(params, function (err, data) {
       if (err) {
         console.log('There was an error uploading your file: ', err);
         return false;
       }
-      let user = new User;
-      // console.log(data)
       console.log('Successfully uploaded file.', data);
-      this.url = data;
-      console.log(this.url);
-      console.log(this.url.Location);
-      user = JSON.parse(this.cookieSrv.get('user'));
-      let pic = new Picture;
-      pic.filepath = this.url.Location;
-      pic.petId = 
-      pic.userId = this.user.userId;
-      this.http.post("http://localhost:8900/pictures", {pic});
+      console.log(params);
 
+      return true;
     });
-  
-   
-    return true;
-  }
-
-  getUrl() {
-    console.log('IN GET URL METHOD');
-    console.log(this.url);
+    console.log(upResult.failed);
+    if(!upResult.failed) {
+      console.log('upload successful');
+      this.url = 'https://s3.us-east-2.amazonaws.com/petpalpictures/' + params.Key;
+    } else {
+      console.log('upload failed');
+    }
     
+    console.log('BEFORE RETURNING, this.url is: ' + this.url);
     return this.url;
   }
   

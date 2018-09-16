@@ -9,6 +9,10 @@ div{
     background-color: white;
 }
 
+#footer{
+    background-color:#343a40!important
+}
+
 h1, h5{
     font-family: 'Lobster', cursive;
     background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
@@ -35,6 +39,9 @@ p{
     width: 200px;
 }
 
+#option{
+    text-align: center;
+}
 h6{
     font-weight: bold;  
 }
@@ -44,6 +51,7 @@ select{
     background-color: rgb(3, 172, 214);
     border-color: #17a2b8;
     border-radius: 3px;
+    margin-left: 74px;
 }
 
 #exPetInfo{

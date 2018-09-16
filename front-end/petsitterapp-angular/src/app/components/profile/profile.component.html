@@ -24,21 +24,25 @@
               <h3 class="my-3"></h3>
               <p id="petBio">{{petDescription}}</p>
               <div class="panel panel-default">
-                <div class="panel-heading" id="petsNeedBorder">{{petName}}'s Special needs and Behaviour</div>
-                <div class="panel-body"> hi</div>
+                <h4 id="petsNeedBorder">Special Needs:</h4>
+                <ul>
+                  <li *ngFor="let l of behaviors" [value]="p.id" id="behaviorList"></li>
+                </ul>
+                <h4 id="petsBehavior">Quirky Behaviours:</h4>
               </div>
-                <select (change)="getPet($event)" id="selectList">
-                  <option *ngFor="let p of newPetList" [value]="p.id" id="option">
-                    {{ p.petName }}
-                  </option>
-                </select>
                 <hr>
-                <!-- <span class="petButtons">
+                <span class="petButtons">
                   <app-editpetpro (petUpdate)="changePet($event)"></app-editpetpro>
-                </span> -->
+                </span>
                 <span class="petButtons">
                   <app-add-pet (addingPet)="receivePet($event)"></app-add-pet>
                 </span>
+                <hr>
+                <select (change)="getPet($event)" id="selectList">
+                  <option *ngFor="let p of newPetList" [value]="p.id">
+                    <p id="option">{{ p.petName }}</p>
+                  </option>
+                </select>
         </div>
       </div>
     </div>
@@ -49,8 +53,8 @@
 <br>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+  <div class="container" id="footer">
+    <p class="m-0 text-center text-white">Copyright &copy; petPal Co.</p>
   </div>
 </footer>
 

@@ -36,9 +36,7 @@ public class PetSrvReqRepositoryImpl implements PetSrvReqRepository {
 	@Override
 	public void update(PetSrvReq p) {
 		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().update(p);
 	}
 
-	
-	
 }
