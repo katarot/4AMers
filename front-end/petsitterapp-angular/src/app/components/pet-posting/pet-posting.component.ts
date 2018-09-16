@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceRequest } from '../../models/service-request.model';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './pet-posting.component.html',
   styleUrls: ['./pet-posting.component.css']
 })
-export class PetPostingComponent implements OnInit, DoCheck {
+export class PetPostingComponent implements OnInit {
 
   serviceRequestPets: ServiceRequest[] = [];
 
@@ -21,22 +21,20 @@ export class PetPostingComponent implements OnInit, DoCheck {
     private navbarService: NavbarService) { }
 
   ngOnInit() {
-//    this.petService.getPets().subscribe(
-    this.srvRequestService.getPSRequestData().subscribe(
-      p => {
-
-      this.serviceRequestPets = p;
-      console.log(this.serviceRequestPets);
-      console.log(this.serviceRequestPets[0].pet.user.firstName);
-
-    });
-
-  }
-
-  ngDoCheck() {
     if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
+    } else {
+  //    this.petService.getPets().subscribe(
+      this.srvRequestService.getPSRequestData().subscribe(
+        p => {
+
+        this.serviceRequestPets = p;
+        console.log(this.serviceRequestPets);
+        console.log(this.serviceRequestPets[0].pet.user.firstName);
+
+      });
     }
+
   }
 
   submitOfferToSit() {

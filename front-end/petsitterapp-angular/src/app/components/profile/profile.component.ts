@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { UserCrudService } from '../../services/user-crud.service';
@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, DoCheck {
+export class ProfileComponent implements OnInit {
 
   constructor(
     private petProfile: PetCrudService,
@@ -67,11 +67,7 @@ export class ProfileComponent implements OnInit, DoCheck {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
-    }
-  }
-
-  ngDoCheck() {
-    if (!this.navbarService.isLoggedIn()) {
+    } else {
       this.router.navigate(['/home']);
     }
   }
