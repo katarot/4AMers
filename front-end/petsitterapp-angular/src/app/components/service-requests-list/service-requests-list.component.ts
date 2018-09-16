@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pet } from '../../models/pet.model';
 import { CookieService } from 'ngx-cookie-service';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
@@ -11,7 +11,7 @@ import { NavbarService } from '../../services/navbar.service';
   templateUrl: './service-requests-list.component.html',
   styleUrls: ['./service-requests-list.component.css']
 })
-export class ServiceRequestsListComponent implements OnInit, DoCheck {
+export class ServiceRequestsListComponent implements OnInit {
 
   pets: Pet[] = [];
   serviceRequest: ServiceRequest[] = [];
@@ -24,17 +24,14 @@ export class ServiceRequestsListComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     if (this.navbarService.isLoggedIn()) {
+      console.log('in service-requests-list ngOnInit()');
       this.srvReqService.getPSRequestData().subscribe(
         sr => {
           console.log(sr);
           this.serviceRequest = sr;
         }
       );
-    }
-  }
-
-  ngDoCheck() {
-    if (!this.navbarService.isLoggedIn()) {
+    } else {
       this.router.navigate(['/home']);
     }
   }

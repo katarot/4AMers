@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service';
@@ -14,7 +14,7 @@ import { NavbarService } from '../../services/navbar.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, DoCheck {
+export class HomeComponent implements OnInit {
   closeResult: string;
   closeModalEvent = new EventEmitter<boolean>();
 
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit, DoCheck {
   private email = '';
   private regUsername = '';
   private regPassword = '';
+  private dateRegistered: Date;
   private bioDescription = '';
 
   constructor(
@@ -42,10 +43,6 @@ export class HomeComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.invalidLogin = false;
     this.bioTooShort = false;
-  }
-
-  ngDoCheck() {
-    // console.log('in home.component doCheck');
     if (this.navbarService.isLoggedIn()) {
       this.router.navigate(['/petsitting']);
     }

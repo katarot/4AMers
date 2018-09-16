@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
@@ -16,7 +16,7 @@ import { NavbarService } from '../../services/navbar.service';
   templateUrl: './service-request.component.html',
   styleUrls: ['./service-request.component.css']
 })
-export class ServiceRequestComponent implements OnInit, DoCheck {
+export class ServiceRequestComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
@@ -43,18 +43,15 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
     private router: Router) { }
 
   ngOnInit() {
-    // GET PET DATA TO POPULATE SELECT LIST
-    this.petService.getPets().subscribe(
-      p => {
-        this.pets = p;
-      }
-    );
-
-  }
-
-  ngDoCheck() {
     if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
+    } else {
+      // GET PET DATA TO POPULATE SELECT LIST
+      this.petService.getPets().subscribe(
+        p => {
+          this.pets = p;
+        }
+      );
     }
   }
 
