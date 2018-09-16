@@ -1,7 +1,7 @@
 <h1 class="jumbotron">Pet Pal Login</h1>
 
 
-{{ this.username }}
+<!-- {{ this.username }}
 {{ this.password }}
 <div class="container center">
 <form (submit)="login()" >
@@ -11,7 +11,7 @@
   <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br>
   <input type="submit" class="btn btn-success" value="Log In!">
 </form>
-</div>
+</div> -->
 
 <br>
 <br>
@@ -22,11 +22,11 @@
 <input type="file" (change)="fileEvent($event)" name="imageUpload" id="imageUpload"/>
 -->
 
-<input 
+<!-- <input 
   style="display: none" 
   type="file" (change)="onFileChanged($event)" 
   #fileInput>
-<button (click)="fileInput.click()">Select File</button>
+<button (click)="fileInput.click()">Select File</button> -->
 
 <!-- 
 <input 
@@ -40,5 +40,60 @@
 <!-- <img [src]="Lucian.png"> -->
 <!-- <img id="blah" [src]="imageSrc" alt="your image" /> -->
 
-<img [src]="url">
+<!-- <img [src]="url"> -->
+<label class="btn btn-default">
+  <input type="file" (change)="selectFile($event)">
+</label>
+ 
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+
+
+<img id="link" src="{{this.imageSrc}}" alt="Pet">
+{{ this.imageSrc }}
+
+
+<br><br>
+
+
+
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username or Email</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-2">Forgot Password?</label>
+				</div>
+			</div>
+			<div class="for-pwd-htm">
+				<div class="group">
+					<label for="user2" class="label">Username or Email</label>
+					<input id="user2" type="text" class="input">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Reset Password">
+				</div>
+				<div class="hr"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
 

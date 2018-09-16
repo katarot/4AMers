@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { PetService } from '../../../services/pet.service';
+import { PetService } from '../../services/pet.service';
 import { Users } from '../../models/users.model';
 import { CookieService } from 'ngx-cookie-service';
 

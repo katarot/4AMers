@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 
 import { CookieService } from 'ngx-cookie-service'
 import { RegisterUserComponent } from './components/register-user/register-user.component';
-import { PetService } from '../services/pet.service';
+import { PetService } from './services/pet.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
+
+import { UploadFileService } from './services/upload-file.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [PetService, CookieService],
+  providers: [PetService, CookieService, UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
