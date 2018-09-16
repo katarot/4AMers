@@ -23,12 +23,9 @@ export class ServiceRequestCrudService {
   }
 
   //  PUT / UPDATE
-  public updatePSRequestData() {
-
-    // return this.http.get<ServiceRequest[]>("http://18.232.118.152:8080/project2/pets");
-
-    // return this.http.post<ServiceRequest>("http://18.232.118.152:8080/project2/pets",
-    return this.http.put<any>('http://18.232.118.152:8080/project2/psrequest', {});
+  public updatePSRequestData(srvOfferRequest?) {
+    return this.http.put<any>('http://localhost:8080/petsitterapp/psrequest', srvOfferRequest);
+    // return this.http.put<any>('http://18.232.118.152:8080/project2/psrequest', srvOfferRequest);
 
   }
 

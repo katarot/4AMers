@@ -116,7 +116,7 @@ export class ProfileComponent implements OnInit {
          this.petName = this.pets.petName;
          this.breed = this.pets.breed;
          this.petDescription = this.pets.petDescription;
-         this.petImage = 'https://i.imgur.com/qtnuAiI.jpg';
+         this.petImage = this.pets.image;
        }
     );
   }
@@ -129,7 +129,7 @@ export class ProfileComponent implements OnInit {
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
-        this.urImage = 'https://i.imgur.com/IfifZ6N.jpg';
+        this.urImage = this.user.image;
         }
       );
     }
@@ -154,7 +154,7 @@ export class ProfileComponent implements OnInit {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;
           this.breed = this.newPetList[0].breed;
-          this.petImage = 'https://i.imgur.com/xryepMt.jpg';
+          this.petImage = this.newPetList[0].image;
         }
       }
     );

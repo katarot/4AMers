@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+Manifest-Version: 1.0
+Built-By: omaracevedo
+Build-Jdk: 1.8.0_181
+Created-By: Maven Integration for Eclipse
+
+=======
 Manifest-Version: 1.0
 Built-By: knisp
 Build-Jdk: 1.8.0_181
 Created-By: Maven Integration for Eclipse
-
+>>>>>>> 9e34f12ba37abaf9c6ee5c222b428dacc1219178
