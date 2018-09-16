@@ -3,7 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Pet } from '../../../models/pet.model';
 import { User } from '../../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
-import { UploadFileService } from '../../../services/upload-file.service'
+import { UploadFileService } from '../../../services/upload-file.service';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class AddPetComponent implements OnInit {
     // this.imageSrc needs to be put in with the user object and sent back to the database
   }
 
-  selectFile(event){
+  selectFile(event) {
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles[0].name);
   }
