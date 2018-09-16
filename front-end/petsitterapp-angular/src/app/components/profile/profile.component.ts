@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { UserCrudService } from '../../services/user-crud.service';
 import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
+import { NavbarService } from '../../services/navbar.service';
+import { Router } from '@angular/router';
 // import { getPackedSettings } from 'http2';
 // import { FormGroup,
 // FormsModule,
@@ -16,12 +18,14 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, DoCheck {
 
   constructor(
     private petProfile: PetCrudService,
     private userProfile: UserCrudService,
-    private cookieService: CookieService) {}
+    private cookieService: CookieService,
+    private navbarService: NavbarService,
+    private router: Router) {}
 
   petList: Pet[] = [];
   newPetList: Pet[] = [];
@@ -43,26 +47,34 @@ export class ProfileComponent implements OnInit {
   urImage: string;
 
   ngOnInit() {
-
-    this.user = JSON.parse(this.cookieService.get('user'));
-    this.userid = this.user.id;
-    this.petProfile.getPets().subscribe(
-      p => {
-        this.petList = p;
-        let i: number;
-        let count: number;
-        count = 0;
-        for (i = 0; i < this.petList.length; i++) {
-          if (this.petList[i].user !== null && this.petList[i].user.id === this.user.id) {
-            this.newPetList[count] = this.petList[i];
-            count++;
+    console.log('in ngOnInit profile.components');
+    if (this.navbarService.isLoggedIn()) {
+      this.user = JSON.parse(this.cookieService.get('user'));
+      this.userid = this.user.id;
+      this.petProfile.getPets().subscribe(
+        p => {
+          this.petList = p;
+          let i: number;
+          let count: number;
+          count = 0;
+          for (i = 0; i < this.petList.length; i++) {
+            if (this.petList[i].user !== null && this.petList[i].user.id === this.user.id) {
+              this.newPetList[count] = this.petList[i];
+              count++;
+            }
           }
         }
-      }
-    );
-    this.setUserInfo(this.userid);
-    this.setPetInfo(this.userid);
-}
+      );
+      this.setUserInfo(this.userid);
+      this.setPetInfo(this.userid);
+    }
+  }
+
+  ngDoCheck() {
+    if (!this.navbarService.isLoggedIn()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   changePet($event) {
     console.log('changing PET INFO');
