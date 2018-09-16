@@ -30,23 +30,6 @@ export class ServiceRequestsListComponent implements OnInit {
     private navbarService: NavbarService,
     private router: Router) { }
 
-  ngDoCheck() {
-
-    if (this.navbarService.isLoggedIn()) {
-      // this.srvReqService.getPSRequestData().subscribe(
-      //   sr => {
-      //     console.log(sr);
-      //     this.serviceRequest = sr;
-      //   }
-      // );
-    }
-
-    if (!this.navbarService.isLoggedIn()) {
-      this.router.navigate(['/home']);
-    }
-    
-  }
-
   ngOnInit() {
     if (this.navbarService.isLoggedIn()) {
       this.loggedInUser = "[logged in user]";
