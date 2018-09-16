@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class PetPostingComponent implements OnInit, DoCheck {
 
   serviceRequestPets: ServiceRequest[] = [];
- 
 
   constructor(
     private srvRequestService: ServiceRequestCrudService,
@@ -35,9 +34,7 @@ export class PetPostingComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    if (this.navbarService.isLoggedIn()) {
-      this.ngOnInit();
-    } else {
+    if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
   }
@@ -49,8 +46,5 @@ export class PetPostingComponent implements OnInit, DoCheck {
 
     );
   }
-
-  
-  
 
 }

@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit, DoCheck {
   urImage: string;
 
   ngOnInit() {
+    console.log('in ngOnInit profile.components');
     if (this.navbarService.isLoggedIn()) {
       this.user = JSON.parse(this.cookieService.get('user'));
       this.userid = this.user.id;
@@ -70,9 +71,7 @@ export class ProfileComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    if (this.navbarService.isLoggedIn()) {
-      this.ngOnInit();
-    } else {
+    if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
   }

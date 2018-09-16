@@ -53,9 +53,7 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    if (this.navbarService.isLoggedIn()) {
-      this.ngOnInit();
-    } else {
+    if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
   }
