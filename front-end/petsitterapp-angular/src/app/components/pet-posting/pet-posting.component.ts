@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class PetPostingComponent implements OnInit {
 
   serviceRequestPets: ServiceRequest[] = [];
+ 
 
   constructor( private srvRequestService: ServiceRequestCrudService,
     private cookieService: CookieService) { }
@@ -35,5 +36,8 @@ export class PetPostingComponent implements OnInit {
 
     );
   }
+
+  
+  
 
 }
