@@ -96,8 +96,8 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
         console.log("data from db -> srvReq");
         console.log(srvReq);
 
-        // this.router.navigate(["/dariusComponent"]);
-        this.router.navigate(["/srlComponent"]);
+        // this.router.navigate(["/petposting"]);
+        this.router.navigate(['/sitterRequestList']);
 
       }
     );

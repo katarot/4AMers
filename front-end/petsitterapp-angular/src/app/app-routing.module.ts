@@ -11,11 +11,11 @@ import { LogoutComponent } from '../app/components/logout/logout.component';
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'psHomeComponent', component: PetSittingHomeComponent },
+    { path: 'petsitting', component: PetSittingHomeComponent },  // psHomeComponent -> petsitting
     { path: 'profile', component: ProfileComponent },
-    { path: 'srComponent', component: ServiceRequestComponent },
-    { path: 'srlComponent', component: ServiceRequestsListComponent },
-    { path: 'dariusComponent', component: PetPostingComponent },
+    { path: 'sitterRequest', component: ServiceRequestComponent },  // srComponent -> sitterRequest
+    { path: 'sitterRequestList', component: ServiceRequestsListComponent },  //  srlComponent -> sitterRequestList
+    { path: 'petposting', component: PetPostingComponent },  // dariusComponent -> petposting
     { path: 'logout', component: LogoutComponent }
 
 

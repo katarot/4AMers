@@ -50,14 +50,14 @@ export class HomeComponent implements OnInit {
           this.invalidLogin = true;
         } else {  // correct login information
 
-          console.log("this.user");
+          console.log('this.user');
           console.log(this.user);
 
           this.cookieService.deleteAll(); // do we need this?
           this.cookieService.set('user', JSON.stringify(this.user));
           console.log(this.cookieService.getAll());
           this.invalidLogin = false;
-          this.router.navigate(['/psHomeComponent']);
+          this.router.navigate(['/petsitting']);
         }
       }
     );
