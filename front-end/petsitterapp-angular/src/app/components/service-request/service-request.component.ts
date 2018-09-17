@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
@@ -9,14 +9,19 @@ import { CookieService } from 'ngx-cookie-service';
 // import { Router } from '../../../../node_modules/@angular/router';
 import { Router } from '@angular/router';
 import { NavbarService } from '../../services/navbar.service';
+import {NgbDatepickerConfig, NgbCalendar, NgbDateAdapter, NgbDateStruct, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-service-request',
   templateUrl: './service-request.component.html',
-  styleUrls: ['./service-request.component.css']
+  styleUrls: ['./service-request.component.css'],
+  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}]
 })
-export class ServiceRequestComponent implements OnInit {
+export class ServiceRequestComponent implements OnInit, DoCheck {
+  
+  // datepicker variable
+  model: Date;
 
   // tslint:disable-next-line:max-line-length
   description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
@@ -28,10 +33,10 @@ export class ServiceRequestComponent implements OnInit {
   serviceRequest: ServiceRequest;
 
   theDate: string;
-  // theDate: string = Date.now().toString();
-  petId: number;
+  //theDate: string = Date.now().toString();
+  petId: number;  
 
-  today: number = Date.now();
+  //today: number = Date.now();
 
   srvReqDescription: string;
 
@@ -40,21 +45,29 @@ export class ServiceRequestComponent implements OnInit {
     private srvRequestService: ServiceRequestCrudService,
     private navbarService: NavbarService,
     private cookieService: CookieService,
-    private router: Router) { }
+    private router: Router,
+    private config: NgbDatepickerConfig,
+    private calendar: NgbCalendar) { }
 
   ngOnInit() {
+    // GET PET DATA TO POPULATE SELECT LIST
+    this.petService.getPets().subscribe(
+      p => {
+        this.pets = p;
+      }
+    );
+
+  }
+
+  ngDoCheck() {
     if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
-    } else {
-      // GET PET DATA TO POPULATE SELECT LIST
-      this.petService.getPets().subscribe(
-        p => {
-          this.pets = p;
-        }
-      );
     }
   }
 
+  get today() {
+    return new Date();
+  }
 
   //  CHANGE EVENT ON PET SELECT LIST
   getPet (event: any) {
@@ -75,7 +88,7 @@ export class ServiceRequestComponent implements OnInit {
 
     this.serviceRequest =
     { 
-      dateCreated: this.theDate,
+      date: this.model.toISOString(),
       status: "OPEN",
       description: this.srvReqDescription,
       replyMessage: null,

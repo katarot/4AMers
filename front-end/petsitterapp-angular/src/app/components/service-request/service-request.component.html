@@ -6,7 +6,7 @@
     <p class="lead">
       {{ description }}
     </p>
-    
+
   </div>
 
   <div class="row">
@@ -15,32 +15,39 @@
 
       <!-- <form class="needs-validation" novalidate> -->
 
-        <hr class="mb-4">
+      <hr class="mb-4">
 
-        <div class="row">
-            
-            <div class="col-md-6 mb-3">
-              
-              <label for="cc-name">Date / Time</label>
+      <div class="row">
 
-              <input type="text" class="form-control" id="cc-name" placeholder="" 
-                    [(ngModel)]="theDate" value="2018-09-02" placeholder="2018-09-02" required>
+        <div class="col-md-6 mb-3">
 
-              <small class="text-muted">Enter the time for the service to request</small>
-              <div class="invalid-feedback">
-                Name on card is required
-              </div>
-            </div>
+          <label for="cc-name">Date / Time</label>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp"  #c="ngModel" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+            <span class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><img src="../../../assets/icon/calendar.svg"
+                  alt="icon name">
+              </button>
+            </span>
+          </div>
 
-            <div class="col-md-4 mb-3">
-              <label for="exampleFormControlSelect1">Pet Select</label>
-              
-              <select class="form-control" id="exampleFormControlSelect1"
-                    (change)="getPet($event)">
-                <option *ngFor="let p of pets" [value]="p.id">{{ p.petName }}</option>
-              </select>
+          <!-- <input type="text" class="form-control" id="cc-name" placeholder="" [(ngModel)]="theDate" value="2018-09-02"
+            placeholder="2018-09-02" required> -->
 
-              <!-- <select class="form-control" (change)="updateReimbStatus($event, r.ticket_id)" style="width: 116px;">
+          <small class="text-muted">Enter the time for the service to request</small>
+          <div class="invalid-feedback">
+            Name on card is required
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="exampleFormControlSelect1">Pet Select</label>
+
+          <select class="form-control" id="exampleFormControlSelect1" (change)="getPet($event)">
+            <option *ngFor="let p of pets" [value]="p.id">{{ p.petName }}</option>
+          </select>
+
+          <!-- <select class="form-control" (change)="updateReimbStatus($event, r.ticket_id)" style="width: 116px;">
                   <option>-Status-</option>
                   <option [value]="status.id" *ngFor="let status of reimbStatus" 
                           [ngValue]="status" [selected]="status.id == r.reimb_status">
@@ -48,31 +55,38 @@
                   </option>
               </select>  -->
 
-            </div>
+        </div>
 
-          </div>
+      </div>
 
-          <div class="row">
-              <div class="col-md-6 mb-3">
-                  <label for="cc-name">Description</label>
-                  <textarea class="form-control" [(ngModel)]="srvReqDescription">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="cc-name">Description</label>
+          <textarea class="form-control" [(ngModel)]="srvReqDescription">
+
+
+
+
+
+
+
                   </textarea>
-                  <div class="invalid-feedback">
-                    Name on card is required
-                  </div>
-                </div>
+          <div class="invalid-feedback">
+            Name on card is required
           </div>
+        </div>
+      </div>
 
-        <!-- <h4 class="mb-3">Pets</h4> -->
-<!-- * n g F o r = "let r of reimbursementsArr" -->
-        <!-- <div class="d-block my-3"> -->
+      <!-- <h4 class="mb-3">Pets</h4> -->
+      <!-- * n g F o r = "let r of reimbursementsArr" -->
+      <!-- <div class="d-block my-3"> -->
 
-          <!-- <div *ngFor="let p of pets" class="custom-control custom-radio">
+      <!-- <div *ngFor="let p of pets" class="custom-control custom-radio">
             <input id="{{p.petName}}" name="paymentMethod" type="radio" class="custom-control-input" required>
             <label class="custom-control-label" for="{{p.petName}}">{{ p.petName }}</label>
           </div> -->
 
-          <!-- <div class="custom-control custom-radio">
+      <!-- <div class="custom-control custom-radio">
             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
             <label class="custom-control-label" for="credit">Fluffy</label>
           </div>
@@ -87,13 +101,13 @@
             <label class="custom-control-label" for="paypal">Chewy</label>
           </div> -->
 
-        <!-- </div> -->
+      <!-- </div> -->
 
 
-        <hr class="mb-4">
-        <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Submit Request</button> -->
-        <a class="btn btn-lg btn-block btn-success" (click)="submitSrvRequest()" >Submit Request</a>
-        
+      <hr class="mb-4">
+      <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Submit Request</button> -->
+      <a class="btn btn-lg btn-block btn-success" (click)="submitSrvRequest()">Submit Request</a>
+
       <!-- </form> -->
     </div>
   </div>
