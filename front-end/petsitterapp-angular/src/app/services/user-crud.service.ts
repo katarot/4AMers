@@ -20,4 +20,5 @@ export class UserCrudService {
   public updateUser(newUser: User) {
     return this.http.post<User>('http://18.232.118.152:8080/project2/users/', newUser);
   }
+
 }

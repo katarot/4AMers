@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ProfileComponent } from '../../profile/profile.component';
 import { EventEmitter } from '@angular/core';
 import { UploadFileService } from '../../../services/upload-file.service';
+import { Pet } from '../../../models/pet.model';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-editprofile',
@@ -9,18 +11,28 @@ import { UploadFileService } from '../../../services/upload-file.service';
   styleUrls: ['./editprofile.component.css']
 })
 export class EditprofileComponent implements OnInit {
-  @Output() bioUpdate = new EventEmitter<string>();
+  @Output() bioUpdate = new EventEmitter<User>();
 
   constructor(private upLoadService: UploadFileService) { }
+  userInfo: User;
   bioDescription: string;
+  errorMessage: string;
   selectedFiles: FileList;
-  imageSrc: any;
+  imageSrc: string;
 
   updateBio() {
-    this.bioUpdate.emit(this.bioDescription);
-    this.upload();
-    // this.bioUpdate.emit(this.imageSrc);
+    if (this.bioDescription.length > 15) {
+      this.errorMessage = '';
+      this.upload();
+      this.userInfo.bioDescription = this.bioDescription;
+      this.userInfo.image = this.imageSrc;
+      this.bioUpdate.emit(this.userInfo);
+      this.bioDescription = '';
     console.log('inupdatebio');
+    } else {
+      this.errorMessage = 'Please use more than 15 characters';
+      console.log(this.errorMessage);
+    }
   }
   ngOnInit() {
   }

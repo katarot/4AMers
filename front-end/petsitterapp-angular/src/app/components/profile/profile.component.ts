@@ -91,7 +91,6 @@ export class ProfileComponent implements OnInit {
     this.bioDescription = $event;
     this.user.bioDescription = this.bioDescription;
     console.log(this.user);
-    console.log(this.bioDescription);
     this.userProfile.updateUser(this.user).subscribe(
       us => {
         console.log(us);
