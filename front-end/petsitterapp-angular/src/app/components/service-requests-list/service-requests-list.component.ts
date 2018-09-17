@@ -61,10 +61,6 @@ export class ServiceRequestsListComponent implements OnInit {
     this.srvOfferRequest.replyMessage = this.replyMessage;
     this.srvOfferRequest.status = "PENDING";
 
-    console.log("after");
-
-    console.log(this.srvOfferRequest);
-
     this.srvReqService.updatePSRequestData(this.srvOfferRequest).subscribe(
       srOffer => {
         console.log("srOffer");
