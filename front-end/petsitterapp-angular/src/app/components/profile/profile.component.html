@@ -3,9 +3,9 @@
     <div class="col-md-2" style="color: black" id="profileBody">
       <br>
       <h3 id="firstName">Hi, {{firstName}}</h3>
-      <img class="img-fluid img-responsive" src="{{urImage}}" alt="urpic" id="profilePic">
+      <img class="img-fluid img-responsive" src="{{ this.myImage }}" alt="urpic" id="profilePic">
       <h5> A little about me: </h5>
-      <p id="actualBio">{{bioDescription}}</p>
+      <p id="actualBio">{{ bioDescription }}</p>
       <app-editprofile (bioUpdate)="receiveUpdate($event)"></app-editprofile>
       <hr>
     </div>

@@ -6,7 +6,7 @@ import { User } from '../../models/user.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
-//import { MessagingComponent } from '../messaging';
+// import { MessagingComponent } from '../messaging';
 import { NavbarService } from '../../services/navbar.service';
 
 @Component({
@@ -22,16 +22,21 @@ export class HomeComponent implements OnInit {
   private password: string;
   private user: User;
   private users: User[];
+
   private invalidLogin: boolean;
-  private bioTooShort: boolean;
+  private invalidUsername: boolean;
+  private invalidPassword: boolean;
+  private invlaidEmail: boolean;
+  private invalidBio: boolean;
 
   private firstname = '';
   private lastname = '';
   private email = '';
   private regUsername = '';
   private regPassword = '';
-  private dateRegistered: Date;
+  private dateRegistered = new Date;
   private bioDescription = '';
+  private dateStr = '';
 
   constructor(
     private router: Router,
@@ -42,10 +47,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.invalidLogin = false;
-    this.bioTooShort = false;
+    this.invalidBio = false;
+    this.invalidUsername = false;
+    this.invalidPassword = false;
+    this.invlaidEmail = false;
     if (this.navbarService.isLoggedIn()) {
       this.router.navigate(['/petsitting']);
     }
+    const year = this.dateRegistered.getFullYear();
+    const month = 1 + this.dateRegistered.getMonth();
+    const day = this.dateRegistered.getDate();
+    // console.log(this.dateRegistered);
+    this.dateStr = year + '-' + month + '-' + day;
   }
 
   login() {
@@ -70,11 +83,26 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
-    // console.log('bioDescription = ' + this.bioDescription);
+    console.log(this.regUsername);
+    console.log(this.regPassword);
     if (this.bioDescription.length < 15) {
-      this.bioTooShort = true;
+      this.invalidBio = true;
     } else {
-      this.bioTooShort = false;
+      this.invalidBio = false;
+    } if (this.regUsername.length < 8) {
+      this.invalidUsername = true;
+    } else {
+      this.invalidUsername = false;
+    } if (this.regPassword.length < 8) {
+      this.invalidPassword = true;
+    } else {
+      this.invalidPassword = false;
+    } if (!this.validateEmail(this.email)) {
+      this.invlaidEmail = true;
+    } else {
+      this.invlaidEmail = false;
+    }
+    if (!this.invalidBio && !this.invalidUsername && !this.invalidPassword && !this.invlaidEmail) {
       this.user = {
         // id: 0,
         username: this.regUsername,
@@ -82,19 +110,23 @@ export class HomeComponent implements OnInit {
         firstName: this.firstname,
         lastName: this.lastname,
         email: this.email,
-        dateRegistered: '2018-09-14',
+        dateRegistered: this.dateStr,
         bioDescription: this.bioDescription
       };
-      // console.log(this.user);
+      console.log(this.dateStr);
       this.auth.register(this.user).subscribe(
         data => {
           this.user = data;
-          // console.log(this.user);
           location.reload();
         }
       );
-
     }
+  }
+
+  validateEmail(email: string) {
+    // tslint:disable-next-line:max-line-length
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 
 }

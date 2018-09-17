@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
   firstName: string;
   lastName: string;
   bioDescription: string;
-  urImage: string;
+  myImage: string;
 
   ngOnInit() {
     console.log('in ngOnInit profile.components');
@@ -98,9 +98,11 @@ export class ProfileComponent implements OnInit {
     // this.user.bioDescription = this.bioDescription;
     this.userProfile.updateUser(this.user).subscribe(
       us => {
+        console.log(us);
         this.user = us;
       }
     );
+    console.log(this.user);
   }
 
   receivePet($event) {
@@ -136,7 +138,7 @@ export class ProfileComponent implements OnInit {
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
-        this.urImage = this.user.image;
+        this.myImage = null;
         }
       );
     }
