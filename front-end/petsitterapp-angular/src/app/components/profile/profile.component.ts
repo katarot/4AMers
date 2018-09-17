@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
   behaviors: string[];
 
   user: User;
+  userEdit: User;
   userid: number;
   firstName: string;
   lastName: string;
@@ -88,9 +89,13 @@ export class ProfileComponent implements OnInit {
   }
 
   receiveUpdate($event) {
-    this.bioDescription = $event;
-    this.user.bioDescription = this.bioDescription;
+    console.log('inside receive update');
+    this.userEdit = $event;
+    console.log(this.userEdit);
+    this.user.bioDescription = this.userEdit.bioDescription;
+    this.user.image = this.userEdit.image;
     console.log(this.user);
+    // this.user.bioDescription = this.bioDescription;
     this.userProfile.updateUser(this.user).subscribe(
       us => {
         this.user = us;
@@ -99,10 +104,11 @@ export class ProfileComponent implements OnInit {
   }
 
   receivePet($event) {
+    console.log('hi were in receive pae');
     this.newPet = $event;
 
     this.newPet.user = this.user;
-
+    console.log(this.newPet.user);
     this.petProfile.postP5RequestData(this.newPet).subscribe(
       np => {
         this.newPet = np;
@@ -151,6 +157,7 @@ export class ProfileComponent implements OnInit {
             count++;
           }
         }
+        console.log(this.newPetList[0].image);
         if (this.newPetList[0] !== undefined) {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;

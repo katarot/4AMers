@@ -24,6 +24,16 @@ export class EditprofileComponent implements OnInit {
     if (this.bioDescription.length > 15) {
       this.errorMessage = '';
       this.upload();
+      this.userInfo = {
+        username: null,
+        password: null,
+        firstName: null,
+        lastName: null,
+        email: null,
+        dateRegistered: null,
+        bioDescription: this.bioDescription,
+        image: this.imageSrc
+      };
       this.userInfo.bioDescription = this.bioDescription;
       this.userInfo.image = this.imageSrc;
       this.bioUpdate.emit(this.userInfo);
@@ -43,7 +53,7 @@ export class EditprofileComponent implements OnInit {
     console.log(this.imageSrc);
   }
 
-   selectFile(event){
+   selectFile(event) {
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles[0].name);
   }
