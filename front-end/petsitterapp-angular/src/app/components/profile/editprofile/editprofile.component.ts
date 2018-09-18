@@ -20,10 +20,16 @@ export class EditprofileComponent implements OnInit {
   selectedFiles: FileList;
   imageSrc: string;
 
+ 
+  ngOnInit() {
+  }
+
   updateBio() {
     if (this.bioDescription.length > 15) {
       this.errorMessage = '';
-      this.upload();
+      if (!this.selectedFiles == null || !this.selectedFiles == undefined){
+        this.upload();
+      }
       this.userInfo = {
         username: null,
         password: null,
@@ -43,8 +49,6 @@ export class EditprofileComponent implements OnInit {
       this.errorMessage = 'Please use more than 15 characters';
       console.log(this.errorMessage);
     }
-  }
-  ngOnInit() {
   }
 
   upload() {

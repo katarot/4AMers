@@ -129,4 +129,6 @@ export class HomeComponent implements OnInit {
     return re.test(String(email).toLowerCase());
   }
 
+
+  
 }

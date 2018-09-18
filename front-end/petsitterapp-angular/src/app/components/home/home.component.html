@@ -4,10 +4,33 @@
 <div>
 <form (submit)="login()" >
     <!-- <label for="username">Username</label> -->
-  <label for="username"></label>
+  <!-- <label for="username"></label>
   <input type="text" id="usernameLog" name="username" placeholder=Username required [(ngModel)]='username' /> <br>
   <label for="password"></label>
-  <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br>
+  <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br> -->
+  <section class="login-block">
+        <div class="container">
+        <div class="row ">
+            <div class="col login-sec">
+                <h2 class="text-center">Login Now</h2>
+                <form class="login-form">
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+        <input type="text" name="firstname" id="firstNameReg"class="form-control" placeholder="Username" required [(ngModel)]='username' >
+        
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+        <input type="password" id="passwordLog" name="password" class="form-control" placeholder="Password" required [(ngModel)]='password'>
+      </div>
+       <button type="submit" class="btn btn-login float-right">Log In!</button>
+    </form>
+      </div>
+        </div>
+        </div>
+    </section>
+    
+    
   <div id="message" *ngIf="this.invalidLogin">
     The username or password you have entered is incorrect.
   </div>
@@ -30,6 +53,7 @@
       </div>
         <div class="modal-body">
             <div class="form-group">
+
               <label for="firstname">First Name</label>
               <input type="text" id="firstNameReg" name="firstname" required [(ngModel)]='firstname'/> <br><br>
 
@@ -70,6 +94,9 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- 
 <hr>
 <hr>
@@ -132,3 +159,5 @@
       </div>
   </div>
 </div> -->
+
+
