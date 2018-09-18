@@ -6,6 +6,7 @@ import { ServiceRequest } from '../../models/service-request.model';
 import { Router } from '@angular/router';
 import { NavbarService } from '../../services/navbar.service';
 import { User } from '../../models/user.model';
+import { UserCrudService } from '../../services/user-crud.service';
 
 @Component({
   selector: 'app-service-requests-list',
@@ -26,13 +27,20 @@ export class ServiceRequestsListComponent implements OnInit {
   replyMessage: string;
   userCookieValue: string;
   setMyStyles: string;
+  myColor: string;
+  // statusIs: boolean;
   // {{ ( (sr.sitter == null) ? 'El Nulo' : sr.sitter.firstName ) }}
+  name: string;
+  email: string;
+  image: string;
+  bio: string;
 
   // myStyles: string = "";
 
   constructor(
     private cookieService: CookieService,
     private srvReqService: ServiceRequestCrudService,
+    private userService: UserCrudService,
     private navbarService: NavbarService,
     private router: Router) { }
   
@@ -40,7 +48,8 @@ export class ServiceRequestsListComponent implements OnInit {
 
     if (this.navbarService.isLoggedIn()) {
 
-      this.setMyStyles = "";
+      // this.setMyStyles = "black";
+
 
       console.log("ngOnInit: cookieService get user -->");
       console.log(this.cookieService.get('user'));
@@ -76,18 +85,21 @@ export class ServiceRequestsListComponent implements OnInit {
             return comparison;
           });
 
-          // this.serviceRequest.filter(function(element, index, args) {
-          //   if (element.status == 'PENDING') {
+          this.serviceRequest.filter(function(element, index, args) {
+            if (element.status == 'PENDING') {
+              // this.statusIs = true;
+            //   this.myStyles('gray');
+              console.log('pending status ' + index);
 
-          //   //   this.myStyles('gray');
-          //     console.log('pending status ' + index);
+              // this.setMyStyles = {
+              //   'background-color': true ? 'green' : 'transparent',
+              //   'font-weight': true ? 'bold' : 'normal'
+              // };
 
-          //     // this.setMyStyles = {
-          //     //   'background-color': true ? 'green' : 'transparent',
-          //     //   'font-weight': true ? 'bold' : 'normal'
-          //     // };
-          //   }
-          // });
+              // 'darkorchid'
+
+            }
+          });
 
           // if status == PENDING   ->    background-color: #dad9d9;
           // this.srPetname = "";
@@ -104,26 +116,16 @@ export class ServiceRequestsListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    
+    // if (this.statusIs) this.myColor = "black";
+    // else this.myColor = "blue";
+
+    this.myColor = "white";
     console.log('after init');
 
     let setMyStyles = {
       'background-color': true ? 'green' : 'transparent',
       'font-weight': true ? 'bold' : 'normal'
     };
-
-    this.serviceRequest.filter(function(element, index, args) {
-      if (element.status == 'PENDING') {
-
-      //   this.myStyles('gray');
-        console.log('pending status ' + index);
-        setMyStyles["background-color"] = "red"
-        // setMyStyles = {
-        //   'background-color': true ? 'red' : 'transparent',
-        //   'font-weight': true ? 'bold' : 'normal'
-        // };
-      }
-    });
 
   }
 
@@ -159,5 +161,26 @@ export class ServiceRequestsListComponent implements OnInit {
       }
     );
   }
+
+  /// GET PUBLIC USER INFO
+  getPublicUserInfo(srObject) {
+    console.log('this.loggedInUser');
+    console.log(this.loggedInUser);
+    console.log('srObject');
+    console.log(srObject);
+
+    this.name = srObject.pet.user.firstName + " " + srObject.pet.user.lastName;
+    this.email = srObject.pet.user.email;
+    this.image = srObject.pet.user.image;
+    this.bio = srObject.pet.user.bioDescription;
+
+    // this.userService.getUserInfo().subscribe(
+    //   usr => {
+
+    //   }
+    // );
+
+  }
+  
   
 }
