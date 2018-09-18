@@ -37,7 +37,8 @@ export class ProfileComponent implements OnInit {
   needs: string;
   petImage: string;
   petId: number;
-  behaviors: string[];
+  // behaviors: string[];
+  behavior: string;
 
   user: User;
   userEdit: User;
@@ -68,6 +69,7 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
+      console.log('needs = ' + this.needs);
     } else {
       this.router.navigate(['/home']);
     }
@@ -164,6 +166,9 @@ export class ProfileComponent implements OnInit {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;
           this.breed = this.newPetList[0].breed;
+          this.needs = this.newPetList[0].needs;
+          // this.behaviors[0] = this.newPetList[0].behaviour;
+          this.behavior = this.newPetList[0].behaviour;
           this.petImage = this.newPetList[0].image;
         }
       }
