@@ -14,3 +14,6 @@ p {
     .login-sec h2:after{content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
     .btn-login{background: #0069c0; color:#fff; font-weight:600;}
 
+.row {
+    background-color: #c5d592;
+}
