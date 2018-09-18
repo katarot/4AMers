@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ProfileComponent } from '../../profile/profile.component';
 import { EventEmitter } from '@angular/core';
 import { UploadFileService } from '../../../services/upload-file.service';
+import { CookieService } from 'ngx-cookie-service';
 import { Pet } from '../../../models/pet.model';
 import { User } from '../../../models/user.model';
 
@@ -13,16 +14,19 @@ import { User } from '../../../models/user.model';
 export class EditprofileComponent implements OnInit {
   @Output() bioUpdate = new EventEmitter<User>();
 
-  constructor(private upLoadService: UploadFileService) { }
+  constructor(private upLoadService: UploadFileService, private cookieService: CookieService) { }
   userInfo: User;
   bioDescription: string;
   errorMessage: string;
   selectedFiles: FileList;
+
   imageSrc: string;
 
- 
   ngOnInit() {
+    this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
+    console.log(this.bioDescription);
   }
+ 
 
   updateBio() {
     if (this.bioDescription.length > 15) {
@@ -49,7 +53,9 @@ export class EditprofileComponent implements OnInit {
       this.errorMessage = 'Please use more than 15 characters';
       console.log(this.errorMessage);
     }
+
   }
+ 
 
   upload() {
     const file = this.selectedFiles.item(0);
