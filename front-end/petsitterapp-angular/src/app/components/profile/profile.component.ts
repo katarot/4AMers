@@ -69,7 +69,6 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
-      console.log('needs = ' + this.needs);
     } else {
       this.router.navigate(['/home']);
     }
@@ -133,6 +132,7 @@ export class ProfileComponent implements OnInit {
   }
 
   setUserInfo(userid: number) {
+    console.log('setting user info in profile component');
     this.userProfile.getUserInfo(userid).subscribe(
       ui => {
         this.user = ui;
