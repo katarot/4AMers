@@ -64,7 +64,7 @@ public class MessageController {
 		}
 	}
 
-	@RequestMapping(value="/sender", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, // request body content
+	@RequestMapping(value="/sender", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, // request body content
 			produces = MediaType.APPLICATION_JSON_VALUE) // response body content
 	public ResponseEntity<List<Message>> getMessageBySender(@Valid @RequestBody User u) {
 
@@ -77,7 +77,7 @@ public class MessageController {
 		}
 	}
 	
-	@RequestMapping(value="/receiver", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, // request body content
+	@RequestMapping(value="/receiver", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, // request body content
 			produces = MediaType.APPLICATION_JSON_VALUE) // response body content
 	public ResponseEntity<List<Message>> getMessageByReciever(@Valid @RequestBody User u) {
 
