@@ -15,7 +15,8 @@ div{
 
 h1, h5{
     font-family: 'Lobster', cursive;
-    background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
+    background-color: #335C67;
+    /* background-image: linear-gradient(to right, #0F0326 , rgb(3, 172, 214)); */
     color: white;
     text-align: center;
     box-shadow: 5px 5px #bbbaba;
@@ -25,7 +26,8 @@ h1, h5{
 
 h2, h3, h4, h6{
     font-family: 'Lobster', cursive;
-    background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214));
+    background-color: #335C67;
+    /* background-image: linear-gradient(to right, #61dcf1 , rgb(3, 172, 214)); */
     color: white;
     text-align: center;
     box-shadow: 5px 5px #bbbaba;
@@ -48,16 +50,23 @@ h6{
 
 select{
     color: #fff;
-    background-color: rgb(3, 172, 214);
-    border-color: #17a2b8;
+    background-color: #335C67;
+    /* background-color: rgb(3, 172, 214); */
+    border-color: #335C67;
     border-radius: 3px;
     margin-left: 74px;
 }
 
 #exPetInfo{
+    text-align: center;
     background-color: #ebe8e8;
     border-radius: 10px;
     padding-left: 30px;
+}
+#exPetInfo p{
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 5px 5px #bbbaba;
 }
 
 #petPic{
@@ -76,9 +85,9 @@ span.petButtons{
 }
 
 #selectList{
-    text-align:center;
+    text-align: center;
     width: 100px;
-    padding-left: 10px;
+    margin-right: 65px;
 }
 #profileBody{
     background-color: white;
