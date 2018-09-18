@@ -27,6 +27,8 @@ export class ServiceRequestsListComponent implements OnInit {
   userCookieValue: string;
   // {{ ( (sr.sitter == null) ? 'El Nulo' : sr.sitter.firstName ) }}
 
+  // myStyles: string = "";
+
   constructor(
     private cookieService: CookieService,
     private srvReqService: ServiceRequestCrudService,
@@ -57,9 +59,43 @@ export class ServiceRequestsListComponent implements OnInit {
           console.log("getPSRequestData: serviceRequest -> ");
           console.log(this.serviceRequest);
 
+          this.serviceRequest.sort(function(a, b) {
+            
+            console.log('inside sort fn');
+            console.log(a);
+            console.log(b);
+
+            // Use toUpperCase() to ignore character casing
+            const statusOpen = a.status.toUpperCase();
+            const statusPending = b.status.toUpperCase();
+          
+            let comparison = 0;
+            // if (genreA > genreB) {
+            if (statusOpen == 'OPEN') {
+            //   comparison = 1;
+              comparison = -1;
+            // } else if (genreA < genreB) {
+            } else if (statusPending == 'PENDING') {
+            //   comparison = -1;
+              comparison = 1;
+            // }
+            }
+            return comparison;
+          });
+          
+          // bands.sort(compare);
+
+          this.serviceRequest.filter(function(element, index, args) {
+            // if (element.status == 'PENDING') {
+            //   this.myStyles('gray');
+            // }
+          });
+
           // if status == PENDING   ->    background-color: #dad9d9;
           // this.srPetname = "";
           // this.srDate = "";
+          // this.myStyles = "{'background-color': 'lime','font-size': '20px','font-weight': 'bold'}";
+          // this.myStyles = "{background-color: lime}";
 
         }
       );
