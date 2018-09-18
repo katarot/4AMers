@@ -27,7 +27,7 @@ export class EditprofileComponent implements OnInit {
     this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
     console.log(this.bioDescription);
   }
- 
+
 
   updateBio() {
     if (this.bioDescription.length > 15) {
@@ -59,7 +59,7 @@ export class EditprofileComponent implements OnInit {
       this.bioUpdate.emit(this.userInfo);
       // this.bioDescription = '';
     console.log('inupdatebio');
-    // location.reload();
+    location.reload();
     } else {
       this.errorMessage = 'Please use more than 15 characters';
       console.log(this.errorMessage);
