@@ -39,7 +39,8 @@ export class ProfileComponent implements OnInit {
   needs: string;
   petImage: string;
   petId: number;
-  behaviors: string[];
+  // behaviors: string[];
+  behavior: string;
 
   user: User;
   userEdit: User;
@@ -50,13 +51,15 @@ export class ProfileComponent implements OnInit {
   myImage: string;
 
   ngOnInit() {
-    console.log('in ngOnInit profile.components');
     if (this.navbarService.isLoggedIn()) {
       this.user = JSON.parse(this.cookieService.get('user'));
+      this.myImage = this.user.image;
+      console.log('myImage = ' + this.myImage);
       this.userid = this.user.id;
       this.petProfile.getPets().subscribe(
         p => {
           this.petList = p;
+          console.log(p);
           let i: number;
           let count: number;
           count = 0;
@@ -70,6 +73,11 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
+      console.log('newPetList = ' + JSON.stringify(this.newPetList));
+      // console.log('this.user = ' + JSON.stringify(this.user));
+      // console.log('myImage = ' + this.myImage);
+      // console.log('this.user.image = ' + this.user.image);
+      // this.myImage = this.user.image;
     } else {
       this.router.navigate(['/home']);
     }
@@ -142,6 +150,7 @@ export class ProfileComponent implements OnInit {
   }
 
   setUserInfo(userid: number) {
+    console.log('setting user info in profile component');
     this.userProfile.getUserInfo(userid).subscribe(
       ui => {
         // this.user = ui;
@@ -171,10 +180,14 @@ export class ProfileComponent implements OnInit {
           }
         }
         console.log(this.newPetList);
+        // console.log(this.newPetList[0].image);
         if (this.newPetList[0] !== undefined) {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;
           this.breed = this.newPetList[0].breed;
+          this.needs = this.newPetList[0].needs;
+          // this.behaviors[0] = this.newPetList[0].behaviour;
+          this.behavior = this.newPetList[0].behaviour;
           this.petImage = this.newPetList[0].image;
           this.petId = this.newPetList[0].id;
           this.data.changeNumber(this.petId);

@@ -24,6 +24,7 @@ import { AuthService } from './services/auth.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddpetprofileComponent,
     AddPetComponent,
     LogoutComponent,
-    EditpetproComponent
+    EditpetproComponent,
+    PublicProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service';
@@ -8,6 +8,9 @@ import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
 // import { MessagingComponent } from '../messaging';
 import { NavbarService } from '../../services/navbar.service';
+import { PetServiceService } from '../../services/pet-service.service'
+import { Dog } from '../../models/dog.model'
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-home',
@@ -22,6 +25,9 @@ export class HomeComponent implements OnInit {
   private password: string;
   private user: User;
   private users: User[];
+  private catImg: any;
+  private dog: Dog[];
+  private dogImg: any;
 
   private invalidLogin: boolean;
   private invalidUsername: boolean;
@@ -37,13 +43,16 @@ export class HomeComponent implements OnInit {
   private dateRegistered = new Date;
   private bioDescription = '';
   private dateStr = '';
+  
 
   constructor(
     private router: Router,
     private cookieService: CookieService,
     private auth: AuthService,
     private modalService: NgbModal,
-    private navbarService: NavbarService) { }
+    private navbarService: NavbarService,
+    private catService: PetServiceService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.invalidLogin = false;
@@ -59,6 +68,18 @@ export class HomeComponent implements OnInit {
     const day = this.dateRegistered.getDate();
     // console.log(this.dateRegistered);
     this.dateStr = year + '-' + month + '-' + day;
+    this.catImg = "https://cataas.com/cat"
+    console.log(this.catService.getDog);
+    this.catService.getDog().subscribe(
+      data => {
+        
+        this.dogImg = this.sanitizer.bypassSecurityTrustResourceUrl(data.message);
+        console.log(this.dogImg);
+      }
+      
+    )
+    
+    
   }
 
   login() {
@@ -129,4 +150,6 @@ export class HomeComponent implements OnInit {
     return re.test(String(email).toLowerCase());
   }
 
+
+  
 }

@@ -119,8 +119,7 @@ public class PetRepositoryImpl implements PetRepository {
 	}
 	@Override
 	public void update(Pet p) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().update(p);
 	}
 
 

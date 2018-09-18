@@ -14,21 +14,24 @@
         <div class="row">
           <div class="col-md-8">
             <h2 class="panel panel-heading panel-primary my-4" style="text-align:center">This is {{petName}}</h2>
-            <img class="img-fluid" src="{{petImage}}" alt="ptpic" id="petPic" >
+            <img class="img-fluid" src="{{ petImage }}" alt="ptpic" id="petPic" >
           </div>
           <br> 
             <div class="col-md-4" id="exPetInfo">
               <br>  
-              <h4>Breed: {{breed}}</h4>
+              <h4>Breed:</h4>
+              <p>{{breed}}</p>
               <h4>{{petName}}'s Biography:</h4>
               <h3 class="my-3"></h3>
               <p id="petBio">{{petDescription}}</p>
               <div class="panel panel-default">
                 <h4 id="petsNeedBorder">Special Needs:</h4>
-                <ul>
-                  <li *ngFor="let l of behaviors" [value]="p.id" id="behaviorList"></li>
-                </ul>
+                <p>{{needs}}</p>
                 <h4 id="petsBehavior">Quirky Behaviours:</h4>
+                <!-- <ul>
+                  <li *ngFor="let l of behaviors" [value]="p.id" id="behaviorList">{{behaviors[l]}}</li>
+                </ul> -->
+                <p>{{behavior}}</p>
               </div>
                 <hr>
                 <span class="petButtons">

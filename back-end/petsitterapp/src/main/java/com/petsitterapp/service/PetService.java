@@ -36,6 +36,10 @@ public class PetService {
 //		return petRepo.findOne(id);
 		return petRepo.getById(id);
 	}
+
+	public void update(Pet p) {
+		petRepo.update(p);
+	}
 	
 //	public Pet getByName(String petName) {
 //		return petRepo.findByPetName(petName);

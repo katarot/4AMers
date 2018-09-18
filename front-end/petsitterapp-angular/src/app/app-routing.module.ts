@@ -7,6 +7,7 @@ import { ServiceRequestComponent } from './components/service-request/service-re
 import { ServiceRequestsListComponent } from './components/service-requests-list/service-requests-list.component';
 import { PetPostingComponent } from './components/pet-posting/pet-posting.component';
 import { LogoutComponent } from '../app/components/logout/logout.component';
+import { MessagingComponent } from '../app/components/messaging/messaging.component'
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
     { path: 'sitterRequest', component: ServiceRequestComponent },  // srComponent -> sitterRequest
     { path: 'sitterRequestList', component: ServiceRequestsListComponent },  //  srlComponent -> sitterRequestList
     { path: 'petposting', component: PetPostingComponent },  // dariusComponent -> petposting
-    { path: 'logout', component: LogoutComponent }
+    { path: 'logout', component: LogoutComponent },
+    { path: 'message', component: MessagingComponent }
 
 
     // { path: 'home', component: HomeComponent },
