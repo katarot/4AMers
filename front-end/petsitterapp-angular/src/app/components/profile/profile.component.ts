@@ -71,9 +71,10 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
-      console.log('this.user = ' + JSON.stringify(this.user));
-      console.log('myImage = ' + this.myImage);
-      console.log('this.user.image = ' + this.user.image);
+      console.log('newPetList = ' + JSON.stringify(this.newPetList));
+      // console.log('this.user = ' + JSON.stringify(this.user));
+      // console.log('myImage = ' + this.myImage);
+      // console.log('this.user.image = ' + this.user.image);
       // this.myImage = this.user.image;
     } else {
       this.router.navigate(['/home']);
