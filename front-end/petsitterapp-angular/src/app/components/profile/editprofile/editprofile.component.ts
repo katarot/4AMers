@@ -15,7 +15,6 @@ export class EditprofileComponent implements OnInit {
   @Output() bioUpdate = new EventEmitter<User>();
 
   constructor(private upLoadService: UploadFileService, private cookieService: CookieService) { }
-  constructor(private upLoadService: UploadFileService) { }
   userInfo: User;
   bioDescription: string;
   errorMessage: string;
