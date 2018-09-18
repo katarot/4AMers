@@ -37,6 +37,8 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
   //today: number = Date.now();
 
   srvReqDescription: string;
+  currentUser: User;
+  
 
   constructor(
     private petService: PetCrudService,
@@ -48,10 +50,24 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
     private calendar: NgbCalendar) { }
 
   ngOnInit() {
+
+    this.currentUser = JSON.parse(this.cookieService.get('user'));
+    
     // GET PET DATA TO POPULATE SELECT LIST
     this.petService.getPets().subscribe(
       p => {
         this.pets = p;
+        let ccUser = this.currentUser;
+        
+        this.pets = this.pets.filter(function(element, index, array) {
+          
+          
+          if (element.user.id == ccUser.id){
+            return true;
+          }
+
+
+        });
       }
     );
 
