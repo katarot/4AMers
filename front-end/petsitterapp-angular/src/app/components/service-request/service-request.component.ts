@@ -2,15 +2,13 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
-// import { Router } from '../../../../node_modules/@angular/router';
 import { Router } from '@angular/router';
 import { NavbarService } from '../../services/navbar.service';
 import {NgbDatepickerConfig, NgbCalendar, NgbDateAdapter, NgbDateStruct, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
-
 
 @Component({
   selector: 'app-service-request',
