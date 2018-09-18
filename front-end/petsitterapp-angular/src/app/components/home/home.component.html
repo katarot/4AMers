@@ -8,9 +8,14 @@
   <input type="text" id="usernameLog" name="username" placeholder=Username required [(ngModel)]='username' /> <br>
   <label for="password"></label>
   <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br> -->
+  
+  
   <section class="login-block">
+        <img src= "{{ catImg }}" class="float-left" style="width:456px;height:420px;">
+        <img [src]=" this.dogImg " class="float-right" style="width:454px;height:420px;"  >
+        
         <div class="container">
-        <div class="row" style="box-shadow: 1px 2px 5px 0px #333;
+            <div class="row" style="box-shadow: 1px 2px 5px 0px #333;
         border: 1px solid #bdbdbd;">
             <div class="col login-sec">
                 <h2 class="text-center">Login Now</h2>
@@ -31,11 +36,13 @@
        <button type="submit" name="submit" id="name" onClick=""  class="btn btn-success btn-primary float-right">Log In!</button>
        <button class="btn btn-link float-right" data-toggle="modal" data-target="#myModal">Register</button>
     
-    
+      
     
       </div>
         </div>
+        
         </div>
+        
         
     </section>
     
