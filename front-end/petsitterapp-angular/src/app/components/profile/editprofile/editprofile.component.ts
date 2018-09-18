@@ -23,14 +23,13 @@ export class EditprofileComponent implements OnInit {
 
   currentImage: string;
   imageSrc: string;
-
+ 
   ngOnInit() {
     this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
     this.currentImage = JSON.parse(this.cookieService.get('user')).image;
     console.log(this.bioDescription);
     console.log(this.imageSrc);
   }
-
 
   updateBio() {
     if (this.bioDescription.length > 15) {
@@ -57,8 +56,8 @@ export class EditprofileComponent implements OnInit {
       const u = JSON.parse(this.cookieService.get('user'));
       u.bioDescription = this.bioDescription;
       this.cookieService.set('user', JSON.stringify(u));
-      // console.log('setting bioDescription');
-      // console.log('user -> ' + this.cookieService.get('user'));
+      // console.log(‘setting bioDescription’);
+      // console.log(‘user -> ’ + this.cookieService.get(‘user’));
       // this.userInfo.image = this.imageSrc;
       if(this.imageSrc == null){
         this.userInfo.image = this.currentImage;
@@ -66,7 +65,7 @@ export class EditprofileComponent implements OnInit {
         this.userInfo.image = this.imageSrc;
       }
       this.bioUpdate.emit(this.userInfo);
-      // this.bioDescription = '';
+      // this.bioDescription = ‘’;
     console.log('inupdatebio');
     location.reload();
     } else {
@@ -88,7 +87,7 @@ export class EditprofileComponent implements OnInit {
     // }
   }
 
-   selectFile(event) {
+  selectFile(event) {
     this.fileSelected = true;
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles[0].name);

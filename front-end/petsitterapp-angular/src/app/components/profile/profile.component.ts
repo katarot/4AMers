@@ -53,6 +53,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     if (this.navbarService.isLoggedIn()) {
       this.user = JSON.parse(this.cookieService.get('user'));
+      console.log('user--->');
+      console.log(this.user);
       this.myImage = this.user.image;
       console.log('myImage = ' + this.myImage);
       this.userid = this.user.id;

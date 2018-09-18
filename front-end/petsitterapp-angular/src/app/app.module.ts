@@ -26,6 +26,7 @@ import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
