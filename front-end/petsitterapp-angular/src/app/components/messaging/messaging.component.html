@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="nav flex-column nav-pills col-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active btn-light" id="v-pills-inbox-tab" data-toggle="pill" href="#v-pills-inbox" role="tab"
         aria-controls="v-pills-inbox" aria-selected="true">Inbox</a>
-      <a class="nav-link btn-light" id="v-pills-outbox-tab" data-toggle="pill" href="#v-pills-outbox" role="tab" aria-controls="v-pills-outbox"
-        aria-selected="false">Outbox</a>
+      <a class="nav-link btn-light" id="v-pills-outbox-tab" data-toggle="pill" href="#v-pills-outbox" role="tab"
+        aria-controls="v-pills-outbox" aria-selected="false">Outbox</a>
     </div>
-    <div class="tab-content col-8" id="v-pills-tabContent">
+    <div class="tab-content col-10" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="v-pills-inbox" role="tabpanel" aria-labelledby="v-pills-inbox-tab">
         <div class="card-group" *ngFor="let m of inboxReceived">
-          <div class="card">
+          <div class="card mb-3">
             <div class="card-header">
               <small class="text-muted">Recieved on: {{ m.dateSent | date : medium }}</small>
             </div>
@@ -18,31 +18,74 @@
               <p class="card-text"> {{ m.message }} </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Sent by: {{ m.sender.firstName + ' ' + m.sender.lastName + ' (' +
-                m.sender.username + ')'}}</small>
+              <div class="row">
+                <div class="col-10">
+                  <small class="text-muted">Sent by: {{ m.sender.firstName + ' ' + m.sender.lastName + ' (' +
+                    m.sender.username + ')'}}</small>
+                </div>
+                <div class="col-2">
+                  <a class="btn btn-sm btn-block btn-light" id="offer-service-btn" (click)="setDataForPopUp(m.sender)"
+                    data-toggle="modal" data-target="#exampleModal">
+                    Reply
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-outbox" role="tabpanel" aria-labelledby="v-pills-outbox-tab">
-        <div class="tab-pane fade show active" id="v-pills-inbox" role="tabpanel" aria-labelledby="v-pills-inbox-tab">
-          <div class="card-group" *ngFor="let m of outboxSent">
-            <div class="card">
-              <div class="card-header">
-                <small class="text-muted">Sent on: {{ m.dateSent | date : medium }}</small>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Subject: {{ m.subject }}</h6>
-                <p class="card-text"> {{ m.message }} </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Sent to: {{ m.sender.firstName + ' ' + m.sender.lastName + ' (' +
-                  m.sender.username + ')'}}</small>
-              </div>
+        <div class="card-group" *ngFor="let m of outboxSent">
+          <div class="card mb-3">
+            <div class="card-header">
+              <small class="text-muted">Sent on: {{ m.dateSent | date : medium }}</small>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Subject: {{ m.subject }}</h6>
+              <p class="card-text"> {{ m.message }} </p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Sent to: {{ m.receiver.firstName + ' ' + m.receiver.lastName + ' (' +
+                m.receiver.username + ')'}}</small>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <!-- MODAL -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Replying to: {{ userToSend.firstName + ' ' + userToSend.lastName + ' (' + userToSend.username + ')'}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Subject</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Subject" [(ngModel)]="msgSubject">
+              </div>
+              
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Message</span>
+                </div>
+                <textarea class="form-control" aria-label="Message" [(ngModel)]="replyMessage"></textarea>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="submitMessage()" data-dismiss="modal">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ./MODAL -->
 </div>

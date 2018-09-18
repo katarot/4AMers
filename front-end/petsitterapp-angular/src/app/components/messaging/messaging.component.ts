@@ -18,8 +18,13 @@ import { NavbarService } from '../../services/navbar.service';
 
 export class MessagingComponent implements OnInit {
 
-  inboxReceived: Message;
-  outboxSent: Message;
+  inboxReceived: Message[];
+  outboxSent: Message[];
+
+  loggedInUser: User;
+  userToSend: User;
+  msgSubject: string;
+  replyMessage: string;
 
   constructor(private msgServ: MessagingService, private router: Router, private cookie: CookieService, private navbarService: NavbarService) { }
 
@@ -27,21 +32,44 @@ export class MessagingComponent implements OnInit {
     if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
-    
+
+    this.loggedInUser = JSON.parse(this.cookie.get('user'));
+
+    console.log(this.loggedInUser);
+
     this.msgServ.getMessageReceivedByCurrentUser().subscribe(
       m => {
+        console.log(m);
         this.inboxReceived = m;
+        this.inboxReceived.sort(
+          (a: Message, b: Message): number => {
+          return (a.dateSent <= b.dateSent) ? 1 : -1;
+        });
       }
     );
 
     this.msgServ.getMessagesSentByCurrentUser().subscribe(
       m => {
+        console.log(m);
         this.outboxSent = m;
+        this.outboxSent.sort(
+          (a: Message, b: Message): number => {
+          return (a.dateSent <= b.dateSent) ? 1 : -1;
+        });
       }
     );
   }
 
-  submit() {
-    console.log(JSON.parse(this.cookie.get('user')));
+  submitMessage() {
+    this.msgServ.sendMessaage(this.msgSubject, this.replyMessage, this.userToSend).subscribe(
+      m => {
+        console.log(m);
+        location.reload();
+      }
+    );
+  }
+
+  setDataForPopUp(receiver: User) {
+    this.userToSend = receiver;
   }
 }
