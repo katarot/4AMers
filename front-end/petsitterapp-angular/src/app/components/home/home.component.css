@@ -17,3 +17,12 @@ p {
 .row {
     background-color: #c5d592;
 }
+#bioDescriptionReg
+{
+  text-align: left;
+padding:  0.8em;
+padding-bottom:190px;
+width: 400px;
+height: 20px;
+    
+}

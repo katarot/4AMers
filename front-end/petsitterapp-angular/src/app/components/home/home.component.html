@@ -61,32 +61,32 @@
         <div class="modal-body">
             <div class="form-group">
 
-              <label for="firstname">First Name</label>
+              <label for="firstname">First Name</label><br>
               <input type="text" id="firstNameReg" name="firstname" required [(ngModel)]='firstname'/> <br><br>
 
-              <label for="lastname">Last name</label>
+              <label for="lastname">Last name</label><br>
               <input type="text" id="lastNameReg" name="lastname" required [(ngModel)]='lastname'/> <br><br>
 
-              <label for="email">Email</label>
+              <label for="email">Email</label><br>
               <input type="text" id="emailReg" name="email" required [(ngModel)]='email'/> <br>
               <div id="emailMessage" *ngIf="this.invlaidEmail">
                   Please enter a valid email.
               </div><br>
 
-              <label for="username">Username</label>
+              <label for="username">Username</label><br>
               <input type="text" id="usernameReg" name="username" required [(ngModel)]='regUsername'/> <br>
               <div id="usernameMessage" *ngIf="this.invalidUsername">
                   Your username must be at least 8 characters long.
               </div><br>
 
-              <label for="password">Password</label>
+              <label for="password">Password</label><br>
               <input type="password" id="passwordReg" name="password" required [(ngModel)]='regPassword'/> <br>
               <div id="passwordMessage" *ngIf="this.invalidPassword">
                   Your password must be at least 8 characters long.
               </div><br>
               
-              <label for="bioDescription">Describe Yourself</label>
-              <input type="text" id="bioDescriptionReg" name="bioDescription" [(ngModel)]='bioDescription'/>
+              <label for="bioDescription">Describe Yourself</label><br>
+              <input type="text" id="bioDescriptionReg" name="bioDescription" style="width: 100%" [(ngModel)]='bioDescription'/>
               <div id="bioMessage" *ngIf="this.invalidBio">
                   Your description must be at least 15 characters long.
               </div>
