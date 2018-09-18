@@ -2,15 +2,13 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { PetCrudService } from '../../services/pet-crud.service';
 import { Pet } from '../../models/pet.model';
 import { ServiceRequest } from '../../models/service-request.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceRequestCrudService } from '../../services/service-request-crud.service';
 import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
-// import { Router } from '../../../../node_modules/@angular/router';
 import { Router } from '@angular/router';
 import { NavbarService } from '../../services/navbar.service';
 import {NgbDatepickerConfig, NgbCalendar, NgbDateAdapter, NgbDateStruct, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
-
 
 @Component({
   selector: 'app-service-request',
@@ -39,6 +37,8 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
   //today: number = Date.now();
 
   srvReqDescription: string;
+  currentUser: User;
+  
 
   constructor(
     private petService: PetCrudService,
@@ -50,10 +50,24 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
     private calendar: NgbCalendar) { }
 
   ngOnInit() {
+
+    this.currentUser = JSON.parse(this.cookieService.get('user'));
+    
     // GET PET DATA TO POPULATE SELECT LIST
     this.petService.getPets().subscribe(
       p => {
         this.pets = p;
+        let ccUser = this.currentUser;
+        
+        this.pets = this.pets.filter(function(element, index, array) {
+          
+          
+          if (element.user.id == ccUser.id){
+            return true;
+          }
+
+
+        });
       }
     );
 

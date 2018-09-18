@@ -23,12 +23,20 @@ export class EditprofileComponent implements OnInit {
 
   imageSrc: string;
 
+  ngOnInit() {
+    this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
+    console.log(this.bioDescription);
+  }
+ 
+
   updateBio() {
     if (this.bioDescription.length > 15) {
       this.errorMessage = '';
       if (this.fileSelected) {
         this.upload();
         this.userInfo.image = this.imageSrc;
+      // if (!this.selectedFiles == null || !this.selectedFiles == undefined){
+        // this.upload();
       }
       this.userInfo = {
         username: null,
@@ -57,11 +65,6 @@ export class EditprofileComponent implements OnInit {
       console.log(this.errorMessage);
     }
 
-  }
-  ngOnInit() {
-    this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
-    console.log(this.bioDescription);
-    console.log(this.cookieService.get('user'));
   }
 
   upload() {

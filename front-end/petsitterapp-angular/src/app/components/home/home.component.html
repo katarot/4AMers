@@ -1,25 +1,55 @@
-<h1 class="jumbotron">Pet Pal Login</h1>
+<!-- <h1 class="jumbotron"></h1> -->
 
 <!-- <div class="container center"> -->
 <div>
 <form (submit)="login()" >
     <!-- <label for="username">Username</label> -->
-  <label for="username"></label>
+  <!-- <label for="username"></label>
   <input type="text" id="usernameLog" name="username" placeholder=Username required [(ngModel)]='username' /> <br>
   <label for="password"></label>
-  <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br>
-  <div id="message" *ngIf="this.invalidLogin">
-    The username or password you have entered is incorrect.
-  </div>
-  <input type="submit" class="btn btn-success" value="Log In!">
+  <input type="password" id="passwordLog" name="password" placeholder=Password required [(ngModel)]='password' ><br> -->
+  <section class="login-block">
+        <div class="container">
+        <div class="row" style="box-shadow: 1px 2px 5px 0px #333;
+        border: 1px solid #bdbdbd;">
+            <div class="col login-sec">
+                <h2 class="text-center">Login Now</h2>
+                <form class="login-form">
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+        <input type="text" name="firstname" id="firstName"class="form-control" placeholder="Username" required [(ngModel)]='username' >
+        
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required [(ngModel)]='password'>
+      </div>
+      <div id="message" *ngIf="this.invalidLogin">
+            The username or password you have entered is incorrect.
+          </div>
+        </form>
+       <button type="submit" name="submit" id="name" onClick=""  class="btn btn-success btn-primary float-right">Log In!</button>
+       <button class="btn btn-link float-right" data-toggle="modal" data-target="#myModal">Register</button>
+    
+    
+    
+      </div>
+        </div>
+        </div>
+        
+    </section>
+    
+    
+  
+  <!-- <input type="submit" class="btn btn-success" value="Log In!"> -->
   <!-- <input type="submit" class="btn btn-link" value="Register"> -->
   <!-- <button (click)="open()" class="btn btn-link">Register</button> -->
   <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
-</form>
+<!-- </form> -->
 <!-- <button class="btn btn-outline-primary" (click)="open(content)">Register</button> -->
-<button class="btn btn-list" data-toggle="modal" data-target="#myModal">Register</button>
+<!-- <button class="btn btn-list" data-toggle="modal" data-target="#myModal">Register</button> -->
 
-</div>
+
 
 
 <div class="modal fade" id="myModal">
@@ -30,32 +60,33 @@
       </div>
         <div class="modal-body">
             <div class="form-group">
-              <label for="firstname">First Name</label>
+
+              <label for="firstname">First Name</label><br>
               <input type="text" id="firstNameReg" name="firstname" required [(ngModel)]='firstname'/> <br><br>
 
-              <label for="lastname">Last name</label>
+              <label for="lastname">Last name</label><br>
               <input type="text" id="lastNameReg" name="lastname" required [(ngModel)]='lastname'/> <br><br>
 
-              <label for="email">Email</label>
+              <label for="email">Email</label><br>
               <input type="text" id="emailReg" name="email" required [(ngModel)]='email'/> <br>
               <div id="emailMessage" *ngIf="this.invlaidEmail">
                   Please enter a valid email.
               </div><br>
 
-              <label for="username">Username</label>
+              <label for="username">Username</label><br>
               <input type="text" id="usernameReg" name="username" required [(ngModel)]='regUsername'/> <br>
               <div id="usernameMessage" *ngIf="this.invalidUsername">
                   Your username must be at least 8 characters long.
               </div><br>
 
-              <label for="password">Password</label>
+              <label for="password">Password</label><br>
               <input type="password" id="passwordReg" name="password" required [(ngModel)]='regPassword'/> <br>
               <div id="passwordMessage" *ngIf="this.invalidPassword">
                   Your password must be at least 8 characters long.
               </div><br>
               
-              <label for="bioDescription">Describe Yourself</label>
-              <input type="text" id="bioDescriptionReg" name="bioDescription" [(ngModel)]='bioDescription'/>
+              <label for="bioDescription">Describe Yourself</label><br>
+              <input type="text" id="bioDescriptionReg" name="bioDescription" style="width: 100%" [(ngModel)]='bioDescription'/>
               <div id="bioMessage" *ngIf="this.invalidBio">
                   Your description must be at least 15 characters long.
               </div>
@@ -70,6 +101,9 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- 
 <hr>
 <hr>
@@ -132,3 +166,16 @@
       </div>
   </div>
 </div> -->
+
+<!-- <script>
+        document.getElementById('password').addEventListener("keyup", function(event) {
+ // Cancel the default action, if needed
+ event.preventDefault();
+ // Number 13 is the "Enter" key on the keyboard
+ if (event.keyCode === 13) {
+   // Trigger the button element with a click
+   alert('hola');
+ }
+});
+    </script>
+ -->

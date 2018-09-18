@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class PetSittingHomeComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
-  description = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.';
+  description = 'If you are looking for someone to take care of your furry, click "Request Service" button to create a submit a request to the community. If you are looking to offer your pet sitting services, then click the "View Service Requests" to offer your services.';
 
   constructor(
     private cookieService: CookieService,
