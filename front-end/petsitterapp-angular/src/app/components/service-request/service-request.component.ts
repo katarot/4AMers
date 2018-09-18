@@ -60,12 +60,10 @@ export class ServiceRequestComponent implements OnInit, DoCheck {
         let ccUser = this.currentUser;
         
         this.pets = this.pets.filter(function(element, index, array) {
-          
-          
+                    
           if (element.user.id == ccUser.id){
             return true;
           }
-
 
         });
       }

@@ -25,6 +25,7 @@ export class ServiceRequestsListComponent implements OnInit {
   srDate: string;
   replyMessage: string;
   userCookieValue: string;
+  setMyStyles: string;
   // {{ ( (sr.sitter == null) ? 'El Nulo' : sr.sitter.firstName ) }}
 
   // myStyles: string = "";
@@ -38,6 +39,8 @@ export class ServiceRequestsListComponent implements OnInit {
   ngOnInit() {
 
     if (this.navbarService.isLoggedIn()) {
+
+      this.setMyStyles = "";
 
       console.log("ngOnInit: cookieService get user -->");
       console.log(this.cookieService.get('user'));
@@ -60,36 +63,31 @@ export class ServiceRequestsListComponent implements OnInit {
           console.log(this.serviceRequest);
 
           this.serviceRequest.sort(function(a, b) {
-            
-            console.log('inside sort fn');
-            console.log(a);
-            console.log(b);
 
-            // Use toUpperCase() to ignore character casing
             const statusOpen = a.status.toUpperCase();
             const statusPending = b.status.toUpperCase();
-          
+            
             let comparison = 0;
-            // if (genreA > genreB) {
             if (statusOpen == 'OPEN') {
-            //   comparison = 1;
               comparison = -1;
-            // } else if (genreA < genreB) {
             } else if (statusPending == 'PENDING') {
-            //   comparison = -1;
               comparison = 1;
-            // }
             }
             return comparison;
           });
-          
-          // bands.sort(compare);
 
-          this.serviceRequest.filter(function(element, index, args) {
-            // if (element.status == 'PENDING') {
-            //   this.myStyles('gray');
-            // }
-          });
+          // this.serviceRequest.filter(function(element, index, args) {
+          //   if (element.status == 'PENDING') {
+
+          //   //   this.myStyles('gray');
+          //     console.log('pending status ' + index);
+
+          //     // this.setMyStyles = {
+          //     //   'background-color': true ? 'green' : 'transparent',
+          //     //   'font-weight': true ? 'bold' : 'normal'
+          //     // };
+          //   }
+          // });
 
           // if status == PENDING   ->    background-color: #dad9d9;
           // this.srPetname = "";
@@ -104,6 +102,40 @@ export class ServiceRequestsListComponent implements OnInit {
     }
 
   }
+
+  ngAfterViewInit() {
+    
+    console.log('after init');
+
+    let setMyStyles = {
+      'background-color': true ? 'green' : 'transparent',
+      'font-weight': true ? 'bold' : 'normal'
+    };
+
+    this.serviceRequest.filter(function(element, index, args) {
+      if (element.status == 'PENDING') {
+
+      //   this.myStyles('gray');
+        console.log('pending status ' + index);
+        setMyStyles["background-color"] = "red"
+        // setMyStyles = {
+        //   'background-color': true ? 'red' : 'transparent',
+        //   'font-weight': true ? 'bold' : 'normal'
+        // };
+      }
+    });
+
+  }
+
+  // setMyStyles() {
+  //   let styles = {
+  //     // 'background-color': this.user.isExpired ? 'red' : 'transparent',
+  //     // 'font-weight': this.isImportant ? 'bold' : 'normal'
+  //     'background-color': true ? 'red' : 'transparent',
+  //     'font-weight': true ? 'bold' : 'normal'
+  //   };
+  //   return styles;
+  // }
 
   setDataForPopUp(petName, srvReqObject) {
     this.srPetname = petName;
