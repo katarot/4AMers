@@ -51,6 +51,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     if (this.navbarService.isLoggedIn()) {
       this.user = JSON.parse(this.cookieService.get('user'));
+      this.myImage = this.user.image;
+      console.log('myImage = ' + this.myImage);
       this.userid = this.user.id;
       this.petProfile.getPets().subscribe(
         p => {
@@ -69,6 +71,10 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
+      console.log('this.user = ' + JSON.stringify(this.user));
+      console.log('myImage = ' + this.myImage);
+      console.log('this.user.image = ' + this.user.image);
+      // this.myImage = this.user.image;
     } else {
       this.router.navigate(['/home']);
     }
@@ -135,7 +141,7 @@ export class ProfileComponent implements OnInit {
     console.log('setting user info in profile component');
     this.userProfile.getUserInfo(userid).subscribe(
       ui => {
-        this.user = ui;
+        // this.user = ui;
         this.userid = this.user.id;
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;

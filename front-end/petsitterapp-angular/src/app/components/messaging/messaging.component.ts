@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessagingService } from '../../services/messaging.service'
+import { MessagingService } from '../../services/messaging.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service'; // 'src/app/services/auth.service';
@@ -21,13 +21,16 @@ export class MessagingComponent implements OnInit {
   inboxReceived: Message;
   outboxSent: Message;
 
-  constructor(private msgServ: MessagingService, private router: Router, private cookie: CookieService, private navbarService: NavbarService) { }
+  constructor(private msgServ: MessagingService,
+    private router: Router,
+    private cookie: CookieService,
+    private navbarService: NavbarService) { }
 
   ngOnInit() {
     if (!this.navbarService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
-    
+
     this.msgServ.getMessageReceivedByCurrentUser().subscribe(
       m => {
         this.inboxReceived = m;
