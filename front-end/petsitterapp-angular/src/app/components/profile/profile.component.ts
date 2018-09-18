@@ -132,6 +132,7 @@ export class ProfileComponent implements OnInit {
   }
 
   setUserInfo(userid: number) {
+    console.log('setting user info in profile component');
     this.userProfile.getUserInfo(userid).subscribe(
       ui => {
         this.user = ui;

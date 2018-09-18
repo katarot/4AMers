@@ -26,10 +26,10 @@ export class EditprofileComponent implements OnInit {
   updateBio() {
     if (this.bioDescription.length > 15) {
       this.errorMessage = '';
-      // if (this.fileSelected) {
-        // if (!fileSelected = null)
+      if (this.fileSelected) {
         this.upload();
-      // }
+        this.userInfo.image = this.imageSrc;
+      }
       this.userInfo = {
         username: null,
         password: null,
@@ -41,7 +41,13 @@ export class EditprofileComponent implements OnInit {
         image: this.imageSrc
       };
       this.userInfo.bioDescription = this.bioDescription;
-      this.userInfo.image = this.imageSrc;
+      // console.log('user -> ' + this.cookieService.get('user'));
+      const u = JSON.parse(this.cookieService.get('user'));
+      u.bioDescription = this.bioDescription;
+      this.cookieService.set('user', JSON.stringify(u));
+      // console.log('setting bioDescription');
+      // console.log('user -> ' + this.cookieService.get('user'));
+      // this.userInfo.image = this.imageSrc;
       this.bioUpdate.emit(this.userInfo);
       // this.bioDescription = '';
     console.log('inupdatebio');
