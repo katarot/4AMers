@@ -13,12 +13,15 @@
           
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Owner Name: {{ sr.sitter }}</strong>
+              
+              <strong class="d-inline-block mb-2 text-success">Owner Name: {{ sr.pet.user.firstName + " " + sr.pet.user.lastName }}</strong>
               <span>[ {{ sr.status }} ]</span>
+              
               <h3 class="mb-0">
-                <a class="text-dark" href="#">{{ sr.pet.petName }}</a>
+                <a class="text-dark" href="#">{{ ( sr.pet !== null ) ? sr.pet.petName : "El Nulo" }}</a>
               </h3>
-              <div class="mb-1 text-muted">Nov 12 {{ sr.date }}</div>
+
+              <div class="mb-1 text-muted">{{ ( sr.date !== null ) ? sr.date : "No Date Available" }}</div>
               <p class="card-text mb-auto">
                 {{ sr.description }}
               </p>
@@ -164,9 +167,9 @@
         <h3>you are about to submit a ps offer</h3>
         
         <ul>
-          <li>Your name is: {{ loggedInUser }} </li>
+          <li>Your username is: <b>{{ loggedInUser.username }}</b> </li>
           <li>You are offering to sit <b>{{ srPetname }}</b> </li>
-          <li>Dates offered to watch: {{ srDate }}</li>
+          <li>Dates offered to watch: {{ (srDate !== null) ? srDate : "Date Unavailable" }}</li>
         </ul>
         
         <textarea name="sendMessage" id="sendMessage" cols="55" form="usrform" placeholder="Insert Message Here" [(ngModel)]="replyMessage">

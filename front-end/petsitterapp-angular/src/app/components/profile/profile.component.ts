@@ -48,13 +48,13 @@ export class ProfileComponent implements OnInit {
   myImage: string;
 
   ngOnInit() {
-    console.log('in ngOnInit profile.components');
     if (this.navbarService.isLoggedIn()) {
       this.user = JSON.parse(this.cookieService.get('user'));
       this.userid = this.user.id;
       this.petProfile.getPets().subscribe(
         p => {
           this.petList = p;
+          console.log(p);
           let i: number;
           let count: number;
           count = 0;
@@ -159,7 +159,7 @@ export class ProfileComponent implements OnInit {
             count++;
           }
         }
-        console.log(this.newPetList[0].image);
+        console.log(this.newPetList);
         if (this.newPetList[0] !== undefined) {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;

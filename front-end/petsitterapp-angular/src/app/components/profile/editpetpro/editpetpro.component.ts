@@ -28,20 +28,9 @@ export class EditpetproComponent implements OnInit {
   selectedFiles: FileList;
   imageSrc: any;
 
-  upload() {
-    const file = this.selectedFiles.item(0);
-    this.imageSrc = this.upLoadService.uploadfile(file);
-    console.log(this.imageSrc);
-  }
-
-   selectFile(event) {
-    this.selectedFiles = event.target.files;
-    console.log(this.selectedFiles[0].name);
-  }
-
-
   updatePet() {
     this.upload();
+
     this.petUpd = {
       petName: this.petName,
       behaviour: this.behavior,
@@ -51,6 +40,7 @@ export class EditpetproComponent implements OnInit {
       image: this.imageSrc,
       user: new User
     };
+    console.log(this.imageSrc);
       this.petUpd.petName = null;
       this.petUpd.behaviour = this.behavior;
       this.petUpd.needs = this.needs;
@@ -63,6 +53,17 @@ export class EditpetproComponent implements OnInit {
       this.petUpdate.emit(this.petUpd);
   }
   ngOnInit() {
+  }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.imageSrc = this.upLoadService.uploadfile(file);
+    console.log(this.imageSrc);
+  }
+
+   selectFile(event) {
+    this.selectedFiles = event.target.files;
+    console.log(this.selectedFiles[0].name);
   }
 
 }
