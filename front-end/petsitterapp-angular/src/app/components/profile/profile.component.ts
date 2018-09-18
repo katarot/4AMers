@@ -159,7 +159,7 @@ export class ProfileComponent implements OnInit {
             count++;
           }
         }
-        console.log(this.newPetList[0].image);
+        console.log(this.newPetList);
         if (this.newPetList[0] !== undefined) {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;
