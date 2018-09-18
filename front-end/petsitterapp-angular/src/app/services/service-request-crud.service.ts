@@ -24,9 +24,8 @@ export class ServiceRequestCrudService {
 
   //  PUT / UPDATE
   public updatePSRequestData(srvOfferRequest?) {
-    return this.http.put<any>('http://localhost:8080/petsitterapp/psrequest', srvOfferRequest);
-    // return this.http.put<any>('http://18.232.118.152:8080/project2/psrequest', srvOfferRequest);
-
+    // return this.http.put<any>('http://localhost:8080/petsitterapp/psrequest', srvOfferRequest);
+    return this.http.put<any>('http://18.232.118.152:8080/project2/psrequest', srvOfferRequest);
   }
 
   // JUST FOR EXAMPLE USAGE
