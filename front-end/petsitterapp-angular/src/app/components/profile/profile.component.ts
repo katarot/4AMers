@@ -138,7 +138,7 @@ export class ProfileComponent implements OnInit {
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
-        this.myImage = null;
+        this.myImage = this.user.image;
         }
       );
     }
