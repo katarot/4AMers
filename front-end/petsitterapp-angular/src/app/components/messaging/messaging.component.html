@@ -1,26 +1,9 @@
 <div class="container">
-  <!-- <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Subject</th>
-          <th>Sender</th>
-          <th>Receiver</th>
-        </tr>
-      </thead>
-      <tbody class="table-striped">
-        <tr>
-          <td>dw</td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
   <div class="row mt-5">
     <div class="nav flex-column nav-pills col-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-inbox-tab" data-toggle="pill" href="#v-pills-inbox" role="tab"
+      <a class="nav-link active btn-light" id="v-pills-inbox-tab" data-toggle="pill" href="#v-pills-inbox" role="tab"
         aria-controls="v-pills-inbox" aria-selected="true">Inbox</a>
-      <a class="nav-link" id="v-pills-outbox-tab" data-toggle="pill" href="#v-pills-outbox" role="tab" aria-controls="v-pills-outbox"
+      <a class="nav-link btn-light" id="v-pills-outbox-tab" data-toggle="pill" href="#v-pills-outbox" role="tab" aria-controls="v-pills-outbox"
         aria-selected="false">Outbox</a>
     </div>
     <div class="tab-content col-8" id="v-pills-tabContent">
@@ -28,20 +11,37 @@
         <div class="card-group" *ngFor="let m of inboxReceived">
           <div class="card">
             <div class="card-header">
-              <small class="text-muted">TIME HERE</small>
+              <small class="text-muted">Recieved on: {{ m.dateSent | date : medium }}</small>
             </div>
             <div class="card-body">
-              <h5 class="card-title">SUBJECT HERE</h5>
-              <p class="card-text">THICC MESSAGE HERE</p>
+              <h6 class="card-title">Subject: {{ m.subject }}</h6>
+              <p class="card-text"> {{ m.message }} </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">SENT BY THIS PERESON HERE</small>
+              <small class="text-muted">Sent by: {{ m.sender.firstName + ' ' + m.sender.lastName + ' (' +
+                m.sender.username + ')'}}</small>
             </div>
           </div>
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-outbox" role="tabpanel" aria-labelledby="v-pills-outbox-tab">
-        <p>test for now</p>
+        <div class="tab-pane fade show active" id="v-pills-inbox" role="tabpanel" aria-labelledby="v-pills-inbox-tab">
+          <div class="card-group" *ngFor="let m of outboxSent">
+            <div class="card">
+              <div class="card-header">
+                <small class="text-muted">Sent on: {{ m.dateSent | date : medium }}</small>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Subject: {{ m.subject }}</h6>
+                <p class="card-text"> {{ m.message }} </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Sent to: {{ m.sender.firstName + ' ' + m.sender.lastName + ' (' +
+                  m.sender.username + ')'}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

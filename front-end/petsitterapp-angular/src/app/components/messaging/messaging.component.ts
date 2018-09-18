@@ -8,6 +8,7 @@ import { Message } from '../../models/message.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-messaging',
@@ -20,9 +21,13 @@ export class MessagingComponent implements OnInit {
   inboxReceived: Message;
   outboxSent: Message;
 
-  constructor(private msgServ: MessagingService, private router: Router, private cookie: CookieService) { }
+  constructor(private msgServ: MessagingService, private router: Router, private cookie: CookieService, private navbarService: NavbarService) { }
 
   ngOnInit() {
+    if (!this.navbarService.isLoggedIn()) {
+      this.router.navigate(['/home']);
+    }
+    
     this.msgServ.getMessageReceivedByCurrentUser().subscribe(
       m => {
         this.inboxReceived = m;
