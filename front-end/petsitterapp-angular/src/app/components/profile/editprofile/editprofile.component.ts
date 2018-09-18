@@ -19,13 +19,17 @@ export class EditprofileComponent implements OnInit {
   bioDescription: string;
   errorMessage: string;
   selectedFiles: FileList;
+  fileSelected = false;
 
   imageSrc: string;
 
   updateBio() {
     if (this.bioDescription.length > 15) {
       this.errorMessage = '';
-      this.upload();
+      // if (this.fileSelected) {
+        // if (!fileSelected = null)
+        this.upload();
+      // }
       this.userInfo = {
         username: null,
         password: null,
@@ -39,8 +43,9 @@ export class EditprofileComponent implements OnInit {
       this.userInfo.bioDescription = this.bioDescription;
       this.userInfo.image = this.imageSrc;
       this.bioUpdate.emit(this.userInfo);
-      this.bioDescription = '';
+      // this.bioDescription = '';
     console.log('inupdatebio');
+    // location.reload();
     } else {
       this.errorMessage = 'Please use more than 15 characters';
       console.log(this.errorMessage);
@@ -50,15 +55,23 @@ export class EditprofileComponent implements OnInit {
   ngOnInit() {
     this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
     console.log(this.bioDescription);
+    console.log(this.cookieService.get('user'));
   }
 
   upload() {
-    const file = this.selectedFiles.item(0);
-    this.imageSrc = this.upLoadService.uploadfile(file);
-    console.log(this.imageSrc);
+    // if (this.fileSelected) {
+      const file = this.selectedFiles.item(0);
+      this.imageSrc = this.upLoadService.uploadfile(file);
+      console.log(this.imageSrc);
+    // } else {
+    //   const file = this.userInfo.image;
+    //   this.imageSrc = this.upLoadService.uploadfile(file);
+    //   console.log(this.imageSrc);
+    // }
   }
 
    selectFile(event) {
+    this.fileSelected = true;
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles[0].name);
   }

@@ -69,7 +69,6 @@ export class ProfileComponent implements OnInit {
       );
       this.setUserInfo(this.userid);
       this.setPetInfo(this.userid);
-      console.log('needs = ' + this.needs);
     } else {
       this.router.navigate(['/home']);
     }
