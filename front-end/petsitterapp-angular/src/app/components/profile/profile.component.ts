@@ -6,6 +6,7 @@ import { User } from '../../models/user.model';
 import { CookieService } from 'ngx-cookie-service';
 import { NavbarService } from '../../services/navbar.service';
 import { Router } from '@angular/router';
+import { EditpetServiceService } from '../../services/editpet-service.service';
 // import { getPackedSettings } from 'http2';
 // import { FormGroup,
 // FormsModule,
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit {
     private userProfile: UserCrudService,
     private cookieService: CookieService,
     private navbarService: NavbarService,
-    private router: Router) {}
+    private router: Router,
+    private data: EditpetServiceService) {}
 
   petList: Pet[] = [];
   newPetList: Pet[] = [];
@@ -75,17 +77,25 @@ export class ProfileComponent implements OnInit {
 
   changePet($event) {
     console.log('changing PET INFO');
+    // pet brings objects with null and changed info
+    // I want to make sure that the null values don't get read
     this.pets = $event;
     this.pets.user = this.user;
     this.pets.petName = this.petName;
-
     console.log(this.pets);
+    // I want to send the updated information into put
+    this.petProfile.updatePet(this.pets).subscribe(
+      np => {
+        this.newPet = np;
+      }
+    );
   }
 
   getPet(event: any) {
     console.log(event.target.value);
     this.petId = event.target.value;
     this.changePetProfile(this.petId);
+    console.log('getPet: ' + this.petId);
   }
 
   receiveUpdate($event) {
@@ -106,9 +116,8 @@ export class ProfileComponent implements OnInit {
   }
 
   receivePet($event) {
-    console.log('hi were in receive pae');
+    console.log('received pet: ' + $event);
     this.newPet = $event;
-
     this.newPet.user = this.user;
     console.log(this.newPet.user);
     this.petProfile.postP5RequestData(this.newPet).subscribe(
@@ -118,8 +127,10 @@ export class ProfileComponent implements OnInit {
     );
 }
 
-  changePetProfile(petId: number) {
-    this.petProfile.getPetById(petId).subscribe(
+  changePetProfile(nPetId: number) {
+         this.petId = nPetId;
+         this.data.changeNumber(this.petId);
+    this.petProfile.getPetById(nPetId).subscribe(
        cp => {
          this.pets = cp;
          this.petName = this.pets.petName;
@@ -133,7 +144,7 @@ export class ProfileComponent implements OnInit {
   setUserInfo(userid: number) {
     this.userProfile.getUserInfo(userid).subscribe(
       ui => {
-        this.user = ui;
+        // this.user = ui;
         this.userid = this.user.id;
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
@@ -165,6 +176,8 @@ export class ProfileComponent implements OnInit {
           this.petDescription = this.newPetList[0].petDescription;
           this.breed = this.newPetList[0].breed;
           this.petImage = this.newPetList[0].image;
+          this.petId = this.newPetList[0].id;
+          this.data.changeNumber(this.petId);
         }
       }
     );

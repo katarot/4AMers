@@ -44,7 +44,10 @@ export class AddPetComponent implements OnInit {
 
   addClicked() {
     console.log('add button clicked');
-    this.upload;
+    if (this.selectedFiles !== undefined) {
+      this.upload();
+    }
+
     this.newPet = {
       petName: this.petname,
       breed: this.breed,

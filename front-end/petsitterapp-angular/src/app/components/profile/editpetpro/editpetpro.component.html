@@ -1,4 +1,5 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPetPro">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPetPro" 
+  (click)="editClicked()">
   Edit Info
 </button>
 <div class="modal fade" id="editPetPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -16,13 +17,13 @@
             <div class="form-group col-md-12">
               <label for="petDescription">Pet Description</label>
               <textarea type="description" class="form-control" id="petDescrip" 
-                    rows="3" [(ngModel)]="petDescription"></textarea>
+                    rows="3" [(ngModel)]="petDescription">{{petDescription}}</textarea>
               <label for="petNeed">Special Needs</label>
               <textarea type="description" class="form-control" id="petNeeds" 
-                    rows="3" [(ngModel)]="needs"></textarea>
+                    rows="3" [(ngModel)]="needs"> {{needs}} </textarea>
               <label for="petBehaviour">Behaviour</label>
               <textarea type="description" class="form-control" id="petBehavior" 
-                    rows="3" [(ngModel)]="behavior"></textarea>
+                    rows="3" [(ngModel)]="behavior">{{behavior}}</textarea>
               <label for="petBehaviour">Breed</label>
               <input type="description" class="form-control" id="petBreed" 
               rows="3" [(ngModel)]="breed">
