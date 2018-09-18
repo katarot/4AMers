@@ -3,6 +3,8 @@ import { ProfileComponent } from '../../profile/profile.component';
 import { EventEmitter } from '@angular/core';
 import { UploadFileService } from '../../../services/upload-file.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Pet } from '../../../models/pet.model';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-editprofile',
@@ -10,23 +12,41 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./editprofile.component.css']
 })
 export class EditprofileComponent implements OnInit {
-  @Output() bioUpdate = new EventEmitter<string>();
+  @Output() bioUpdate = new EventEmitter<User>();
 
   constructor(private upLoadService: UploadFileService, private cookieService: CookieService) { }
+  constructor(private upLoadService: UploadFileService) { }
+  userInfo: User;
   bioDescription: string;
+  errorMessage: string;
   selectedFiles: FileList;
-  imageSrc: any;
-  picSelected = false;
+
+  imageSrc: string;
 
   updateBio() {
-    console.log(this.selectedFiles);
-    this.bioUpdate.emit(this.bioDescription);
-    // if (this.picSelected) {
-      this.upload(); // this.upload;
-    // }
-    this.bioUpdate.emit(this.imageSrc);
+    if (this.bioDescription.length > 15) {
+      this.errorMessage = '';
+      this.upload();
+      this.userInfo = {
+        username: null,
+        password: null,
+        firstName: null,
+        lastName: null,
+        email: null,
+        dateRegistered: null,
+        bioDescription: this.bioDescription,
+        image: this.imageSrc
+      };
+      this.userInfo.bioDescription = this.bioDescription;
+      this.userInfo.image = this.imageSrc;
+      this.bioUpdate.emit(this.userInfo);
+      this.bioDescription = '';
     console.log('inupdatebio');
-    // location.reload();
+    } else {
+      this.errorMessage = 'Please use more than 15 characters';
+      console.log(this.errorMessage);
+    }
+
   }
   ngOnInit() {
     this.bioDescription = JSON.parse(this.cookieService.get('user')).bioDescription;
@@ -40,7 +60,6 @@ export class EditprofileComponent implements OnInit {
   }
 
    selectFile(event) {
-    this.picSelected = true;
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles[0].name);
   }

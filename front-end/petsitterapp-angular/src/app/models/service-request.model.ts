@@ -4,7 +4,7 @@ import { User } from './user.model';
 export class ServiceRequest {
 
     id ?: number;
-    dateCreated: string;
+    date: string;
     status: string;
     description: string;
     replyMessage: string;

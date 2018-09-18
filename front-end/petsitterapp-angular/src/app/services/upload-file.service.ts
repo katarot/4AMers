@@ -14,7 +14,6 @@ export class UploadFileService {
   FOLDER = 'petpal-s3/';
   imageSrc: any;
   
-
   constructor(private cookieSrv: CookieService) { }
 
   getS3Bucket(): any {

@@ -23,6 +23,7 @@ import { AddPetComponent } from './components/profile/add-pet/add-pet.component'
 import { AuthService } from './services/auth.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EditpetproComponent } from './components/profile/editpetpro/editpetpro.
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     // NgbModal
     // CookieModule // .forRoot()
   ],

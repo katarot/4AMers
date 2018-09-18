@@ -28,20 +28,9 @@ export class EditpetproComponent implements OnInit {
   selectedFiles: FileList;
   imageSrc: any;
 
-  upload() {
-    const file = this.selectedFiles.item(0);
-    this.imageSrc = this.upLoadService.uploadfile(file);
-    console.log(this.imageSrc);
-  }
-
-   selectFile(event){
-    this.selectedFiles = event.target.files;
-    console.log(this.selectedFiles[0].name);
-  }
-
-
   updatePet() {
-    this.upload;
+    this.upload();
+
     this.petUpd = {
       petName: this.petName,
       behaviour: this.behavior,
@@ -51,17 +40,30 @@ export class EditpetproComponent implements OnInit {
       image: this.imageSrc,
       user: new User
     };
-    this.petUpd.petName = null;
-    this.petUpd.behaviour = this.behavior;
-    this.petUpd.needs = this.needs;
-    this.petUpd.petDescription = this.petDescription;
-    this.petUpd.breed = this.breed;
-    this.petUpd.image = this.imageSrc;
-    this.petUpd.user = null;
+    console.log(this.imageSrc);
+      this.petUpd.petName = null;
+      this.petUpd.behaviour = this.behavior;
+      this.petUpd.needs = this.needs;
+      this.petUpd.petDescription = this.petDescription;
+      this.petUpd.breed = this.breed;
+      this.petUpd.image = this.imageSrc;
+      this.petUpd.user = null;
 
-    this.petUpdate.emit(this.petUpd);
+      console.log(this.petUpd.image);
+      this.petUpdate.emit(this.petUpd);
   }
   ngOnInit() {
+  }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.imageSrc = this.upLoadService.uploadfile(file);
+    console.log(this.imageSrc);
+  }
+
+   selectFile(event) {
+    this.selectedFiles = event.target.files;
+    console.log(this.selectedFiles[0].name);
   }
 
 }

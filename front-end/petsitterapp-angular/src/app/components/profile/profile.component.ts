@@ -40,11 +40,12 @@ export class ProfileComponent implements OnInit {
   behaviors: string[];
 
   user: User;
+  userEdit: User;
   userid: number;
   firstName: string;
   lastName: string;
   bioDescription: string;
-  urImage: string;
+  myImage: string;
 
   ngOnInit() {
     if (this.navbarService.isLoggedIn()) {
@@ -88,20 +89,28 @@ export class ProfileComponent implements OnInit {
   }
 
   receiveUpdate($event) {
-    this.bioDescription = $event;
-    this.user.bioDescription = this.bioDescription;
+    console.log('inside receive update');
+    this.userEdit = $event;
+    console.log(this.userEdit);
+    this.user.bioDescription = this.userEdit.bioDescription;
+    this.user.image = this.userEdit.image;
+    console.log(this.user);
+    // this.user.bioDescription = this.bioDescription;
     this.userProfile.updateUser(this.user).subscribe(
       us => {
+        console.log(us);
         this.user = us;
       }
     );
+    console.log(this.user);
   }
 
   receivePet($event) {
+    console.log('hi were in receive pae');
     this.newPet = $event;
 
     this.newPet.user = this.user;
-
+    console.log(this.newPet.user);
     this.petProfile.postP5RequestData(this.newPet).subscribe(
       np => {
         this.newPet = np;
@@ -129,7 +138,7 @@ export class ProfileComponent implements OnInit {
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.bioDescription = this.user.bioDescription;
-        this.urImage = this.user.image;
+        this.myImage = this.user.image;
         }
       );
     }
@@ -150,6 +159,7 @@ export class ProfileComponent implements OnInit {
             count++;
           }
         }
+        console.log(this.newPetList);
         if (this.newPetList[0] !== undefined) {
           this.petName = this.newPetList[0].petName;
           this.petDescription = this.newPetList[0].petDescription;
